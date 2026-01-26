@@ -1,19 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>ezEdits Docs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ezEdits 中文文档</title>
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <style>
+    /* 中文字体优化 */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    }
+    /* 代码块中文优化 */
+    code, pre {
+      font-family: "JetBrains Mono", "Fira Code", "Source Code Pro", Consolas, "Microsoft YaHei Mono", monospace;
+    }
+  </style>
 </head>
 <body>
-  <div id="app"></div>
+  <div id="app">加载中...</div>
   <script>
     window.$docsify = {
+      name: 'ezEdits 中文文档',
+      repo: 'https://github.com/Zeranny/ezedits-wiki',
       loadSidebar: 'SUMMARY.md',
       subMaxLevel: 3,
-      name: 'ezEdits Docs',
+      auto2top: true,
+      search: {
+        placeholder: '搜索',
+        noData: '未找到结果',
+        paths: 'auto',
+        depth: 3
+      },
+      pagination: {
+        previousText: '上一章',
+        nextText: '下一章',
+        crossChapter: true
+      },
+      notFoundPage: {
+        '/': '_404.md'
+      },
+      // 复制代码按钮
+      copyCode: {
+        buttonText: '复制',
+        errorText: '复制失败',
+        successText: '已复制'
+      }
     }
   </script>
+  <!-- Docsify 核心 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <!-- 搜索插件 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <!-- 复制代码插件 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+  <!-- 分页插件 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <!-- 图片缩放 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
 </body>
 </html>

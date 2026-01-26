@@ -1,35 +1,35 @@
-# Selections
+# 选区
 
-## Selection Commands
+## 选区命令
 
 ### `//selload`
 
 <details>
 
-<summary>Selection Load</summary>
+<summary>加载选区</summary>
 
 **`//selload [selection] [-h]`**
 
-*Alternate for \`//ezsel load\`*
+*`//ezsel load` 的替代命令*
 
-The `//selload` command retrieves a previously saved selection from the player's saved selection list.
+`//selload` 命令从玩家已保存的选区列表中检索之前保存的选区。
 
-* Selection: A previously saved selection.
-* **-h**: Moves the selection to the player when loaded
+* Selection: 之前保存的选区。
+* **-h**: 加载时将选区移动到玩家位置
 
 </details>
 
 ### `//next`
 
 <details>
-<summary>Selection Shift</summary>
+<summary>选区移位</summary>
 
 **`//next <direction> <gap>`**
 
-The `//next` command shifts your current selection area by its own size in a specified direction.
+`//next` 命令将您当前的选区按其自身大小在指定方向上移动。
 
-* **Direction** (Default: Player AIM): Specifies the direction to shift the selection towards. If not provided, it defaults to the direction the player is aiming.
-* **Gap** (Default: 0): An optional parameter to add an additional gap between the current selection position, and the shifted position.
+* **Direction**（默认值：玩家视线方向）: 指定要移动选区的方向。如果未提供，则默认为玩家的视线方向。
+* **Gap**（默认值：0）: 可选参数，用于在当前选区位置和移动后的位置之间添加额外间隔。
 
 </details>
 
@@ -37,18 +37,18 @@ The `//next` command shifts your current selection area by its own size in a spe
 
 <details>
 
-<summary>Move Selection to Player</summary>
+<summary>将选区移动到玩家位置</summary>
 
 **`//selhere [selectionPosition]`**
 
-**`Alias: //seltome`**
+**`别名: //seltome`**
 
-The `//selhere` command moves your current selection to your location.
+`//selhere` 命令将您当前的选区移动到您的位置。
 
-* **SelectionPosition** (Default: POS1): Specifies which point in the selection to move to the player's position. All other points will be moved to the relative position.
-  * POS1 - The "Pos1" of the selection, or first point for convex/poly selections.
-  * POS2 - The "Pos2" of the selection, or the last points for convex/poly selections.
-  * CENTER - The center point of the selection
+* **SelectionPosition**（默认值：POS1）: 指定选区中的哪个点要移动到玩家位置。所有其他点将相对移动。
+  * POS1 - 选区的"Pos1"，或凸选区/多边形选区的第一个点。
+  * POS2 - 选区的"Pos2"，或凸选区/多边形选区的最后一个点。
+  * CENTER - 选区的中心点
 
 </details>
 
@@ -56,14 +56,14 @@ The `//selhere` command moves your current selection to your location.
 
 <details>
 
-<summary>Selection Invert</summary>
+<summary>反转选区</summary>
 
 **`//ezselinvert`**
 
-**`Alias: //selinvert`**
+**`别名: //selinvert`**
 
-The `//ezselinvert` command reverses the order of points in your current selection.\
-This will be most noticeable with convex selections as with a cuboid selection pos1 and pos2 will simply swap places, whereas a convex selection will reverse the order of every point.
+`//ezselinvert` 命令反转您当前选区中的点的顺序。\
+这在凸选区中最为明显，因为对于长方体选区，pos1 和 pos2 只会简单地交换位置，而凸选区将反转每个点的顺序。
 
 </details>
 
@@ -71,66 +71,66 @@ This will be most noticeable with convex selections as with a cuboid selection p
 
 <details>
 
-<summary>Delete Last Position</summary>
+<summary>删除最后一个位置</summary>
 
 **`//delpos2`**
 
-**`Alias: //-2`**
+**`别名: //-2`**
 
-The `//delpos2` command removes the last secondary selection point for convex and poly selections.
+`//delpos2` 命令移除凸选区和多边形选区的最后一个次要选区点。
 
 </details>
 
 ### `//encapsulate`
 
 <details>
-<summary>Encapsulate Blocks In Selection</summary>
+<summary>在选区中封装方块</summary>
 
 **`//encapsulate <mask>`**
 
-**`Alias: //enc`**
+**`别名: //enc`**
 
-The `//encapsulate` command takes your existing selection and changes it to the smallest CUBOID selection which contains blocks matching the given mask.
+`//encapsulate` 命令获取您现有的选区，并将其更改为包含与给定蒙版匹配的方块的最小长方体选区。
 
-* **Mask**: Blocks to encapsulate
+* **Mask**: 要封装的方块
 
 </details>
 
 ### `//encapsulatenear`
 
 <details>
-<summary>Encapsulate Nearby Blocks In a New Selection</summary>
+<summary>在新选区中封装附近的方块</summary>
 
 **`//encapsulatenear <radius> <mask>`**
 
-**`Alias: //encnear`**
+**`别名: //encnear`**
 
-The `//encapsulatenear` command creates a new selection of the smallest CUBOID selection which contains blocks matching the given mask within the radius.
+`//encapsulatenear` 命令创建一个新选区，为包含半径内与给定蒙版匹配的方块的最小长方体选区。
 
-* **Radius**: Cuboid radius to search for matching blocks
-* **Mask**: Blocks to encapsulate
+* **Radius**: 用于搜索匹配方块的长方体半径
+* **Mask**: 要封装的方块
 
 </details>
 
-## Selection Management Commands
+## 选区管理命令
 
-All sub-commands are under `//ezselection` (`//ezsel`)\
-e.g `//ezsel list`
+所有子命令都在 `//ezselection`（`//ezsel`）下\
+例如 `//ezsel list`
 
 ### `list [-g]`
 
-Lists all the user's saved selections. Click a selection name to load.\
-`-g` to group selections by type.
+列出用户所有已保存的选区。点击选区名称可加载。\
+使用 `-g` 按类型分组选区。
 
 ### `load <selection>`
 
-Retrieves a previously saved selection from the player's saved selection list.
+从玩家已保存的选区列表中检索之前保存的选区。
 
 ### `save <selectionName> [-f]`
 
-Saves the user's current selection with a given name.\
-`-f` to override an existing saved selection.
+使用给定名称保存用户当前的选区。\
+使用 `-f` 覆盖现有的已保存选区。
 
 ### `delete <selectionName>`
 
-Deletes a user's selection with the given name.
+删除具有给定名称的用户选区。

@@ -1,7 +1,7 @@
-# Surface
+# 表面
 
-All sub-commands are under `//ezsurface` (`//ezsu`)\
-e.g `//ezsurface rockify`
+所有子命令都在 `//ezsurface` (`//ezsu`) 下\
+例如 `//ezsurface rockify`
 
 ## `//ezsurface ...`
 
@@ -9,21 +9,21 @@ e.g `//ezsurface rockify`
 
 <details>
 
-<summary>Fuzzify Surface</summary>
+<summary>模糊化表面</summary>
 
 **`//ezsu fuzzify <radius> [smooth_radius] [smooth_iterations] [-c] [-e] [-m] [-t] [-w <profile>]`**
 
-Uses white noise to make the surface appear more fuzzy.
+使用白噪声使表面显得更加模糊。
 
-* **Radius**: A float value determining the maximum distance from the surface that modifications can occur.
-* **Smooth Radius** (Default: 0): Specifies the radius for smoothing operations.
-* **Smooth Iterations** (Default: 0): Determines how many times the smoothing operation is applied.
-* **-c**: Restricts modifications to only carve into the terrain.
-* **-e**: Limits the operation to only expand out from the terrain.
-* **-m**: Applies a mask to only modify surfaces that match the specified criteria.\
-  This option can significantly slow down the process due to the added complexity of matching surfaces.
-* **-t**: Tries to retain the topology of the region.
-* **-w**: See [Smoothblocks](../smoothblocks/smoothblocks.md).
+* **半径**: 浮点值，确定距表面的最大距离，在此范围内可进行修改。
+* **平滑半径** (默认值: 0): 指定平滑操作的半径。
+* **平滑迭代次数** (默认值: 0): 确定平滑操作应用的次数。
+* **-c**: 限制修改仅挖掘地形。
+* **-e**: 限制操作仅向外扩展地形。
+* **-m**: 应用蒙版以仅修改与指定条件匹配的表面。\
+  由于需要匹配表面的复杂性，此选项可能会显著降低处理速度。
+* **-t**: 尝试保留该区域的拓扑结构。
+* **-w**: 参见 [Smoothblocks](../smoothblocks/smoothblocks.md)。
 
 </details>
 
@@ -31,23 +31,23 @@ Uses white noise to make the surface appear more fuzzy.
 
 <details>
 
-<summary>Rockify Surface</summary>
+<summary>岩石化表面</summary>
 
 **`//ezsu rockify <radius> [size] [oct] [smooth_radius] [smooth_iterations] [-c] [-e] [-m] [-t] [-w <profile>]`**
 
-Uses Perlin noise to make a surface rocky.
+使用 Perlin 噪声使表面看起来岩石化。
 
-* **Radius**: A float value determining the maximum distance from the surface that modifications can occur.
-* **Noise Size** (Default: 10): Controls the scale of the noise used.
-* **Noise Octaves** (Default: 1): Sets the number of layers of noise applied.
-* **Smooth Radius** (Default: 1): Specifies the radius for smoothing operations.
-* **Smooth Iterations** (Default: 4): Determines how many times the smoothing operation is applied.
-* **-c**: Restricts modifications to only carve into the terrain.
-* **-e**: Limits the operation to only expand out from the terrain.
-* **-m**: Applies a mask to only modify surfaces that match the specified criteria.\
-  This option can significantly slow down the process due to the added complexity of matching surfaces.
-* **-t**: Tries to retain the topology of the region.
-* **-w**: See [Smoothblocks](../smoothblocks/smoothblocks.md).
+* **半径**: 浮点值，确定距表面的最大距离，在此范围内可进行修改。
+* **噪声大小** (默认值: 10): 控制所用噪声的规模。
+* **噪声八度** (默认值: 1): 设置应用的噪声层数。
+* **平滑半径** (默认值: 1): 指定平滑操作的半径。
+* **平滑迭代次数** (默认值: 4): 确定平滑操作应用的次数。
+* **-c**: 限制修改仅挖掘地形。
+* **-e**: 限制操作仅向外扩展地形。
+* **-m**: 应用蒙版以仅修改与指定条件匹配的表面。\
+  由于需要匹配表面的复杂性，此选项可能会显著降低处理速度。
+* **-t**: 尝试保留该区域的拓扑结构。
+* **-w**: 参见 [Smoothblocks](../smoothblocks/smoothblocks.md)。
 
 </details>
 
@@ -55,22 +55,22 @@ Uses Perlin noise to make a surface rocky.
 
 <details>
 
-<summary>Voronoify Surface</summary>
+<summary>Voronoi 化表面</summary>
 
 **`//ezsu voronoify <radius> [cell_size] [smooth_radius] [smooth_iterations] [-c] [-e] [-m] [-t] [-w <profile>]`**
 
-Uses Voronoi noise to deform a surface.
+使用 Voronoi 噪声来变形表面。
 
-* **Radius**: A float value determining the maximum distance from the surface that modifications can occur.
-* **Cell Size** (Default: 12): Determines the average size of each cell in the Voronoi pattern, affecting the scale of the texture.
-* **Smooth Radius** (Default: 0): Specifies the radius for smoothing operations.
-* **Smooth Iterations** (Default: 0): Determines how many times the smoothing operation is applied.
-* **-c**: Restricts modifications to only carve into the terrain.
-* **-e**: Limits the operation to only expand out from the terrain.
-* **-m**: Applies a mask to only modify surfaces that match the specified criteria.\
-  This option can significantly slow down the process due to the added complexity of matching surfaces.
-* **-t**: Tries to retain the topology of the region.
-* **-w**: See [Smoothblocks](../smoothblocks/smoothblocks.md).
+* **半径**: 浮点值，确定距表面的最大距离，在此范围内可进行修改。
+* **单元格大小** (默认值: 12): 确定 Voronoi 图案中每个单元格的平均大小，影响纹理的规模。
+* **平滑半径** (默认值: 0): 指定平滑操作的半径。
+* **平滑迭代次数** (默认值: 0): 确定平滑操作应用的次数。
+* **-c**: 限制修改仅挖掘地形。
+* **-e**: 限制操作仅向外扩展地形。
+* **-m**: 应用蒙版以仅修改与指定条件匹配的表面。\
+  由于需要匹配表面的复杂性，此选项可能会显著降低处理速度。
+* **-t**: 尝试保留该区域的拓扑结构。
+* **-w**: 参见 [Smoothblocks](../smoothblocks/smoothblocks.md)。
 
 </details>
 
@@ -78,22 +78,22 @@ Uses Voronoi noise to deform a surface.
 
 <details>
 
-<summary>Noiseify Surface</summary>
+<summary>噪声化表面</summary>
 
 **`//ezsu noisify <radius> <noise> [scale] [smooth_radius] [smooth_iterations] [-c] [-e] [-m] [-t] [-w <profile>]`**
 
-Uses a noise preset to deform a surface.
+使用噪声预设来变形表面。
 
-* **Radius**: A float value determining the maximum distance from the surface that modifications can occur.
-* **Noise**: Specifies the noise to use for the modification.
-* **Scale** (Default: 1): Adjusts the scale of the noise.
-* **Smooth Radius** (Default: 1): Specifies the radius for smoothing operations.
-* **Smooth Iterations** (Default: 4): Determines how many times the smoothing operation is applied.
-* **-c**: Restricts modifications to only carve into the terrain.
-* **-e**: Limits the operation to only expand out from the terrain.
-* **-m**: Applies a mask to only modify surfaces that match the specified criteria.\
-  This option can significantly slow down the process due to the added complexity of matching surfaces.
-* **-t**: Tries to retain the topology of the region.
-* **-w**: See [Smoothblocks](../smoothblocks/smoothblocks.md).
+* **半径**: 浮点值，确定距表面的最大距离，在此范围内可进行修改。
+* **噪声**: 指定用于修改的噪声。
+* **规模** (默认值: 1): 调整噪声的规模。
+* **平滑半径** (默认值: 1): 指定平滑操作的半径。
+* **平滑迭代次数** (默认值: 4): 确定平滑操作应用的次数。
+* **-c**: 限制修改仅挖掘地形。
+* **-e**: 限制操作仅向外扩展地形。
+* **-m**: 应用蒙版以仅修改与指定条件匹配的表面。\
+  由于需要匹配表面的复杂性，此选项可能会显著降低处理速度。
+* **-t**: 尝试保留该区域的拓扑结构。
+* **-w**: 参见 [Smoothblocks](../smoothblocks/smoothblocks.md)。
 
 </details>

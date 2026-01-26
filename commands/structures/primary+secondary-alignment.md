@@ -1,129 +1,129 @@
-# Primary+Secondary Alignment
+# 主要+次要对齐
 
-Alignment defines the orientation at which the structure is placed.
+对齐定义了结构放置时的方向。
 
-## Explanation
+## 说明
 
-Every structure has an intrinsic "up" direction and an intrinsic "forward" direction. By default, structures are placed with their up direction facing, well, up (+y), and with their forward direction facing forward (+x).
+每个结构都有一个固有的"向上"方向和一个固有的"向前"方向。默认情况下,结构放置时其向上方向朝向上方(+y),其向前方向朝向前方(+x)。
 
-The most important thing is that now you can control how a structure is placed by defining where its up direction and where its forward direction should face.
+最重要的是,现在你可以通过定义结构的向上方向和向前方向应该朝向何处来控制结构的放置方式。
 
-We let the user define the alignment using two directions:
+我们让用户使用两个方向来定义对齐:
 
 {% hint style="info" %}
-The `<primary>` direction defines the placement's +y direction.
+`<primary>` 方向定义放置的 +y 方向。
 
-The `<secondary>` direction together with the primary direction imply the placement's +x direction.
+`<secondary>` 方向与主要方向一起暗示放置的 +x 方向。
 
-Note: The primary and secondary may not be the same direction.
+注意:主要方向和次要方向不能是同一个方向。
 {% endhint %}
 
 <details>
 
-<summary>More in-depth explanation using examples:</summary>
+<summary>使用示例进行更深入的解释:</summary>
 
-Let's say this is our build that we want to place, by for example having it as our current WorldEdit clipboard.
-
-<img src="../../.gitbook/assets/AlignmentGuide_example1.png" alt="" data-size="original">
-
-For reference, the red beam is facing towards positive x (east), the blue beam is facing towards positive z (south), and the green beam is facing towards positive y (up).
-
-We now want to place it at various orientations using any of the ezEdits structure commands. For this, we may define a `<primary>` and `<secondary>` direction. Let us go through a few examples for a few such assignments of these parameters and try to understand what is happening:
-
-Let's set the `<primary>` to `up` and the `<secondary>` to `east` (You'd use the [Constant](primary+secondary-alignment.md#constant) mode for that.) (These directions are the default directions):
+假设这是我们想要放置的建筑,例如将其作为我们当前的 WorldEdit 剪贴板。
 
 <img src="../../.gitbook/assets/AlignmentGuide_example1.png" alt="" data-size="original">
 
-Our shape is pasted exactly in the same orientation as we copied it. Up is still up, right is still right, and so on.
+作为参考,红色光束朝向正 x 方向(东),蓝色光束朝向正 z 方向(南),绿色光束朝向正 y 方向(上)。
 
-Now, consider the following three examples:
+我们现在想使用任何 ezEdits 结构命令以各种方向放置它。为此,我们可以定义一个 `<primary>` 和 `<secondary>` 方向。让我们通过几个示例来了解这些参数的分配以及发生了什么:
 
-1. The **`<primary>`** is set to **`south`** and the `<secondary>` remains at `east`:
+让我们将 `<primary>` 设置为 `up`,将 `<secondary>` 设置为 `east`(你可以使用 [Constant](primary+secondary-alignment.md#constant) 模式来实现)(这些方向是默认方向):
+
+<img src="../../.gitbook/assets/AlignmentGuide_example1.png" alt="" data-size="original">
+
+我们的形状完全按照我们复制时的方向粘贴。上方仍然是上方,右侧仍然是右侧,依此类推。
+
+现在,考虑以下三个示例:
+
+1. **`<primary>`** 设置为 **`south`**,`<secondary>` 保持为 `east`:
 
 <img src="../../.gitbook/assets/AlignmentGuide_example2.png" alt="" data-size="original">
 
-Notice how, what was originally _"up"_ when we copied it, i.e. the green beam in our case, is pointing into the direction that we set the primary to: _south_. Meanwhile what was originally _east_, is still _east_. The blue beam is going down as a consequence of this 90° rotation.
+注意,当我们复制时原本_"向上"_的方向,即我们例子中的绿色光束,现在指向我们设置主要方向的方向:_南_。同时,原本_向东_的方向仍然是_东_。蓝色光束作为这次 90° 旋转的结果向下指。
 
-2. The **`<primary>`** is set to the vector **`(0,1,1)`**, i.e. the direction going "diagonally" up and south, and the `<secondary>` to `east`:
+2. **`<primary>`** 设置为向量 **`(0,1,1)`**,即"对角"向上和向南的方向,`<secondary>` 设置为 `east`:
 
 <img src="../../.gitbook/assets/AlignmentGuide_example3.png" alt="" data-size="original">
 
-Notice again, how what was originally _"up"_ when we copied it, i.e. the green beam in our case, is pointing into the direction that we set the primary to: _diagonally up and south_.
+再次注意,当我们复制时原本_"向上"_的方向,即我们例子中的绿色光束,现在指向我们设置主要方向的方向:_对角向上和向南_。
 
-3. The **`<primary>`** is set to the vector **`(1,1,0)`**, i.e. the direction going diagonally up and **east**, while the `<secondary>` is set to `east`:
+3. **`<primary>`** 设置为向量 **`(1,1,0)`**,即对角向上和**向东**的方向,而 `<secondary>` 设置为 `east`:
 
 <img src="../../.gitbook/assets/AlignmentGuide_example4.png" alt="" data-size="original">
 
-The green beam is correctly pointing along the primary direction, diagonally up and east. Whatever was pointing _up_ when we //copy'd our clipboard is always aligned with whatever direction the primary is set to!
+绿色光束正确地沿着主要方向指向,对角向上和向东。当我们 //copy 剪贴板时指向_上方_的任何东西总是与主要方向设置的方向对齐!
 
-But now, even though the secondary is set to _east_, the red beam is not pointing directly east anymore (but diagonally down and east). This is intended behaviour.
+但现在,即使次要方向设置为_东_,红色光束也不再直接指向东方(而是对角向下和向东)。这是预期的行为。
 
-Imagine if it were pointing east: Then the green and red beam would be at a 45° angle instead of the original 90° angle. Our structure would be deformed/bent/sheared.
+想象一下如果它指向东方：那么绿色和红色光束将呈45°角，而不是原来的90°角。我们的结构将会变形/弯曲/剪切。
 
-What we decided to implement instead, is that (while we align the structure's +y direction with the given primary direction) instead of aligning the structure's +x direction with the given secondary direction, we choose the direction that is most similar to the given secondary direction but that is still perpendicular to the primary.
+我们决定实现的方案是：（当我们将结构的+y方向与给定的主方向对齐时）不是将结构的+x方向与给定的次方向对齐，而是选择与给定次方向最相似但仍然垂直于主方向的方向。
 
-So, if the primary and secondary are not perfectly perpendicular, as in the example above, the secondary is swapped out with the most similar but still perpendicular vector!
+因此，如果主方向和次方向不是完全垂直的，如上例所示，次方向会被替换为最相似但仍然垂直的向量！
 
-Just for reference, here's a small GIF that shows the remaining perpendicular secondary directions for a set primary direction:
+仅供参考，这里有一个小GIF，展示了在设定主方向后，剩余的垂直次方向：
 
 <img src="../../.gitbook/assets/AlignmentGuide_example5.gif" alt="" data-size="original">
 
-To give a final example:
+再举一个最终示例：
 
-The **`<primary>`** is set to the vector **`(-1,2,-1)`**, i.e. a direction going up and northwest, while the **`<secondary>`** is set to **`west`**:
+**`<primary>`** 设置为向量 **`(-1,2,-1)`**，即一个向上和西北方向的方向，而 **`<secondary>`** 设置为 **`west`**：
 
 <img src="../../.gitbook/assets/AlignmentGuide_example6.png" alt="" data-size="original">
 
-As you can see, the green beam, or what was originally up in our build when we copied it, is now pointing into our specified `northwest+2*up` direction, while the red beam, or what was originally east when we copied, is now pointing as `west` as it can while still being perpendicular to the primary.
+如你所见，绿色光束，或者说我们复制时建筑中原本向上的方向，现在指向我们指定的 `西北+2*向上` 方向，而红色光束，或者说我们复制时原本向东的方向，现在尽可能指向 `西方`，同时仍然垂直于主方向。
 
-All of this applies independently of your current clipboard. Here's another structure at its original orientation followed by its placement aligned just like the previous example.
+所有这些都独立于你当前的剪贴板。这里是另一个结构在其原始方向下的样子，以及按照前一个示例对齐后的放置效果。
 
 <img src="../../.gitbook/assets/AlignmentGuide_example7.png" alt="" data-size="original"> <img src="../../.gitbook/assets/AlignmentGuide_example8.png" alt="" data-size="original">
 
-Can you see why setting the primary to `(-1,2-1)` and the secondary to `west` leads to the leaf being oriented like that?
+你能看出为什么将主方向设置为 `(-1,2-1)` 并将次方向设置为 `west` 会导致树叶像那样定向吗？
 
 ***
 
-By the way, the command used was
+顺便说一下，使用的命令是
 
 `//ezbrush place Clipboard Constant(Direction:(-1,2,-1)) Constant(Direction:west)`
 
-or, if you fancy abbreviations,
+或者，如果你喜欢缩写，
 
 `//ezbr pl Cl C(D:(-1,2,-1)) C(D:west)`
 
-With this primary + secondary system, we hope that you can easily and quickly construct your desired 3D orientation for each structure placement in any scenario.
+通过这个主方向+次方向系统，我们希望你能够在任何场景下轻松快速地为每个结构放置构建所需的3D方向。
 
 </details>
 
-## Overview
+## 概述
 
-The primary and secondary can be set to either:
+主方向和副方向可以设置为以下任意一种：
 
-<table data-view="cards" data-full-width="false"><thead><tr><th>Name</th><th>Abbreviation</th><th>Description</th></tr></thead><tbody><tr><td><a href="primary+secondary-alignment.md#constant"><strong><code>Constant</code></strong></a></td><td><strong><code>C</code></strong></td><td>Explicitly set a constant direction for all placements.</td></tr><tr><td><a href="primary+secondary-alignment.md#random"><strong><code>Random</code></strong></a></td><td><strong><code>R</code></strong></td><td>Random direction for each placement.</td></tr><tr><td><a href="primary+secondary-alignment.md#noise"><strong><code>Noise</code></strong></a></td><td><strong><code>N</code></strong></td><td>Direction based on the evaluation of a noise function at the placement's position.</td></tr><tr><td><a href="primary+secondary-alignment.md#aim"><strong><code>Aim</code></strong></a></td><td><strong><code>A</code></strong></td><td>Your player aim direction.</td></tr><tr><td><a href="primary+secondary-alignment.md#playerrelative"><strong><code>PlayerRelative</code></strong></a></td><td><strong><code>P</code></strong></td><td>The direction from the placement's position towards the current player position.</td></tr><tr><td><a href="primary+secondary-alignment.md#surfacenormal"><strong><code>SurfaceNormal</code></strong></a></td><td><strong><code>S</code></strong></td><td>The approximate surface-normal in the region of the placement's position.</td></tr><tr><td><a href="primary+secondary-alignment.md#viewdiff"><strong><code>ViewDiff</code></strong></a></td><td><strong><code>V</code></strong></td><td>Define a direction using two clicks. Exclusively for brushes.</td></tr><tr><td><a href="primary+secondary-alignment.md#tangential"><strong><code>Tangential</code></strong></a></td><td><strong><code>T</code></strong></td><td>The direction tangential to the path. Exclusively for arrays.</td></tr><tr><td><a href="primary+secondary-alignment.md#orthogonal"><strong><code>Orthogonal</code></strong></a></td><td><strong><code>O</code></strong></td><td>The direction orthogonal to the path. Exclusively for arrays.</td></tr></tbody></table>
+<table data-view="cards" data-full-width="false"><thead><tr><th>名称</th><th>缩写</th><th>描述</th></tr></thead><tbody><tr><td><a href="primary+secondary-alignment.md#constant"><strong><code>Constant</code></strong></a></td><td><strong><code>C</code></strong></td><td>为所有放置显式设置一个恒定方向。</td></tr><tr><td><a href="primary+secondary-alignment.md#random"><strong><code>Random</code></strong></a></td><td><strong><code>R</code></strong></td><td>每次放置使用随机方向。</td></tr><tr><td><a href="primary+secondary-alignment.md#noise"><strong><code>Noise</code></strong></a></td><td><strong><code>N</code></strong></td><td>基于在放置位置评估噪声函数得出的方向。</td></tr><tr><td><a href="primary+secondary-alignment.md#aim"><strong><code>Aim</code></strong></a></td><td><strong><code>A</code></strong></td><td>你的玩家瞄准方向。</td></tr><tr><td><a href="primary+secondary-alignment.md#playerrelative"><strong><code>PlayerRelative</code></strong></a></td><td><strong><code>P</code></strong></td><td>从放置位置指向当前玩家位置的方向。</td></tr><tr><td><a href="primary+secondary-alignment.md#surfacenormal"><strong><code>SurfaceNormal</code></strong></a></td><td><strong><code>S</code></strong></td><td>放置位置所在区域的近似表面法线。</td></tr><tr><td><a href="primary+secondary-alignment.md#viewdiff"><strong><code>ViewDiff</code></strong></a></td><td><strong><code>V</code></strong></td><td>使用两次点击定义一个方向。仅适用于笔刷。</td></tr><tr><td><a href="primary+secondary-alignment.md#tangential"><strong><code>Tangential</code></strong></a></td><td><strong><code>T</code></strong></td><td>路径的切线方向。仅适用于阵列。</td></tr><tr><td><a href="primary+secondary-alignment.md#orthogonal"><strong><code>Orthogonal</code></strong></a></td><td><strong><code>O</code></strong></td><td>路径的正交方向。仅适用于阵列。</td></tr></tbody></table>
 
-## Settings
+## 设置
 
 ***
 
 ### Constant
 
-Explicitly set a constant direction for all placements.
+为所有放置明确设置一个恒定方向。
 
-Syntax: <mark style="color:orange;">**`Constant`**</mark> or <mark style="color:orange;">**`Constant(Direction:<direction>)`**</mark>
+语法：<mark style="color:orange;">**`Constant`**</mark> 或 <mark style="color:orange;">**`Constant(Direction:<direction>)`**</mark>
 
-Abbreviation: <mark style="color:orange;">**`C`**</mark> or <mark style="color:orange;">**`C(D:<direction>)`**</mark>
+缩写：<mark style="color:orange;">**`C`**</mark> 或 <mark style="color:orange;">**`C(D:<direction>)`**</mark>
 
-If you do not specify a `<direction>`, then:
+如果你没有指定 `<direction>`，那么：
 
-* the default direction is **+y** if you're setting the `<primary>`.
-* the default direction is **+x** if you're setting the `<secondary>`.
+* 如果你设置的是 `<primary>`，默认方向是 **+y**。
+* 如果你设置的是 `<secondary>`，默认方向是 **+x**。
 
-There are various ways to define a direction. From using the axes, cardinal directions, vector notation, or player relative directions like forward, left, right, etc. Pro tip: You can also add directions together using simple arithmetic operators, like `east-z+(0,0.5,0)`. Pro tip²: Put `=` at the end to evaluate your direction expression as you are typing it.
+有多种方式可以定义方向。可以使用坐标轴、基本方位、向量表示法，或者玩家相对方向如前、左、右等。专业提示：你还可以使用简单的算术运算符将方向相加，例如 `east-z+(0,0.5,0)`。专业提示²：在末尾加上 `=` 可以在输入时评估你的方向表达式。
 
 <details>
 
-<summary><mark style="color:blue;">Examples</mark></summary>
+<summary><mark style="color:blue;">示例</mark></summary>
 
 `//ezsc Clipboard C(D:(0,2,0)) C(D:east)`
 
@@ -143,34 +143,34 @@ There are various ways to define a direction. From using the axes, cardinal dire
 
 ### Random
 
-Random direction for each placement.
+为每次放置使用随机方向。
 
-Syntax: <mark style="color:orange;">**`Random`**</mark>
+语法：<mark style="color:orange;">**`Random`**</mark>
 
-Abbreviation: <mark style="color:orange;">**`R`**</mark>
+缩写：<mark style="color:orange;">**`R`**</mark>
 
 <details>
 
-<summary><mark style="color:blue;">Examples</mark></summary>
+<summary><mark style="color:blue;">示例</mark></summary>
 
 `//ezsc Clipboard Constant Random`
 
-* Only setting the `<secondary>` to Random, primary remains pointing up
-* Notice how our structure's up direction (green beam) remains up (primary is set to up), but each placement is randomly rotated around the primary (y-axis in this case) since the secondary is random.
+* 仅将 `<secondary>` 设置为 Random，primary 保持向上
+* 注意我们结构的向上方向（绿色光束）保持向上（primary 设置为向上），但每次放置都围绕 primary（在本例中为 y 轴）随机旋转，因为 secondary 是随机的。
 
 <img src="../../.gitbook/assets/RandomAlignment_demo1.png" alt="" data-size="original">
 
 `//ezsc Clipboard Random Constant`
 
-* Only setting the `<primary>` to Random, secondary remains pointing east.
-* Terrain replaced with glass so you can see better.
-* Notice how the green beam is now facing all kinds of directions, but the red beam is roughly pointing east for all placements.
+* 仅将 `<primary>` 设置为 Random，secondary 保持指向东方。
+* 地形替换为玻璃以便更好地观察。
+* 注意绿色光束现在朝向各个方向，但红色光束在所有放置中大致都指向东方。
 
 <img src="../../.gitbook/assets/RandomAlignment_demo2.png" alt="" data-size="original">
 
 `//ezsc Clipboard Random Random`
 
-* Setting both to Random
+* 将两者都设置为 Random
 
 <img src="../../.gitbook/assets/RandomAlignment_demo3.png" alt="" data-size="original">
 
@@ -180,30 +180,30 @@ Abbreviation: <mark style="color:orange;">**`R`**</mark>
 
 ### Noise
 
-Direction based on the evaluation of a noise function at the placement's position.
+基于在放置位置评估噪声函数的方向。
 
-Syntax: <mark style="color:orange;">**`Noise`**</mark> or <mark style="color:orange;">**`Noise(Noise:<noise>)`**</mark>
+语法：<mark style="color:orange;">**`Noise`**</mark> 或 <mark style="color:orange;">**`Noise(Noise:<noise>)`**</mark>
 
-Abbreviation: <mark style="color:orange;">**`N`**</mark> or <mark style="color:orange;">**`N(N:<noise>)`**</mark>
+缩写：<mark style="color:orange;">**`N`**</mark> 或 <mark style="color:orange;">**`N(N:<noise>)`**</mark>
 
-The default `<noise>` is `Perlin(Freq:0.01)`.
+默认的 `<noise>` 是 `Perlin(Freq:0.01)`。
 
 <details>
 
-<summary><mark style="color:blue;">Examples</mark></summary>
+<summary><mark style="color:blue;">示例</mark></summary>
 
 `//ezsc Clipboard Constant Noise`
 
-* Top-down screenshot
-* `<primary>` is still up and only the `<secondary>` is set to Noise.
-* The default Noise is Perlin Noise.
+* 俯视截图
+* `<primary>` 仍然保持向上，只有 `<secondary>` 设置为 Noise。
+* 默认的 Noise 是 Perlin Noise。
 
 <img src="../../.gitbook/assets/NoiseAlignment_example2.png" alt="" data-size="original">
 
 `//ezsc Clipboard Constant Noise(N:Vor(Freq:0.02,DistReturn:cell))`
 
-* Same scenario as above but using [Cellular Noise](https://en.wikipedia.org/wiki/Voronoi_diagram#/media/File:Coloured_Voronoi_3D_slice.svg).
-* You can recognize how each cell has its own random direction.
+* 与上述场景相同，但使用了 [Cellular Noise](https://en.wikipedia.org/wiki/Voronoi_diagram#/media/File:Coloured_Voronoi_3D_slice.svg)。
+* 你可以看到每个单元格都有自己的随机方向。
 
 <img src="../../.gitbook/assets/NoiseAlignment_example1.png" alt="" data-size="original">
 
@@ -213,22 +213,22 @@ The default `<noise>` is `Perlin(Freq:0.01)`.
 
 ### Aim
 
-Your player's aim direction.
+你的玩家瞄准方向。
 
-Syntax: <mark style="color:orange;">**`Aim`**</mark>
+语法：<mark style="color:orange;">**`Aim`**</mark>
 
-Abbreviation: <mark style="color:orange;">**`A`**</mark>
+缩写：<mark style="color:orange;">**`A`**</mark>
 
-Note: For brushes, `Constant(Direction:aim)` will use your player's aim direction at the time of brush binding, while `Aim` will use the player's aim direction during each brush act.
+注意：对于笔刷，`Constant(Direction:aim)` 将使用你在绑定笔刷时的玩家瞄准方向，而 `Aim` 将在每次笔刷操作时使用玩家的瞄准方向。
 
 <details>
 
-<summary><mark style="color:blue;">Examples</mark></summary>
+<summary><mark style="color:blue;">示例</mark></summary>
 
 `//ezsc Clipboard Aim Constant`
 
-* If we set the `<primary>` to `Aim` then the up direction of our structure, the green beam in our example, will align with our current player's aim direction.
-* My player model is included in the picture for reference. That's where I was looking when I executed the command. _The aim direction is visualized in F3+B with the thin blue line_
+* 如果我们将 `<primary>` 设置为 `Aim`，那么我们结构的向上方向（示例中的绿色光束）将与我们当前玩家的瞄准方向对齐。
+* 图片中包含了我的玩家模型作为参考。那是我执行命令时所看的方向。_瞄准方向在 F3+B 中以细蓝线可视化_
 
 <img src="../../.gitbook/assets/AimAlignment_demo1.png" alt="" data-size="original"><img src="../../.gitbook/assets/AimAlignment_demo2.png" alt="" data-size="original">
 
@@ -238,20 +238,20 @@ Note: For brushes, `Constant(Direction:aim)` will use your player's aim directio
 
 ### PlayerRelative
 
-The direction from the placement's position towards the current player position.
+从放置位置指向当前玩家位置的方向。
 
-Syntax: <mark style="color:orange;">**`PlayerRelative`**</mark>
+语法：<mark style="color:orange;">**`PlayerRelative`**</mark>
 
-Abbreviation: <mark style="color:orange;">**`P`**</mark>
+缩写：<mark style="color:orange;">**`P`**</mark>
 
 <details>
 
-<summary><mark style="color:blue;">Examples</mark></summary>
+<summary><mark style="color:blue;">示例</mark></summary>
 
 `//ezsc Clipboard PlayerRelative Constant`
 
-* If you set the `<primary>` to `PlayerRelative`, then each structure is placed such that its up direction is pointing towards your player position.
-* If you look closely, you can see my player model in the pictures. That's where I executed the command.
+* 如果你将 `<primary>` 设置为 `PlayerRelative`，那么每个结构的放置方式将使其向上方向指向你的玩家位置。
+* 如果你仔细看，可以在图片中看到我的玩家模型。那是我执行命令的位置。
 
 <img src="../../.gitbook/assets/PlayerRelative_demo1.png" alt="" data-size="original"><img src="../../.gitbook/assets/PlayerRelative_demo2.png" alt="" data-size="original">
 
@@ -265,21 +265,21 @@ Abbreviation: <mark style="color:orange;">**`P`**</mark>
 
 ### SurfaceNormal
 
-The approximate surface-normal in the region of the placement's position.
+放置位置区域的近似表面法线。
 
-Syntax: <mark style="color:orange;">**`SurfaceNormal`**</mark>
+语法：<mark style="color:orange;">**`SurfaceNormal`**</mark>
 
-Abbreviation: <mark style="color:orange;">**`S`**</mark>
+缩写：<mark style="color:orange;">**`S`**</mark>
 
-By [normal](https://en.wikipedia.org/wiki/Normal_\(geometry\)) we mean the direction perpendicular to the terrain in question.
+[法线](https://en.wikipedia.org/wiki/Normal_\(geometry\))是指垂直于所讨论地形的方向。
 
 <details>
 
-<summary><mark style="color:blue;">Examples</mark></summary>
+<summary><mark style="color:blue;">示例</mark></summary>
 
 `//ezbr place Shape(P:57,S:Cone) SurfaceNormal Constant -s 12,36,12`
 
-You can see our ingame alignment visualizer dynamically orient itself depending on which part of the terrain you are looking at when you are holding the brush.
+你可以看到我们的游戏内对齐可视化工具会根据你持有笔刷时所看的地形部分动态调整自身方向。
 
 <img src="../../.gitbook/assets/SurfaceNormal_demo1.gif" alt="" data-size="original">
 
@@ -289,27 +289,27 @@ You can see our ingame alignment visualizer dynamically orient itself depending 
 
 ### ViewDiff
 
-Define a direction using two clicks. Exclusively for brushes.
+使用两次点击定义一个方向。仅适用于笔刷。
 
-Syntax: <mark style="color:orange;">**`ViewDiff`**</mark>
+语法：<mark style="color:orange;">**`ViewDiff`**</mark>
 
-Abbreviation: <mark style="color:orange;">**`V`**</mark>
+缩写：<mark style="color:orange;">**`V`**</mark>
 
-Each placement requires a right click and a left click. The first right click sets the placement position at the targeted block. Left-clicking somewhere else then defines a direction: From your first (right) click target position to your second (left) click.
+每次放置需要一次右键点击和一次左键点击。第一次右键点击在目标方块处设置放置位置。然后在其他地方左键点击定义一个方向：从你的第一次（右键）点击目标位置到你的第二次（左键）点击位置。
 
 <details>
 
-<summary><mark style="color:blue;">Examples</mark></summary>
+<summary><mark style="color:blue;">示例</mark></summary>
 
 `//ezbr place Clipboard SurfaceNormal ViewDiff`
 
-Here I set the primary to SurfaceNormal and control the secondary direction with a second click through the ViewDiff mode. Pay attention to my hand. You can see me alternating between right- and left-clicks. A right click sets the placement position, and a left click sets the ViewDiff direction. Our ingame alignment visualizer dynamically updates depending on your movement and your actions.
+这里我将主方向设置为 SurfaceNormal，并通过 ViewDiff 模式用第二次点击控制次方向。注意我的手部动作。你可以看到我在右键和左键之间交替点击。右键点击设置放置位置，左键点击设置 ViewDiff 方向。我们的游戏内对齐可视化工具会根据你的移动和操作动态更新。
 
 <img src="../../.gitbook/assets/output.gif" alt="" data-size="original">
 
 `//ezbr place Shape(S:Torus(Thickness:0.4),P:57) PlayerRelative ViewDiff -s 20,20,30 -k x -c 90`
 
-This torus shape required a few more parameters, so this example turned out a bit longer than usual. What's important to notice though is that the primary is set to PlayerRelative, meaning the top of the torus always faces the player, and the secondary is set to ViewDiff, meaning the final orientation is determined with a second click. Here, after each right-click, I alternate between left-clicking above and left/right from the placement position to create a linked chain.
+这个圆环形状需要更多参数，所以这个例子比平常长一些。但需要注意的重点是，主方向设置为 PlayerRelative，意味着圆环的顶部始终面向玩家，次方向设置为 ViewDiff，意味着最终方向由第二次点击决定。在这里，每次右键点击后，我交替在放置位置的上方和左/右方左键点击，以创建一个连接的链条。
 
 <img src="../../.gitbook/assets/output (1).gif" alt="" data-size="original">
 
@@ -319,19 +319,19 @@ This torus shape required a few more parameters, so this example turned out a bi
 
 ### Tangential
 
-The direction tangential to the path. Exclusively for arrays.
+路径的切线方向。仅适用于阵列。
 
-Syntax: <mark style="color:orange;">**`Tangential`**</mark>
+语法：<mark style="color:orange;">**`Tangential`**</mark>
 
-Abbreviation: <mark style="color:orange;">**`T`**</mark>
+缩写：<mark style="color:orange;">**`T`**</mark>
 
 <details>
 
-<summary><mark style="color:blue;">Examples</mark></summary>
+<summary><mark style="color:blue;">示例</mark></summary>
 
 `//ezarray Clipboard Tangential Constant -g 11 -o 2`
 
-The _Tangential_ direction points tangential to the spline path at the position of the placement. If you set the primary to _Tangential_, the top of the shape is pointing along the spline like this.
+_Tangential_ 方向指向放置位置处样条路径的切线方向。如果你将主方向设置为 _Tangential_，形状的顶部会像这样沿着样条指向。
 
 <img src="../../.gitbook/assets/TangentialAlignment_example1.png" alt="" data-size="original">
 
@@ -341,31 +341,31 @@ The _Tangential_ direction points tangential to the spline path at the position 
 
 ### Orthogonal
 
-The direction orthogonal to the path. Exclusively for arrays.
+路径的正交方向。仅适用于阵列。
 
-Syntax: <mark style="color:orange;">**`Orthogonal`**</mark> or <mark style="color:orange;">**`Orthogonal(Angle:<angle>)`**</mark>
+语法：<mark style="color:orange;">**`Orthogonal`**</mark> 或 <mark style="color:orange;">**`Orthogonal(Angle:<angle>)`**</mark>
 
-Abbreviation: <mark style="color:orange;">**`O`**</mark> or <mark style="color:orange;">**`O(A:<angle>)`**</mark>
+缩写：<mark style="color:orange;">**`O`**</mark> 或 <mark style="color:orange;">**`O(A:<angle>)`**</mark>
 
-The angle, given in degrees, defines the initial direction of the orthogonal direction, whereby 0° and 360°, will face up, 90° and 270° face left and right, and 180° faces down (at the first part of the spline at least. It may twist further along if the normal mode is set to CONSISTENT, which is the default setting).
+角度以度为单位给出，定义正交方向的初始方向，其中 0° 和 360° 朝上，90° 和 270° 朝左和右，180° 朝下（至少在样条的第一部分是这样。如果法线模式设置为 CONSISTENT（默认设置），它可能会沿着路径进一步扭曲）。
 
 <details>
 
-<summary><mark style="color:blue;">Examples</mark></summary>
+<summary><mark style="color:blue;">示例</mark></summary>
 
 `//ezarray Clipboard Orthogonal Constant`
 
-The _Orthogonal_ direction points perpendicular to the spline path at the position of the placement. If you set the primary to _Orthogonal_, the top of the shape will point perpendicular to the spline path like this.
+_Orthogonal_ 方向指向放置位置处垂直于样条路径的方向。如果你将主方向设置为 _Orthogonal_，形状的顶部将指向垂直于样条路径的方向，如下所示。
 
 <img src="../../.gitbook/assets/OrthogonalAlignment_example1.png" alt="" data-size="original">
 
-Here's a GIF going through the `<angle>` parameter:
+这是一个展示 `<angle>` 参数的 GIF：
 
 <img src="../../.gitbook/assets/StructuresAlignmentsOrthogonal_example.gif" alt="" data-size="original">
 
 `//ezarray Clipboard Orthogonal Constant -n HORIZONTAL`
 
-The [-n flag](array-parameters.md#spline-orientation-n-less-than-normalmode-greater-than) has a direct influence on the orthogonal direction.
+[-n 标志](array-parameters.md#spline-orientation-n-less-than-normalmode-greater-than)对正交方向有直接影响。
 
 <img src="../../.gitbook/assets/OrthogonalAlignment_example2.png" alt="" data-size="original">
 
@@ -373,40 +373,40 @@ The [-n flag](array-parameters.md#spline-orientation-n-less-than-normalmode-grea
 
 ***
 
-## Parameters
+## 参数
 
-The following flags adjust how Alignments are calculated.
+以下标志调整对齐方式的计算方式。
 
 ***
 
-### Snap to certain directions: <mark style="color:orange;">`[-j <snapDirections>]`</mark>
+### 对齐到特定方向：<mark style="color:orange;">`[-j <snapDirections>]`</mark>
 
-This parameter allows you to restrict the chosen alignment direction to the specified subset. E.g. snapping to / only allowing cardinal direction, i.e. 90° rotations.
+此参数允许你将选定的对齐方向限制为指定的子集。例如，对齐到/仅允许基本方向，即 90° 旋转。
 
-Available options:
+可用选项：
 
 * <mark style="color:orange;">**`MULTIPLES_90`**</mark>
-  * Only allows multiples of 90°, i.e. all axis-aligned directions.
+  * 仅允许 90° 的倍数，即所有轴对齐方向。
 * <mark style="color:orange;">**`MULTIPLES_45`**</mark>
-  * Only allows multiples of 45°, i.e. axis-aligned directions AND all perfect diagonals.
+  * 仅允许 45° 的倍数，即轴对齐方向和所有完美对角线。
 * <mark style="color:orange;">**`MULTIPLES_22_5`**</mark>
-  * Only allows multiples of 22.5°.
+  * 仅允许 22.5° 的倍数。
 * <mark style="color:orange;">**`MULTIPLES_15`**</mark>
-  * Only allows multiples of 15°.
+  * 仅允许 15° 的倍数。
 * <mark style="color:orange;">**`DIAGONALS_1_1`**</mark>
-  * Only allows axis-aligned directions, and perfect "1:1" diagonals.
+  * 仅允许轴对齐方向和完美的"1:1"对角线。
 * <mark style="color:orange;">**`DIAGONALS_2_1`**</mark>
-  * Only allows the <mark style="color:orange;">`DIAGONALS_1_1`</mark> directions and any "2:1" diagonals.
+  * 仅允许 <mark style="color:orange;">`DIAGONALS_1_1`</mark> 方向和任何"2:1"对角线。
 * <mark style="color:orange;">**`DIAGONALS_3_1`**</mark>
-  * Only allows the <mark style="color:orange;">`DIAGONALS_2_1`</mark> directions and any "3:1" diagonals.
+  * 仅允许 <mark style="color:orange;">`DIAGONALS_2_1`</mark> 方向和任何"3:1"对角线。
 * <mark style="color:orange;">**`DIAGONALS_4_1`**</mark>
-  * Only allows the <mark style="color:orange;">`DIAGONALS_3_1`</mark> directions and any "4:1" diagonals.
+  * 仅允许 <mark style="color:orange;">`DIAGONALS_3_1`</mark> 方向和任何"4:1"对角线。
 * <mark style="color:orange;">**`DIAGONALS_5_1`**</mark>
-  * Only allows the <mark style="color:orange;">`DIAGONALS_4_1`</mark> directions and any "5:1" diagonals.
+  * 仅允许 <mark style="color:orange;">`DIAGONALS_4_1`</mark> 方向和任何"5:1"对角线。
 
 <details>
 
-<summary><mark style="color:blue;">Examples</mark></summary>
+<summary><mark style="color:blue;">示例</mark></summary>
 
 `//ezbrush Cl Constant ViewDiff -j MULTIPLES_45`
 
@@ -416,8 +416,8 @@ Available options:
 
 ***
 
-### Perturb Secondary: <mark style="color:orange;">\[-x]</mark>
+### 扰动次要方向：<mark style="color:orange;">\[-x]</mark>
 
-In our primary+secondary system, placement fails if both vectors are collinear (which simply means they are on the same line).
+在我们的主要+次要系统中，如果两个向量共线（即它们在同一条线上），放置将失败。
 
-By enabling this flag ezEdits tries to circumvent that case by perturbing the secondary direction by a small amount.
+通过启用此标志，ezEdits 会尝试通过轻微扰动次要方向来规避这种情况。

@@ -1,3 +1,3 @@
-# Structure Brushes
+# 结构笔刷
 
-See [structures](../../commands/structures/ "mention")
+请参阅 [structures](../../commands/structures/ "mention")

@@ -1,19 +1,19 @@
-# Patterns
+# 图案
 
 ### `#aim`
 
 <details>
 
-<summary>#aim Pattern</summary>
+<summary>#aim 图案</summary>
 
-**`#aim` or `#aim[True|False]`**
+**`#aim` 或 `#aim[True|False]`**
 
-Takes the block the player is aiming at as the Pattern.
+将玩家正在瞄准的方块作为图案。
 
-Optionally takes a True/False setting to make your aim sensitive to hitboxes.
+可选择设置 True/False 来使你的瞄准对碰撞箱敏感。
 
-* False will treat all blocks as full blocks. E.g. you cannot `#aim` at the block behind a button.
-* True will respect the hitboxes of blocks you are looking at. E.g. you can `#aim` at the block behind a slab.
+* False 会将所有方块视为完整方块。例如，你无法 `#aim` 瞄准按钮后面的方块。
+* True 会尊重你正在看的方块的碰撞箱。例如，你可以 `#aim` 瞄准台阶后面的方块。
 
 <img src="../.gitbook/assets/aimPattern.gif" alt="" data-size="original">
 
@@ -23,13 +23,13 @@ Optionally takes a True/False setting to make your aim sensitive to hitboxes.
 
 <details>
 
-<summary>#eznoise Pattern</summary>
+<summary>#eznoise 图案</summary>
 
 **`#eznoisepattern[palette][noisePreset][<scale>][<seed>]`**\
-**Alias: `#eznp`**
+**别名：`#eznp`**
 
-Uses a noise preset values to return palette blocks.\
-**Which also has the following in-built presets:**
+使用噪声预设值来返回调色板方块。\
+**同时具有以下内置预设：**
 
 * **`#ridged[palette][<scale>][<seed>]`**
 * **`#smoothcells[palette][<scale>][<seed>]`**
@@ -41,13 +41,13 @@ Uses a noise preset values to return palette blocks.\
 
 <details>
 
-<summary>#palette Pattern</summary>
+<summary>#palette 图案</summary>
 
 **`#palette[palette]`**
 
-Takes the given palette and returns a list of palette blocks. Can be used as a random block pattern.
+获取给定的调色板并返回调色板方块列表。可用作随机方块图案。
 
-e.g. `//set #palette[##ice]` is the same as `//set [blue_ice,packed_ice,ice]`
+例如 `//set #palette[##ice]` 等同于 `//set [blue_ice,packed_ice,ice]`
 
 </details>
 
@@ -55,16 +55,16 @@ e.g. `//set #palette[##ice]` is the same as `//set [blue_ice,packed_ice,ice]`
 
 <details>
 
-<summary>#selection Pattern</summary>
+<summary>#selection 图案</summary>
 
 **`#selection[selection][<offset>]`**
 
-Shorthand: **`#sel[selection][<offset>]`**
+简写：**`#sel[selection][<offset>]`**
 
-Sets blocks using the blocks currently in world at the location of the saved selection.\
-Acts as if the selection were tiled/stacked.
+使用保存的选区位置处世界中当前的方块来设置方块。\
+表现得就像选区被平铺/堆叠一样。
 
-Optional `<offset>` variable to offset the pattern by a given vector.
+可选的 `<offset>` 变量用于按给定向量偏移图案。
 
 </details>
 
@@ -72,11 +72,11 @@ Optional `<offset>` variable to offset the pattern by a given vector.
 
 <details>
 
-<summary>#vectorgradient Pattern</summary>
+<summary>#vectorgradient 图案</summary>
 
 **`#vectorgradientpattern[palette][vector][distance][<noisePreset>][<noiseScale>][<noiseSeed>]`**\
-**Alias: `#vgradientp`**
+**别名：`#vgradientp`**
 
-Sets palette blocks along a vector with a given distance length with the block chosen based on distance plus a blending factor. Can also use noise presets.
+沿着给定距离长度的向量设置调色板方块，方块的选择基于距离加上混合因子。也可以使用噪声预设。
 
 </details>

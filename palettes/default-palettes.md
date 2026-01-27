@@ -1,12 +1,12 @@
-# Default Palettes
+# 默认调色板
 
-By default, palettes are saved per player. However, server admins may define a set of default palettes accessible to all players in
+默认情况下，调色板按玩家保存。但是，服务器管理员可以在以下位置定义一组所有玩家都可访问的默认调色板：
 
 ```
 plugins/ezEdits/resources/DefaultPalettes.json
 ```
 
-We also come with a predefined set of default palettes:
+我们还提供了一组预定义的默认调色板：
 
 ***
 

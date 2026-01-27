@@ -1,7 +1,8 @@
-# Shapes
+<!-- langmirror:chunk 0 -->
+# 形状
 
-All sub-commands are under `//ezshapes`  (`//ezsh`) \
-e.g `//ezshapes polydome`
+所有子命令都在 `//ezshapes`（`//ezsh`）下 \
+例如 `//ezshapes polydome`
 
 ## `//ezshapes ...`
 
@@ -9,18 +10,18 @@ e.g `//ezshapes polydome`
 
 <details>
 
-<summary>Cone</summary>
+<summary>圆锥体</summary>
 
 **`//ezsh cone <pattern> <radii> <height> [rotation] [-dhos]`**
 
-* **Pattern**: Specifies the block pattern.
-* **Radii**: Defines the radii of the cone. The first value is for the North/South direction, and the second is for East/West. These directions can change if the cone is rotated.
-* **Height**: Sets the height of the cone.
-* **Rotation** (Default: 0): Determines the angle of rotation about the y-axis, in degrees. This can be aligned with the player's aiming direction if the `-o` switch is used.
-* **-d**: When activated, generates the cone with the pointy side facing downwards.
-* **-h**: Makes a hollow shape.
-* **-o**: When used, the player's aim direction is considered for the cone's rotation.
-* **-s**: When used, the players selection will be moved to roughly cover the shape
+* **Pattern**：指定方块图案。
+* **Radii**：定义圆锥体的半径。第一个值用于北/南方向，第二个值用于东/西方向。如果圆锥体旋转，这些方向可能会改变。
+* **Height**：设置圆锥体的高度。
+* **Rotation**（默认值：0）：确定绕 y 轴旋转的角度，以度为单位。如果使用 `-o` 开关，可以与玩家的瞄准方向对齐。
+* **-d**：激活时，生成尖端朝下的圆锥体。
+* **-h**：生成空心形状。
+* **-o**：使用时，圆锥体的旋转会考虑玩家的瞄准方向。
+* **-s**：使用时，玩家的选区将被移动以大致覆盖该形状
 
 </details>
 
@@ -28,16 +29,16 @@ e.g `//ezshapes polydome`
 
 <details>
 
-<summary>Polydome</summary>
+<summary>多边形穹顶</summary>
 
 **`//ezsh polydome <pattern> <sides> <radius> <height> [-vs]`**
 
-* **Pattern**: Specifies the block pattern.&#x20;
-* **Sides**: Defines the number of sides for the polydome.&#x20;
-* **Radius**: Sets the radius of the polydome.&#x20;
-* **Height** (Default: 1): Determines the height of the dome.&#x20;
-* **-v**: Specifies a vertex pattern, altering the appearance at the vertices of the polydome.
-* **-s**: When used, the players selection will be moved to roughly cover the shape
+* **Pattern**：指定方块图案。
+* **Sides**：定义多边形穹顶的边数。
+* **Radius**：设置多边形穹顶的半径。
+* **Height**（默认值：1）：确定穹顶的高度。
+* **-v**：指定顶点图案，改变多边形穹顶顶点处的外观。
+* **-s**：使用时，玩家的选区将被移动以大致覆盖该形状
 
 </details>
 
@@ -45,33 +46,34 @@ e.g `//ezshapes polydome`
 
 <details>
 
-<summary>Polygon</summary>
+<summary>多边形</summary>
 
 **`//ezsh polygon <pattern> <sides> <radius> <height> [direction] [-s]`** 
 
-* **Pattern**: Specifies the block pattern.&#x20;
-* **Sides**: Defines the number of sides for the polygon.&#x20;
-* **Radius**: Sets the radius of the polygon.&#x20;
-* **Height** (Default: 1): Determines the height of the polygon.&#x20;
-* **Direction** (Default: Player AIM): Specifies the direction of placement, which can include diagonals.
-* **-s**: When used, the players selection will be moved to roughly cover the shape
+* **Pattern**：指定方块图案。
+* **Sides**：定义多边形的边数。
+* **Radius**：设置多边形的半径。
+* **Height**（默认值：1）：确定多边形的高度。
+* **Direction**（默认值：玩家瞄准方向）：指定放置方向，可以包括对角线方向。
+* **-s**：使用时，玩家的选区将被移动以大致覆盖该形状
 
 </details>
 
+<!-- langmirror:chunk 1 -->
 ### `square`
 
 <details>
 
-<summary>Square</summary>
+<summary>正方形</summary>
 
 **`//ezsh square <pattern> <radius> <height> [-fws]`**
 
-* **Pattern**: Specifies the block pattern.&#x20;
-* **Radius**: Sets the radius of the square.&#x20;
-* **Height** (Default: 1): Determines the height of the square.&#x20;
-* **-f**: When activated, only the faces of the square are generated.&#x20;
-* **-w**: When used, only the walls of the square are generated.
-* **-s**: When used, the players selection will be moved to roughly cover the shape
+* **Pattern**: 指定方块图案。
+* **Radius**: 设置正方形的半径。
+* **Height**（默认值：1）：确定正方形的高度。
+* **-f**: 激活时，仅生成正方形的面。
+* **-w**: 使用时，仅生成正方形的墙壁。
+* **-s**: 使用时，玩家的选区将被移动以大致覆盖该形状
 
 </details>
 
@@ -79,16 +81,16 @@ e.g `//ezshapes polydome`
 
 <details>
 
-<summary>Tetrahedron</summary>
+<summary>四面体</summary>
 
 **`//ezsh tetrahedron <pattern> <radius> [rotation] [-hos]`**
 
-* **Pattern**: Specifies the block pattern.&#x20;
-* **Radius**: Sets the size of the Tetrahedron.&#x20;
-* **Rotation** (Default: 0): Determines the angle of rotation about the y-axis, in degrees. This can be aligned with the player's aiming direction if the -o switch is used.
-* **-h**: Makes a hollow shape.&#x20;
-* **-o**: When used, the player's aim direction is considered for the Tetrahedron's rotation.
-* **-s**: When used, the players selection will be moved to roughly cover the shape
+* **Pattern**: 指定方块图案。
+* **Radius**: 设置四面体的大小。
+* **Rotation**（默认值：0）：确定绕 y 轴旋转的角度，以度为单位。如果使用 -o 开关，可以与玩家的瞄准方向对齐。
+* **-h**: 生成空心形状。
+* **-o**: 使用时，四面体的旋转会考虑玩家的瞄准方向。
+* **-s**: 使用时，玩家的选区将被移动以大致覆盖该形状
 
 </details>
 
@@ -96,21 +98,21 @@ e.g `//ezshapes polydome`
 
 <details>
 
-<summary>Torus</summary>
+<summary>圆环</summary>
 
 **`//ezsh torus <pattern> <major_radius> <minor_radius> <cross_section> [-hos]`**
 
-* **Pattern**: Specifies the block pattern.
-* **Major Radius**: Sets the major radius of the torus.
-* **Minor Radius**: Sets the minor radius of the torus.
-* **Cross Section**: Determines the cross section shape of the torus:
+* **Pattern**: 指定方块图案。
+* **Major Radius**: 设置圆环的主半径。
+* **Minor Radius**: 设置圆环的次半径。
+* **Cross Section**: 确定圆环的横截面形状：
   * `CIRCLE`
   * `DIAMOND`
   * `ROUNDED_SQUARE`
   * `SQUARE`
 
-* **-h**: Makes a hollow shape.
-* **-o**: When used, the rotation of the torus aligns with the player's aiming direction
-* **-s**: When used, the players selection will be moved to roughly cover the shape
+* **-h**: 生成空心形状。
+* **-o**: 使用时，圆环的旋转与玩家的瞄准方向对齐
+* **-s**: 使用时，玩家的选区将被移动以大致覆盖该形状
 
 </details>

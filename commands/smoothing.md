@@ -1,21 +1,22 @@
-# Smoothing
+<!-- langmirror:chunk 0 -->
+# 平滑
 
 ### `//ezsmooth`
 
 <details>
 
-<summary>Smooth</summary>
+<summary>平滑</summary>
 
 **`//ezsmooth <radii> <iterations> <bias> [-w <profile>]`**
 
-**`Alias: //ezsm`**
+**`别名: //ezsm`**
 
-The `//ezsmooth` command smooths the edges and surfaces of a selected region using a 3 dimensional smoothing algorithm.
+`//ezsmooth` 命令使用三维平滑算法平滑选区的边缘和表面。
 
-* **Radii**: The smoothing radius or radii, which can be a single value or three comma-separated values for the East/West, Up/Down, and North/South directions, respectively. This parameter controls the extent of the smoothing effect.
-* **Iterations**: The number of times the smoothing operation is executed. More iterations lead to a smoother outcome but increase processing time.
-* **Bias**: A value between -1.0 and 1.0 that adjusts the smoothing effect's expansion or contraction. Positive values expand the smoothed area, while negative values contract it.
-* **-w**: See [Smoothblocks](../smoothblocks/smoothblocks.md).
+* **Radii**: 平滑半径，可以是单个值，也可以是三个逗号分隔的值，分别对应东/西、上/下和北/南方向。此参数控制平滑效果的范围。
+* **Iterations**: 平滑操作执行的次数。更多的迭代次数会产生更平滑的结果，但会增加处理时间。
+* **Bias**: 介于 -1.0 和 1.0 之间的值,用于调整平滑效果的扩张或收缩。正值会扩张平滑区域,负值会收缩它。
+* **-w**: 参见 [平滑方块](../smoothblocks/smoothblocks.md)。
 
 </details>
 
@@ -23,16 +24,16 @@ The `//ezsmooth` command smooths the edges and surfaces of a selected region usi
 
 <details>
 
-<summary>Inflate</summary>
+<summary>膨胀</summary>
 
 **`//ezinflate <radii> [-w <profile>]`**
 
-**`Alias: //inflate`**
+**`别名: //inflate`**
 
-The `//ezinflate` command expands the volume of blocks within a selected region by a specified amount, effectively "inflating" the build.
+`//ezinflate` 命令将选区内的方块体积按指定量扩张,有效地"膨胀"建筑。
 
-* **Radii**: Specifies the expansion distance, which can be a single value or three comma-separated values for the East/West, Up/Down, and North/South directions, respectively. This value determines how far from the original surfaces the new, inflated surfaces will be created.
-* **-w**: See [Smoothblocks](../smoothblocks/smoothblocks.md).
+* **Radii**: 指定扩张距离,可以是单个值,也可以是三个逗号分隔的值,分别对应东/西、上/下和北/南方向。此值决定了新的膨胀表面距离原始表面的距离。
+* **-w**: 参见 [平滑方块](../smoothblocks/smoothblocks.md)。
 
 </details>
 
@@ -40,58 +41,60 @@ The `//ezinflate` command expands the volume of blocks within a selected region 
 
 <details>
 
-<summary>Deflate</summary>
+<summary>收缩</summary>
 
 **`//ezdeflate <radii> [-w <profile>]`**
 
-**`Alias: //deflate`**
+**`别名: //deflate`**
 
-The `//ezdeflate` command contracts the volume of blocks within a selected region by a specified amount, effectively "deflating" the build.
+`//ezdeflate` 命令将选区内的方块体积按指定量收缩,有效地"收缩"建筑。
 
-* **Radii**: Specifies the expansion distance, which can be a single value or three comma-separated values for the East/West, Up/Down, and North/South directions, respectively. This value determines how far inwards from the original surfaces that blocks will be removed.
-* **-w**: See [Smoothblocks](../smoothblocks/smoothblocks.md).
+<!-- langmirror:chunk 1 -->
+* **Radii**: 指定扩展距离，可以是单个值，也可以是三个逗号分隔的值，分别对应东/西、上/下和北/南方向。此值决定了从原始表面向内移除方块的距离。
+* **-w**: 参见 [Smoothblocks](../smoothblocks/smoothblocks.md)。
 
 </details>
 
-### `//ezsmoothblocks` (v0.15.0 and above)
+### `//ezsmoothblocks` (v0.15.0 及以上版本)
 
 <details>
 
-<summary>Smooth Blocks</summary>
+<summary>平滑方块</summary>
 
 **`//ezsmoothblocks <profile> <radius> <bias>`**
 
-**`Alias: //ezsb`**
+**`别名: //ezsb`**
 
-The `//ezsmoothblocks` command modifies a selected region by placing slabs, stairs, and walls to create a significantly smoother surface.
+`//ezsmoothblocks` 命令通过放置台阶、楼梯和墙来修改选定区域，以创建明显更平滑的表面。
 
-* **Profile**: Determines the set of shaping blocks used. See [#profiles](../smoothblocks/smoothblocks.md#profiles "mention").
+* **Profile**: 决定使用的塑形方块集合。参见 [#profiles](../smoothblocks/smoothblocks.md#profiles "mention")。
 
-- **Radius**: Specifies the smoothing radius in blocks. This value determines the area around each block that is considered during the smoothing process. The larger the value to more aggressive the smoothing.
+- **Radius**: 以方块为单位指定平滑半径。此值决定了在平滑过程中考虑每个方块周围的区域。值越大，平滑效果越激进。
 
-* **Bias**: A value between -1.0 and 1.0 that adjusts the smoothing effect which determines how many blocks are added or removed. Positive values will lead to more blocks being placed than removed, while negative values will remove more blocks than add.
-* **-w**: See [Smoothblocks](../smoothblocks/smoothblocks.md).
+* **Bias**: 介于 -1.0 和 1.0 之间的值，用于调整平滑效果，决定添加或移除多少方块。正值会导致放置的方块多于移除的方块，而负值会移除更多方块而不是添加。
+* **-w**: 参见 [Smoothblocks](../smoothblocks/smoothblocks.md)。
 
 </details>
 
-#### `//ezsmoothblocks` (v0.14.0 and older)
+#### `//ezsmoothblocks` (v0.14.0 及更早版本)
 
 <details>
 
-<summary>Smooth Blocks (Legacy)</summary>
+<summary>平滑方块（旧版）</summary>
 
 **`//ezsmoothblocks <radius> <iterations> <bias> [-s] [-t] [-w]`**
 
-**`Alias: //smoothblocks`**
+**`别名: //smoothblocks`**
 
-The `//ezsmoothblocks` command modifies a selected region by placing slabs, stairs, and walls to create a significantly smoother surface.
+`//ezsmoothblocks` 命令通过放置台阶、楼梯和墙来修改选定区域，以创建明显更平滑的表面。
 
-* **Radius**: Specifies the smoothing radius in blocks. This value determines the area around each block that is considered during the smoothing process.
-* **Iterations**: The number of times the smoothing operation is executed. More iterations result in a smoother outcome but increase processing time.
-* **Bias**: A value between -1.0 and 1.0 that adjusts the smoothing effect's expansion or contraction. Positive values tend to expand the smoothed area, while negative values contract it, offering control over the final appearance.
-* **-s**: Limits the smoothing process to only use slabs.
-* **-t**: Excludes walls from smoothing.
-* **-w**: Uses an alternative set of blocks.
+<!-- langmirror:chunk 2 -->
+* **Radius**: 指定平滑半径（以方块为单位）。此值决定了在平滑过程中每个方块周围考虑的区域。
+* **Iterations**: 平滑操作执行的次数。更多的迭代次数会产生更平滑的结果，但会增加处理时间。
+* **Bias**: 介于 -1.0 和 1.0 之间的值，用于调整平滑效果的扩张或收缩。正值倾向于扩大平滑区域，而负值则收缩它，从而控制最终外观。
+* **-s**: 将平滑过程限制为仅使用台阶。
+* **-t**: 从平滑中排除墙壁。
+* **-w**: 使用替代方块集。
 
 </details>
 

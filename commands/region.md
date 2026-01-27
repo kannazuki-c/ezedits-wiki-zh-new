@@ -1,22 +1,23 @@
-# Region
+<!-- langmirror:chunk 0 -->
+# 区域
 
-A miscellaneous collection of commands which operate within your selected region.
+一个杂项命令集合，用于在您选定的区域内操作。
 
 ### `//ezvines`
 
 <details>
 
-<summary>Vines</summary>
+<summary>藤蔓</summary>
 
 **`//ezvines <mask> <pattern> [percentage] [min_length] [max_length]`**
 
-**`Alias: //vines`**
+**`别名: //vines`**
 
-* **Mask**: Specifies the mask matching blocks to hang "vines" from.&#x20;
-* **Pattern**: Determines the pattern of blocks to place.&#x20;
-* **Percentage** (Default: 10%): Sets the percentage of blocks to hang vines from.&#x20;
-* **Min Length** (Default: 2): Specifies the minimum vine length.&#x20;
-* **Max Length** (Default: 5): Defines the maximum vine length.
+* **Mask**: 指定蒙版以匹配要悬挂"藤蔓"的方块。
+* **Pattern**: 确定要放置的方块图案。
+* **Percentage** (默认: 10%): 设置悬挂藤蔓的方块百分比。
+* **Min Length** (默认: 2): 指定藤蔓的最小长度。
+* **Max Length** (默认: 5): 定义藤蔓的最大长度。
 
 <img src="../.gitbook/assets/ezvines_mask.gif" alt="" data-size="original"> **`<mask>`**
 
@@ -30,21 +31,22 @@ A miscellaneous collection of commands which operate within your selected region
 
 <details>
 
-<summary>Moss</summary>
+<summary>苔藓</summary>
 
 **`//ezmoss <pattern> [amount] [smooth_radii] [smooth_iterations]`**
 
-**`Alias: //moss`**
+**`别名: //moss`**
 
-* **Pattern**: Determines the block pattern to use for the moss.&#x20;
-* **Amount** (Default: 2.0): Specifies the amount of moss to place. Decimal values are allowed, and values are somewhat arbitrary.&#x20;
-* **Smooth Radii** (Default: 1): Sets the smoothing radii for the moss placement. Can be one radius or three comma-separated radii, in the order of East/West, Up/Down, North/South.&#x20;
-* **Smooth Iterations** (Default: 5): Defines the number of smoothing iterations to apply.
+* **Pattern**: 确定用于苔藓的方块图案。
+* **Amount** (默认: 2.0): 指定要放置的苔藓数量。允许使用小数值，数值有些任意。
+* **Smooth Radii** (默认: 1): 设置苔藓放置的平滑半径。可以是一个半径或三个逗号分隔的半径，顺序为东/西、上/下、北/南。
+* **Smooth Iterations** (默认: 5): 定义要应用的平滑迭代次数。
 
 <img src="../.gitbook/assets/ezmoss_amount.gif" alt="" data-size="original"> **`[amount]`**
 
 <img src="../.gitbook/assets/ezmoss_radius.gif" alt="" data-size="original"> **`[smooth_radii]`**
 
+<!-- langmirror:chunk 1 -->
 <img src="../.gitbook/assets/ezmoss_radii.gif" alt="" data-size="original"> **`[smooth_radii]`**
 
 <img src="../.gitbook/assets/ezmoss_iterations.gif" alt="" data-size="original"> **`[smooth_iterations]`**
@@ -59,11 +61,11 @@ A miscellaneous collection of commands which operate within your selected region
 
 **`//ezslabmerge <mask> [-b] [-t]`**
 
-**`Alias: //slabmerge`**
+**`别名: //slabmerge`**
 
-* **Mask**: Specifies the mask to select which blocks to affect within the region.&#x20;
-* **-b**: When used, will also convert bottom slabs to full blocks.&#x20;
-* **-t**: When used, will also convert top slabs to full blocks.&#x20;
+* **Mask**: 指定蒙版以选择区域内要影响的方块。
+* **-b**: 使用时，也会将下半砖转换为完整方块。
+* **-t**: 使用时，也会将上半砖转换为完整方块。
 
 </details>
 
@@ -75,9 +77,9 @@ A miscellaneous collection of commands which operate within your selected region
 
 **`//ezstatecycle <mask> <state>`**
 
-**`Alias: //statecycle`**
+**`别名: //statecycle`**
 
-* **Mask**: Specifies the mask to select which blocks to affect within the region.&#x20;
-* **State**: Identifies the block state value to cycle through for each block in the selection.
+* **Mask**: 指定蒙版以选择区域内要影响的方块。
+* **State**: 标识要为选区中每个方块循环切换的方块状态值。
 
 </details>

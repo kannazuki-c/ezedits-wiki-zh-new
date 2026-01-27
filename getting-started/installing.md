@@ -1,23 +1,23 @@
-# Installing
+# 安装
 
-ezEdits is installed like any other plugin, but requires either WorldEdit or FastAsyncWorldEdit to already be installed (only one, not both).
+ezEdits 的安装方式与其他插件相同，但需要先安装 WorldEdit 或 FastAsyncWorldEdit 中的任意一个（不需要同时安装）。
 
 * [WorldEdit](https://modrinth.com/plugin/worldedit)
 * [FastAsyncWorldEdit](https://www.spigotmc.org/resources/fastasyncworldedit.13932/)
 
-Currently we support Minecraft 1.20+ but it may work on older versions.\
-If you use 1.20.5+ make sure to update your Java to at least 21.
+目前我们支持 Minecraft 1.20+，但它可能在较旧版本上也能运行。\
+如果你使用 1.20.5+，请确保将 Java 更新至至少 21 版本。
 
 
 
-Do note that Paper is the targetted server software for our support and you may have compatibility issues when using a non-Paper fork.
+请注意，Paper 是我们支持的目标服务器软件，使用非 Paper 分支可能会出现兼容性问题。
 
 
 
-**You can obtain the .jar file from Discord by supporting us on Patreon/Ko-Fi.**
+**你可以通过在 Patreon/Ko-Fi 上支持我们来从 Discord 获取 .jar 文件。**
 
-- Once you have the Silver/Gold rank in Discord, run `/download` in a Supporter channel to receive the .jar file
+- 在 Discord 中获得 Silver/Gold 等级后，在 Supporter 频道中运行 `/download` 命令即可获取 .jar 文件
 
 
 
-Simply drop the .jar file into your plugins folder and run your server as normal. An "ezEdits" folder containing a config.yml file will be created which you can edit.&#x20;
+只需将 .jar 文件放入你的 plugins 文件夹，然后正常运行服务器即可。系统会创建一个包含 config.yml 文件的 "ezEdits" 文件夹，你可以对其进行编辑。

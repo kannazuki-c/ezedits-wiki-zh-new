@@ -1,62 +1,65 @@
-# Flowfields
+<!-- langmirror:chunk 0 -->
+# 流场
 
-Commands based off the concept of "Flow Fields", often seen in generative art.
+基于"流场"概念的命令，常见于生成艺术中。
 
-Conceptually they use some function (noise in our case), to generate a set of vectors along a grid, or field, which will dictate how particles flow through that field.
+从概念上讲，它们使用某个函数（在我们的情况下是噪声）沿着网格或场生成一组向量，这些向量将决定粒子如何通过该场流动。
 
 ### `//ezflowfield`
 
 <details>
 
-<summary>Flow Field</summary>
+<summary>流场</summary>
 
 **`//ezflowfield <palette> <lines> <iterations> <velocity> <paletteScalar> <noise> [-m <source>] [-h <distributionMode>] [-i <inertia>] [-g <gravity>] [-j <jitter>] [-b <boundary>] [-x <xMod>] [-y <yMod>] [-z <zMod>] [-p <progression>] [-s <seed>] [-c] [-f] [-t]`**
 
-**`Alias: //flow`**
+**`别名: //flow`**
 
-Generates a flow field within a selection, creating dynamic pattern based on the many available parameters.
+在选区内生成流场，基于许多可用参数创建动态图案。
 
-* **Palette**: Specifies the palette of blocks to be used in generating the flowfield.
-* **Lines**: Defines the number of lines or a percentage distribution to determine how densely the flowfield is populated within the selection.\
-  e.g `100` will generate 100 lines, `100%` will generate 1 line for every block in the region.
-* **Iterations** (Default: 32): The number of iterations or steps per line controlling how long they will be.
-* **Velocity** (Default: 1): The speed at which points move across the surface.
-* **PaletteScalar** (Default: 1.0): Scales the value used to select a palette block.
-* **Noise** (Default: `Perlin()`): The type of noise used to generate the flowfield.
-* **-m**: Applies a mask to limit the flow's start points, focusing the effect on specific areas.
-* **-h**: Enables heightmap mode for creating 2D flowfields, with optional block distribution modes.
-* **-i** (Default: 0.0): Sets the inertia weighting of the flow, controlling how much previous movement directions influence the next.
-* **-g** (Default: (0,0,0) ): Applies gravity to points, pulling them in the specified direction.
-* **-j** (Default: (0,0,0) ): Adds jitter to the start points of lines. Useful with `-m` flag.
-* **-b** (Default: 0): Expands the calculation boundary without placing blocks outside the original selection. Does not place blocks outside the selection.
-* **-x, -y, -z**: Modify the coordinates of the flow, allowing for transformations like scaling or rotation. Takes in a WorldEdit expression, e.g `-x *10` to multiply the x axis by 10.
-* **-p** (Default: 1:1): Adjusts the strength of the line as it progresses, accepts negative values to either start or end on a point strength that subtracts from the flow field.
-* **-s** (Default: -1): Overrides the default noise seed.
-* **-c**: Returns the curl of the field.
-* **-f**: Fills gaps with the lowest block in the palette.
-* **-t**: Generates a 3D flowfield instead. May require a lot of time to generate.
+<!-- langmirror:chunk 1 -->
+* **Palette**: 指定用于生成流场的方块调色板。
+* **Lines**: 定义线条数量或百分比分布，以确定流场在选区内的密度。\
+  例如 `100` 将生成 100 条线，`100%` 将为区域中的每个方块生成 1 条线。
+* **Iterations** (默认值: 32): 每条线的迭代或步数，控制线条的长度。
+* **Velocity** (默认值: 1): 点在表面移动的速度。
+* **PaletteScalar** (默认值: 1.0): 缩放用于选择调色板方块的值。
+* **Noise** (默认值: `Perlin()`): 用于生成流场的噪声类型。
+* **-m**: 应用蒙版以限制流的起点，将效果集中在特定区域。
+* **-h**: 启用高度图模式以创建 2D 流场，支持可选的方块分布模式。
+* **-i** (默认值: 0.0): 设置流的惯性权重，控制先前的移动方向对下一步的影响程度。
+* **-g** (默认值: (0,0,0) ): 对点应用重力，将其拉向指定方向。
+* **-j** (默认值: (0,0,0) ): 为线条的起点添加抖动。与 `-m` 标志配合使用效果更佳。
+* **-b** (默认值: 0): 扩展计算边界而不在原始选区外放置方块。不会在选区外放置方块。
+* **-x, -y, -z**: 修改流的坐标，允许进行缩放或旋转等变换。接受 WorldEdit 表达式，例如 `-x *10` 将 x 轴乘以 10。
+* **-p** (默认值: 1:1): 调整线条随进度变化的强度，接受负值以在点强度的起点或终点处进行减法操作。
+* **-s** (默认值: -1): 覆盖默认噪声种子。
+* **-c**: 返回场的旋度。
+* **-f**: 用调色板中的最低方块填充间隙。
+* **-t**: 生成 3D 流场。可能需要较长时间生成。
 
 </details>
 
+<!-- langmirror:chunk 2 -->
 ### `//ezflowline`
 
 <details>
 
-<summary>Flow Line</summary>
+<summary>流线</summary>
 
 **`/ezflowline <pattern> <length> <gravity> <noise> [-i <inertia>] [-c <convexSelPoints>] [-s]`**
 
-**`Alias: //flowline`**
+**`别名: //flowline`**
 
-Generates a single flow-line based on the actor's position and viewing direction.\
-The same fundamental premise as a Flow Field, but only generating 1 line.
+基于玩家位置和视线方向生成单条流线。\
+与流场的基本原理相同，但仅生成1条线。
 
-* **Pattern**: Determines the pattern of blocks to place.&#x20;
-* **Length**: Sets the length of the flowline in blocks. This defines how far the flowline will extend from the starting point.
-* **Gravity** (Default: -1): Applies gravity to points, pulling them in the specified direction.
-* **Noise** (Default: `Perlin()`): The type of noise used to generate the flowfield.
-* **-i** (Default: 0.0): Adjusts the point inertia weighting, controlling how much previous movement directions influence future directions. A value between 0.0 and 1.0.
-* **-c** (Default: 0): If greater than 0, creates a convex selection out of the flowline, using the specified number of points to define the selection's shape.
-* **-s**: Enables snapping of the flowline to surfaces, making the line adhere to the contours of the landscape or structures it intersects.
+* **Pattern**: 决定放置的方块图案。&#x20;
+* **Length**: 设置流线的长度（以方块为单位）。这定义了流线从起点延伸的距离。
+* **Gravity**（默认值：-1）：对点应用重力，将其拉向指定方向。
+* **Noise**（默认值：`Perlin()`）：用于生成流场的噪声类型。
+* **-i**（默认值：0.0）：调整点的惯性权重，控制以前的移动方向对未来方向的影响程度。值在0.0到1.0之间。
+* **-c**（默认值：0）：如果大于0，从流线创建凸选区，使用指定数量的点来定义选区的形状。
+* **-s**: 启用流线对表面的吸附，使线条贴合其相交的地形或结构的轮廓。
 
 </details>

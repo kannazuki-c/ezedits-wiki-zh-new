@@ -1,19 +1,19 @@
-# Masks
+# 蒙版
 
 ### `#aim`
 
 <details>
 
-<summary>#aim Mask</summary>
+<summary>#aim 蒙版</summary>
 
-**`#aim` or `#aim[True|False]`**
+**`#aim` 或 `#aim[True|False]`**
 
-Takes the block the player is aiming at as the mask.
+将玩家瞄准的方块作为蒙版。
 
-Optionally takes a True/False setting to make your aim sensitive to hitboxes.
+可选择设置 True/False 来使瞄准对碰撞箱敏感。
 
-* False will treat all blocks as full blocks. E.g. you cannot `#aim` at the block behind a button.
-* True will respect the hitboxes of blocks you are looking at. E.g. you can `#aim` at the block behind a slab.
+* False 会将所有方块视为完整方块。例如，你无法 `#aim` 瞄准按钮后面的方块。
+* True 会尊重你所看方块的碰撞箱。例如，你可以 `#aim` 瞄准台阶后面的方块。
 
 <img src="../.gitbook/assets/aimMask.gif" alt="" data-size="original">
 
@@ -23,17 +23,17 @@ Optionally takes a True/False setting to make your aim sensitive to hitboxes.
 
 <details>
 
-<summary>#attached mask</summary>
+<summary>#attached 蒙版</summary>
 
 **`#attached[<vector,vector,vector ...>]`**
 
-Masks to blocks which are attached to at least 1 adjacent non-air block.
+匹配至少与 1 个相邻非空气方块连接的方块。
 
-Optionally takes a list of direction vectors to check instead of every side.\
-e.g `#attached[up,down,left,north]`
+可选择提供一个方向向量列表来检查，而不是检查每一侧。\
+例如 `#attached[up,down,left,north]`
 
 \
-In either case, attached means that the block is "touching" the adjacent block. So a bottom slab would not pass `#attached[up]` whereas a lantern with the state `[hanging=true]` would.
+无论哪种情况，attached 意味着该方块"接触"相邻方块。因此，底部台阶不会通过 `#attached[up]`，而状态为 `[hanging=true]` 的灯笼会通过。
 
 </details>
 
@@ -41,11 +41,11 @@ In either case, attached means that the block is "touching" the adjacent block. 
 
 <details>
 
-<summary>#blocklight Mask</summary>
+<summary>#blocklight 蒙版</summary>
 
-**`#blocklight[lightLevel]` or `#blocklight[minLevel][maxLevel]`**
+**`#blocklight[lightLevel]` 或 `#blocklight[minLevel][maxLevel]`**
 
-Masks to blocks of a given block light (Illumination provided by light sources other than skylight). Optionally takes a minimum and maximum light level, matching any level within that range.
+匹配给定方块光照等级的方块（由天空光以外的光源提供的照明）。可选择提供最小和最大光照等级，匹配该范围内的任何等级。
 
 </details>
 
@@ -53,13 +53,13 @@ Masks to blocks of a given block light (Illumination provided by light sources o
 
 <details>
 
-<summary>#current mask</summary>
+<summary>#current 蒙版</summary>
 
-Shorthand: **`#c`**
+简写：**`#c`**
 
-A mask which represents your current global mask (gmask).
+代表你当前全局蒙版（gmask）的蒙版。
 
-e.g running `//gmask !#current` will invert your current gmask
+例如运行 `//gmask !#current` 将反转你当前的 gmask
 
 </details>
 
@@ -67,12 +67,12 @@ e.g running `//gmask !#current` will invert your current gmask
 
 <details>
 
-<summary>#eznoise Mask</summary>
+<summary>#eznoise 蒙版</summary>
 
 **`#eznoisemask[noisePreset][<scale>][<threshold>][<seed>]`**\
-**Alias: `#eznm`**
+**别名：`#eznm`**
 
-Uses a noise preset values `0.0-1.0` to match blocks above a given noise threshold.
+使用噪声预设值 `0.0-1.0` 来匹配高于给定噪声阈值的方块。
 
 </details>
 
@@ -80,11 +80,11 @@ Uses a noise preset values `0.0-1.0` to match blocks above a given noise thresho
 
 <details>
 
-<summary>#fullblock mask</summary>
+<summary>#fullblock 蒙版</summary>
 
-Masks to blocks which fill an entire cube space.
+匹配填满整个立方体空间的方块。
 
-e.g 1-7 layers of snow will not pass, but 8 layers of snow, a block like stone, or a transparent block like glass will pass.
+例如 1-7 层雪不会通过，但 8 层雪、石头这样的方块或玻璃这样的透明方块会通过。
 
 </details>
 
@@ -92,14 +92,14 @@ e.g 1-7 layers of snow will not pass, but 8 layers of snow, a block like stone, 
 
 <details>
 
-<summary>#fuzzypalette mask</summary>
+<summary>#fuzzypalette 蒙版</summary>
 
 **`#fuzzypalette[palette]`**
 
-Shorthand: **`#fpalette`**
+简写：**`#fpalette`**
 
-Masks to blocks which match any block in the palette, regardless of block data.\
-Equivalent to **`#palette[palette][False]`**
+匹配调色板中任何方块的方块，无论方块数据如何。\
+等同于 **`#palette[palette][False]`**
 
 </details>
 
@@ -107,9 +107,9 @@ Equivalent to **`#palette[palette][False]`**
 
 <details>
 
-<summary>#infested mask</summary>
+<summary>#infested 蒙版</summary>
 
-Masks to blocks which are infested with silverfish.
+匹配被蠹虫感染的方块。
 
 </details>
 
@@ -117,11 +117,11 @@ Masks to blocks which are infested with silverfish.
 
 <details>
 
-<summary>#lightsource Mask</summary>
+<summary>#lightsource 蒙版</summary>
 
-**`#lightsource` or `#lightsource[lightLevel]` or `#lightsource[minLevel][maxLevel]`**
+**`#lightsource` 或 `#lightsource[lightLevel]` 或 `#lightsource[minLevel][maxLevel]`**
 
-Masks to blocks which emit light. Optionally takes a specific light level to match, or minimum and maximum light level, matching any level within that range.
+蒙版到发光的方块。可选择性地接受特定的光照等级进行匹配，或最小和最大光照等级，匹配该范围内的任何等级。
 
 </details>
 
@@ -129,14 +129,14 @@ Masks to blocks which emit light. Optionally takes a specific light level to mat
 
 <details>
 
-<summary>#near Mask</summary>
+<summary>#near 蒙版</summary>
 
 **`#near[mask][distance]`**\
 &#xNAN;**`#near[mask][minDistance][maxDistance]`**\
 \
-Masks to all blocks within a given spherical (Euclidean) distance of a mask.\
-Doesn't modify blocks which match the inner `mask`.\
-Can also be set to exclude blocks closer than the minimum distance.\\
+蒙版到给定球形（欧几里得）距离内蒙版的所有方块。\
+不会修改匹配内部 `mask` 的方块。\
+也可以设置为排除距离小于最小距离的方块。\\
 
 ![](../.gitbook/assets/mask_near_mask.gif) **`[mask]`**
 
@@ -150,14 +150,14 @@ Can also be set to exclude blocks closer than the minimum distance.\\
 
 <details>
 
-<summary>#palette mask</summary>
+<summary>#palette 蒙版</summary>
 
 **`#palette[palette][<strict>]`**
 
-Masks to blocks which match any block in the palette.
+蒙版到与调色板中任何方块匹配的方块。
 
-Optional `<strict>` value of True or False to determine if block data must also match.\
-e.g `oak_stairs[facing=east]` will only match with `oak_stairs[facing=west]` if strict is set to **False**.
+可选的 `<strict>` 值为 True 或 False，用于确定方块数据是否也必须匹配。\
+例如，如果 strict 设置为 **False**，`oak_stairs[facing=east]` 将只与 `oak_stairs[facing=west]` 匹配。
 
 </details>
 
@@ -165,11 +165,11 @@ e.g `oak_stairs[facing=east]` will only match with `oak_stairs[facing=west]` if 
 
 <details>
 
-<summary>#truelight Mask</summary>
+<summary>#truelight 蒙版</summary>
 
-**`#truelight[lightLevel]` or `#truelight[minLevel][maxLevel]`**
+**`#truelight[lightLevel]` 或 `#truelight[minLevel][maxLevel]`**
 
-Masks to blocks of a given total light level (Illimunation provided by any light sources including skylight). Optionally takes a minimum and maximum light level, matching any level within that range.
+蒙版到给定总光照等级的方块（包括天空光在内的任何光源提供的照明）。可选择性地接受最小和最大光照等级，匹配该范围内的任何等级。
 
 </details>
 
@@ -177,13 +177,13 @@ Masks to blocks of a given total light level (Illimunation provided by any light
 
 <details>
 
-<summary>#vectorgradient Mask</summary>
+<summary>#vectorgradient 蒙版</summary>
 
 **`#vectorgradientmask[vector][distance][<noisePreset>][<noiseScale>][noiseSeed]`**
 
-Shorthand: `#vgradientm`
+简写：`#vgradientm`
 
-Masks blocks along a vector with a given distance length. With closer blocks more likely to pass the mask check.\
-Compatible with noise presets.
+沿着给定距离长度的向量蒙版方块。距离较近的方块更有可能通过蒙版检查。\
+兼容噪声预设。
 
 </details>

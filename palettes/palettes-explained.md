@@ -1,41 +1,41 @@
-# Palettes Explained
+# 调色板详解
 
-Palettes in ezEdits represent a list of blocks that can be used in several commands where the order of blocks will be maintained.
+ezEdits 中的调色板代表一个方块列表，可以在多个命令中使用，其中方块的顺序将被保持。
 
-Palettes can be saved and accessed using the **`#`** prefix for user-saved palettes, and **`##`** for [inbuilt preset palettes](default-palettes.md).
+调色板可以使用 **`#`** 前缀保存和访问用户保存的调色板，使用 **`##`** 访问[内置预设调色板](default-palettes.md)。
 
-For reference, here's an example:
+作为参考，这里有一个例子：
 
 <figure><img src="../.gitbook/assets/palette_Grayscale.png" alt=""><figcaption><p>##Grayscale</p></figcaption></figure>
 
-Some of the many features that use palettes include:
+使用调色板的众多功能包括：
 
-* `//eztexture ...` - [Texturing Commands](../commands/texturing.md)
-* `#palette` - [Palette mask](../masks-and-patterns/masks.md#palette-mask)
-* `//ezbrush gradient ...` - [Brushes](../brushes-and-tools/brushes/)
+* `//eztexture ...` - [纹理命令](../commands/texturing.md)
+* `#palette` - [调色板蒙版](../masks-and-patterns/masks.md#palette-mask)
+* `//ezbrush gradient ...` - [笔刷](../brushes-and-tools/brushes/)
 
-Palettes can be constructed as a simple list of blocks, or via several modifiers:
+调色板可以构建为简单的方块列表，或通过几个修饰符：
 
-* **`,`** - <mark style="color:orange;">**Concatenate**</mark>:
-  * Adds one block or palette to the end of the preceding block or palette.\
-    e.g `stone,dirt` is a 2 block palette of stone and dirt. `stone,##Grayscale` is a palette made of stone and the blocks of the ##Grayscale preset palette.
-* **`-`** - <mark style="color:orange;">**Invert**</mark>:
-  * Reverses the order of a palette.\
-    e.g `-##Grayscale` is the ##Grayscale preset palette in reverse order (starts with white instead of black)
-* **`(start:end)`** - <mark style="color:orange;">**Sub-palette**</mark>:
-  * Returns a portion of a palette.\
-    e.g `##Grayscale(1:8)` will return the first 8 blocks of the ##Grayscale preset palette.
-* **`*`** - <mark style="color:orange;">**Repeater**</mark>:
-  * Repeats the previous segment a given number of times.\
-    e.g `gold_block*10,diamond_block` will return a palette of 10 gold blocks, followed by a single diamond block.
-* **`[]`** - <mark style="color:orange;">**Grouping**</mark>:
-  * Groups palettes together to allow a modifier to treat them as a single palette.\
-    e.g `-##Grayscale,gold_block` will return the ##Grayscale preset palette in reverse order, with a gold block at the end. Where `-[##Grayscale,gold_block]` will return the gold block at the start.
-* **`=`** - <mark style="color:orange;">**Result**</mark>:
-  * Allows a palette to be tab-completed into its list of blocks if needed.
+* **`,`** - <mark style="color:orange;">**连接**</mark>：
+  * 将一个方块或调色板添加到前面方块或调色板的末尾。\
+    例如 `stone,dirt` 是一个包含石头和泥土的 2 方块调色板。`stone,##Grayscale` 是一个由石头和 ##Grayscale 预设调色板的方块组成的调色板。
+* **`-`** - <mark style="color:orange;">**反转**</mark>：
+  * 反转调色板的顺序。\
+    例如 `-##Grayscale` 是反向顺序的 ##Grayscale 预设调色板（从白色开始而不是黑色）
+* **`(start:end)`** - <mark style="color:orange;">**子调色板**</mark>：
+  * 返回调色板的一部分。\
+    例如 `##Grayscale(1:8)` 将返回 ##Grayscale 预设调色板的前 8 个方块。
+* **`*`** - <mark style="color:orange;">**重复器**</mark>：
+  * 将前一个片段重复给定次数。\
+    例如 `gold_block*10,diamond_block` 将返回一个包含 10 个金块，后跟一个钻石块的调色板。
+* **`[]`** - <mark style="color:orange;">**分组**</mark>：
+  * 将调色板分组在一起，允许修饰符将它们视为单个调色板。\
+    例如 `-##Grayscale,gold_block` 将返回反向顺序的 ##Grayscale 预设调色板，末尾带有一个金块。而 `-[##Grayscale,gold_block]` 将在开头返回金块。
+* **`=`** - <mark style="color:orange;">**结果**</mark>：
+  * 允许在需要时将调色板自动补全为其方块列表。
 
-### Video Tutorial
+### 视频教程
 
-[MegRae](https://megrae.art/) also made a tutorial for palettes:
+[MegRae](https://megrae.art/) 也制作了一个关于调色板的教程：
 
 {% embed url="https://youtu.be/VGsTle3g9AU" %}

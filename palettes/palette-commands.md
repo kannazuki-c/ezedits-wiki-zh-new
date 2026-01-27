@@ -1,7 +1,7 @@
-# Palette Commands
+# 调色板命令
 
-All sub-commands are under `//ezpalette` (`//ezp`)\
-e.g `//ezpalette list`
+所有子命令都在 `//ezpalette` (`//ezp`) 下\
+例如 `//ezpalette list`
 
 ## `//ezpalette ...`
 
@@ -9,22 +9,22 @@ e.g `//ezpalette list`
 
 <details>
 
-<summary>Fetch Palette</summary>
+<summary>获取调色板</summary>
 
-Saves a user-defined palette with a given name.
+使用给定名称保存用户定义的调色板。
 
-* **Fetch Mode**: From where to fetch the palette blocks:
+* **获取模式**：从何处获取调色板方块：
   * **`WORLD`**
-    * Takes the blocks from the player's position
+    * 从玩家所在位置获取方块
   * **`SELECTION`**
-    * Takes the blocks from the player's selection
-    * Selection must be 1x1xN in size, where N is the desired palette length
+    * 从玩家的选区获取方块
+    * 选区大小必须为 1x1xN，其中 N 是所需的调色板长度
   * **`HOTBAR`**
-    * Takes blocks from the player's hotbar
-    * Ignores items and uses default block properties
-* **Length** (Default: 0): How many block to fecth. A length of 0 (default) will fetch blocks until air is reached.
-* **-d** (Default: me): The direction to fetch in. Defaults to the direction the user is facing.
-* **-f**: When activated, overwrites the existing palette with the same name.
+    * 从玩家的快捷栏获取方块
+    * 忽略物品并使用默认方块属性
+* **长度**（默认：0）：要获取多少个方块。长度为 0（默认）将获取方块直到遇到空气。
+* **-d**（默认：me）：获取的方向。默认为用户面向的方向。
+* **-f**：激活时，覆盖同名的现有调色板。
 
 <img src="../.gitbook/assets/ezp_fetch.gif" alt="" data-size="original">
 
@@ -32,48 +32,48 @@ Saves a user-defined palette with a given name.
 
 ### `save <paletteName> <palette> [-f]`
 
-Saves a user-defined palette with a given name.
+使用给定名称保存用户定义的调色板。
 
-* **-f**: When activated, overwrites the existing palette with the same name.
+* **-f**：激活时，覆盖同名的现有调色板。
 
 ### `delete <paletteName>`
 
-Deletes a user-defined palette matching the given name.
+删除与给定名称匹配的用户定义调色板。
 
 ### `list [SET]`
 
 * `ALL`\
-  Lists all available palettes
+  列出所有可用的调色板
 * `DEFAULT`\
-  Lists all default plugin palettes
+  列出所有默认插件调色板
 * `MINE`\
-  Lists all user-defined palettes
+  列出所有用户定义的调色板
 
 ### `place <palette> [direction]`
 
-Places a palette in the world as a row of blocks in the given direction.\
-Direction defaults to the direction the user is facing.
+在世界中将调色板作为一行方块放置在给定方向上。\
+方向默认为用户面向的方向。
 
 ### `swap <sourcePalette> <targetPalette> [-a] [-f]`
 
-Region operation which swaps the blocks of the source palette with those of the target palette.
+区域操作，将源调色板的方块与目标调色板的方块交换。
 
-* **-a**: Activate to ignore air blocks in source palette.
-* **-s**: Activate to stretch the target palette to match the size of the source palette.
-* **-f**: Enables fuzzy matching mode. Ignoring the block states of the source palette.
-* **-b**: Copies the block states from the source palette blocks onto the target palette.
+* **-a**：激活以忽略源调色板中的空气方块。
+* **-s**：激活以拉伸目标调色板以匹配源调色板的大小。
+* **-f**：启用模糊匹配模式。忽略源调色板的方块状态。
+* **-b**：将方块状态从源调色板方块复制到目标调色板。
 
 ### `print <palette> [-v]`
 
-Prints the blocks of a given palette in chat. Block list can be clicked to copy.
+在聊天中打印给定调色板的方块。方块列表可点击复制。
 
-**-v**: Verbose mode. Will print full block name and block states.
+**-v**：详细模式。将打印完整的方块名称和方块状态。
 
 ### `encode <palette>`
 
-Prints an encoded string representing a given palette. Click the string to copy.\
-&#xNAN;_&#x4F;nly supports vanilla Minecraft blocks._
+打印表示给定调色板的编码字符串。点击字符串以复制。\
+_仅支持原版 Minecraft 方块。_
 
 ### `decode <string>`
 
-Prints the blocks of a given encoded palette string. Block list can be clicked to copy.
+打印给定编码调色板字符串的方块。方块列表可点击复制。

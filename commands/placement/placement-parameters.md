@@ -1,39 +1,40 @@
-# Placement Parameters
+<!-- langmirror:chunk 0 -->
+# 放置参数
 
-Whenever a structure is placed, it goes through the following pipeline (in that order):
+每当放置一个结构时，它都会经过以下流程（按此顺序）：
 
-* [Applying Dimensions](placement-parameters.md#dimensions-s) (`-s`)
-* [Random Scaling](placement-parameters.md#random-scaling-o) (`-t`)
-* [Orientation](placement-parameters.md#orientation-c-k) (`-c` and `-k`)
-* [Random Flips](placement-parameters.md#random-flips-f) (`-f`)
-* [Random 90° Rotations](placement-parameters.md#random-rotations-r) (`-r`)
-* [**Alignment**](primary+secondary-alignment.md) (`<primary>` and `<secondary>`)
+* [应用尺寸](placement-parameters.md#dimensions-s) (`-s`)
+* [随机缩放](placement-parameters.md#random-scaling-o) (`-t`)
+* [取向](placement-parameters.md#orientation-c-k) (`-c` 和 `-k`)
+* [随机镜像](placement-parameters.md#random-flips-f) (`-f`)
+* [随机 90° 旋转](placement-parameters.md#random-rotations-r) (`-r`)
+* [**对齐**](primary+secondary-alignment.md) (`<primary>` 和 `<secondary>`)
 
-ezEdits lets you fully customize this pipeline. In brackets are the flags and arguments that apply changes to each step respectively.
+ezEdits 允许你完全自定义此流程。括号中是分别应用于每个步骤的标志和参数。
 
 ***
 
-### Controlling Dimensions: <mark style="color:orange;">`-s <dimensions>`</mark> <a href="#dimensions-s" id="dimensions-s"></a>
+### 控制尺寸：<mark style="color:orange;">`-s <dimensions>`</mark> <a href="#dimensions-s" id="dimensions-s"></a>
 
-The dimensions define the size of a structure placement, by setting its bounding box size.
+尺寸通过设置结构的包围盒大小来定义其放置规模。
 
-The flag `-s <dimensions>` sets the desired absolute base dimensions of the placement (overriding the default values).
+标志 `-s <dimensions>` 用于设置放置时所需的绝对基础尺寸（覆盖默认值）。
 
-By default, expression-based structures have dimensions `20,20,20`, while Schematic/Clipboard structures are placed with their inherent original dimensions.
+默认情况下，基于表达式的结构尺寸为 `20,20,20`，而 Schematic/剪贴板结构则按其原始固有尺寸放置。
 
 {% hint style="info" %}
-The structure might appear **stretched** or **compressed** depending on your choice of values.
+根据你选择的数值，结构可能会出现**拉伸**或**压缩**。
 {% endhint %}
 
 <details>
 
-<summary><mark style="color:blue;">Example</mark></summary>
+<summary><mark style="color:blue;">示例</mark></summary>
 
-For example, if your clipboard is inherently of size 5x7x5, then setting the dimensions as `-s 5,14,5` will stretch out the structure placement along its y-axis:
+例如，如果你的剪贴板固有尺寸为 5x7x5，那么将尺寸设置为 `-s 5,14,5` 将会使放置的结构沿 Y 轴拉伸：
 
-First image: `//ezsc Clipboard -s 5,7,5` (original clipboard size)
+第一张图：`//ezsc Clipboard -s 5,7,5`（原始剪贴板尺寸）
 
-Second image: `//ezsc Clipboard -s 5,14,5`
+第二张图：`//ezsc Clipboard -s 5,14,5`
 
 <img src="../../.gitbook/assets/PlacementDimensions_example1.png" alt="" data-size="original"> <img src="../../.gitbook/assets/PlacementDimensions_example2.png" alt="" data-size="original">
 
@@ -41,37 +42,38 @@ Second image: `//ezsc Clipboard -s 5,14,5`
 
 ***
 
-### Random Scaling: <mark style="color:orange;">`-o <sizeMultiplierRange>`</mark> <a href="#random-scaling-o" id="random-scaling-o"></a>
+### 随机缩放：<mark style="color:orange;">`-o <sizeMultiplierRange>`</mark> <a href="#random-scaling-o" id="random-scaling-o"></a>
 
-Most of the structure commands place multiple structure placements at once. To give a bit of variety you can apply some random scaling for each placement.
+<!-- langmirror:chunk 1 -->
+大多数结构命令会一次性放置多个结构。为了增加多样性，你可以为每次放置应用随机缩放。
 
-The `-o <sizeMultiplierRange>` applies random scaling for each placement. You specify a range of values. A random number from this range is chosen as the scaling factor for each placement.
+`-o <sizeMultiplierRange>` 标志用于为每次放置应用随机缩放。你需要指定一个数值范围，系统会从中随机选择一个数字作为每次放置的缩放系数。
 
-By default, the range is `1,1`, meaning the scaling factor is always 1, and thus, does nothing.
+默认情况下，范围是 `1,1`，这意味着缩放系数始终为 1，即不产生任何效果。
 
 <details>
 
-<summary><mark style="color:blue;">Example</mark></summary>
+<summary><mark style="color:blue;">示例</mark></summary>
 
-By setting the range as `-o 0.5,2.0` we get placements of e.g. our clipboard at random sizes between half the desired size and double the desired size,
+通过将范围设置为 `-o 0.5,2.0`，我们可以让剪贴板的放置大小在目标尺寸的一半到两倍之间随机变化。
 
 `//ezsc Clipboard -o 0.5,2.0`
 
 <img src="../../.gitbook/assets/PlacementRandomScaling_example.png" alt="" data-size="original">
 
-(Same tree clipboard at various different sizes)
+（同一树木剪贴板以各种不同尺寸呈现）
 
 </details>
 
 ***
 
-### Random Flips: <mark style="color:orange;">`-f <randomFlipsAxes>`</mark> <a href="#random-flips-f" id="random-flips-f"></a>
+### 随机镜像：<mark style="color:orange;">`-f <randomFlipsAxes>`</mark> <a href="#random-flips-f" id="random-flips-f"></a>
 
-The `-f <randomFlipsAxes>` flag enables random flipping of the structure across any of the axes for each placement.
+`-f <randomFlipsAxes>` 标志允许在每次放置时沿任意轴对结构进行随机镜像。
 
-Available values are:
+可用值为：
 
-* None (default)
+* None（默认）
 * X
 * Y
 * Z
@@ -80,15 +82,15 @@ Available values are:
 * YZ
 * XYZ
 
-Flips are applied after orientation but before alignment.
+镜像处理在定向（orientation）之后、对齐（alignment）之前应用。
 
 <details>
 
-<summary><mark style="color:blue;">Example</mark></summary>
+<summary><mark style="color:blue;">示例</mark></summary>
 
-First Image: `//ezsc Clipboard` (no random flips)
+第一张图：`//ezsc Clipboard`（无随机镜像）
 
-Second Image: `//ezsc Clipboard -f XZ` (random mirrors along x- and z-axis, but not y)
+第二张图：`//ezsc Clipboard -f XZ`（沿 X 轴和 Z 轴随机镜像，但不包含 Y 轴）
 
 <img src="../../.gitbook/assets/PlacementRandomFlips_example1.png" alt="" data-size="original"> <img src="../../.gitbook/assets/PlacementRandomFlips_example2.png" alt="" data-size="original">
 
@@ -96,27 +98,28 @@ Second Image: `//ezsc Clipboard -f XZ` (random mirrors along x- and z-axis, but 
 
 ***
 
-### Random 90°-Rotations: <mark style="color:orange;">`-r <randomRotationAxis>`</mark> <a href="#random-rotations-r" id="random-rotations-r"></a>
+### 随机 90° 旋转：<mark style="color:orange;">`-r <randomRotationAxis>`</mark> <a href="#random-rotations-r" id="random-rotations-r"></a>
 
-The `-r <randomRotationAxis>` flag enables random 90° rotation of the structure across either of the axes for each placement.
+`-r <randomRotationAxis>` 标志允许在每次放置时沿任一轴对结构进行随机 90° 旋转。
 
-Available values are:
+可用值为：
 
+<!-- langmirror:chunk 2 -->
 * X
 * Y
 * Z
 
-By default, this parameter is not set to anything, i.e. random rotations are disabled.
+默认情况下，此参数未设置任何内容，即禁用随机旋转。
 
-90°-rotations are applied after orientation but before alignment.
+90° 旋转在朝向（orientation）之后但在对齐（alignment）之前应用。
 
 <details>
 
-<summary><mark style="color:blue;">Example</mark></summary>
+<summary><mark style="color:blue;">示例</mark></summary>
 
-First Image: `//ezsc Clipboard` (no random rotations)
+第一张图：`//ezsc Clipboard`（无随机旋转）
 
-Second Image: `//ezsc Clipboard -r Y` (random 90°-rotations around the y-axis)
+第二张图：`//ezsc Clipboard -r Y`（绕 Y 轴随机 90° 旋转）
 
 <img src="../../.gitbook/assets/PlacementRandomRotations_example1.png" alt="" data-size="original"> <img src="../../.gitbook/assets/PlacementRandomRotations_example2.png" alt="" data-size="original">
 
@@ -124,22 +127,22 @@ Second Image: `//ezsc Clipboard -r Y` (random 90°-rotations around the y-axis)
 
 ***
 
-### Orientation (advanced): <mark style="color:orange;">`-k <orientationAxis>`</mark> and <mark style="color:orange;">`-c <orientationAngle>`</mark> <a href="#orientation-c-k" id="orientation-c-k"></a>
+### 朝向 (进阶): <mark style="color:orange;">`-k <orientationAxis>`</mark> 和 <mark style="color:orange;">`-c <orientationAngle>`</mark> <a href="#orientation-c-k" id="orientation-c-k"></a>
 
-Setting an orientation means defining which internal coordinate system the structure has. That coordinate system is then used in the random flips/rotations and during alignment. _Defining an orientation is "defining which way is up and which way is forward"_
+设置朝向意味着定义结构所拥有的内部坐标系。该坐标系随后将用于随机镜像/旋转以及对齐过程中。_定义朝向即是“定义哪边是上，哪边是前”_。
 
-Orientation is set by a rotation axis (`-k <direction>`) and a rotation angle (`-c <angle>`). _The rotation works identically to `//ezd rotate`_
+朝向通过旋转轴（`-k <direction>`）和旋转角度（`-c <angle>`）来设置。_其旋转方式与 `//ezd rotate` 完全一致_。
 
-By default, the rotation axis `-k` is `y` or `up` and the rotation angle `-c` is `0`, which means no rotation.
+默认情况下，旋转轴 `-k` 为 `y` 或 `up`，旋转角度 `-c` 为 `0`，这表示不进行旋转。
 
-For example, if you set the rotation axis to `-k x` and the rotation angle to `-c 90` then your structure is rotated to the side. Its eastern side will now be the "up-direction" and so on.
+例如，如果你将旋转轴设置为 `-k x` 且旋转角度设置为 `-c 90`，那么你的结构将向侧面旋转。它的东面现在将成为“向上方向”，以此类推。
 
 ***
 
-### Place Air: <mark style="color:orange;">`-a`</mark> <a href="#place-air-a" id="place-air-a"></a>
+### 放置空气: <mark style="color:orange;">`-a`</mark> <a href="#place-air-a" id="place-air-a"></a>
 
-By default, if this flag _is not_ set, air blocks are skipped when placing a structure. When this flag _is_ set, air blocks within the structure are able to override existing blocks.
+默认情况下，如果*没有*设置此标志，放置结构时会跳过空气方块。当设置了此标志时，结构内的空气方块将能够覆盖现有方块。
 
 {% hint style="info" %}
-This behaviour is opposite to `//paste`'s `-a` flag. It may be confusing, but we think it's more convenient for our commands.
+此行为与 `//paste` 的 `-a` 标志相反。这可能会引起混淆，但我们认为这对于我们的命令来说更方便。
 {% endhint %}

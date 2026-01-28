@@ -1,119 +1,122 @@
-# Array Parameters
+<!-- langmirror:chunk 0 -->
+# 阵列参数
 
-`//ezarray` and `//ezbrush array` place multiple shapes along a path. The following parameters apply to these commands:
+`//ezarray` 和 `//ezbrush array` 沿着路径放置多个形状。以下参数适用于这些命令：
 
 ***
 
-### Distance: <mark style="color:orange;">`-g <gap>`</mark>
+### 间距：<mark style="color:orange;">`-g <gap>`</mark>
 
-Control how close all placements are by defining the gap distance between each placement.
+通过定义每次放置之间的间隔距离来控制所有放置点的紧密程度。
 
-Defaults to `0`. Meaning, in a straight line each placement comes right after another with no gap.
+默认为 `0`。这意味着，在直线上每次放置都会紧接着上一次，没有间隙。
 
-Positive values will increase that distance and place fewer structures in total.
+正值将增加该距离并减少总放置结构的数量。
 
-Negative values cause the placements to overlap.
+负值会导致放置重叠。
 
-> **Examples**
+> **示例**
 >
-> Ex. command: `//ezarray Clipboard `**`-g <gap>`** (with the clipboard being a default vanilla oak tree for no particular reason)
+> 示例命令：`//ezarray Clipboard `**`-g <gap>`**（此处剪贴板中是一个默认的的原版橡树，仅作示例）
 >
-> `//ezar Cl `**`-g 0`** : (default value, placements are right next to each other)
+> `//ezar Cl `**`-g 0`**：（默认值，放置点彼此紧邻）
 >
 > <img src="../../.gitbook/assets/ArrayGap_example1.png" alt="" data-size="original">
 >
-> `//ezar Cl `**`-g 10`** : (placements are now further apart)
+> `//ezar Cl `**`-g 10`**：（放置点现在相隔更远）
 >
 > <img src="../../.gitbook/assets/ArrayGap_example2.png" alt="" data-size="original">
 >
-> `//ezar Cl `**`-g -3`** (negative values cause placements to overlap)
+> `//ezar Cl `**`-g -3`**：（负值导致放置点重叠）
 >
 > <img src="../../.gitbook/assets/ArrayGap_example3.png" alt="" data-size="original">
 
 ***
 
-### Progressive Scaling: <mark style="color:orange;">`-q <radii>`</mark>
+### 渐变缩放：<mark style="color:orange;">`-q <radii>`</mark>
 
-Similar to Random Scaling, this modifier allows scaling of the placements using relative values, e.g. 1 keeps the scale as is, 2 means doubling the size, and 0.5 halfs the size.
+类似于随机缩放，此修饰符允许使用相对值对放置物进行缩放，例如：1 保持原比例，2 表示尺寸翻倍，0.5 表示尺寸减半。
 
-The scaling factors are defined as a progression along the spline. Meaning you may specify as many comma-separated scaling factors as you like, and the spline path will smoothly interpolate through all entries.
+缩放因子被定义为沿样条曲线的进度。这意味着你可以根据需要指定任意数量的逗号分隔缩放因子，样条路径将在所有条目之间进行平滑插值。
 
-Advanced Tip: You may prepend each entry with a position between 0 and 1 to specify at what part of the spline a radius should be reached. `-q 0:1,0.8:3,1:1` means start and end with radius 1 (`0:1` & `1:1`), but "keyframe" a radius of 3 at 80% of the spline path (`0.8:3`). (If no positions are given then equally distant positions are chosen.)
+<!-- langmirror:chunk 1 -->
+高级技巧：你可以在每个条目前加上 0 到 1 之间的位置数值，以指定在样条曲线的哪个部分达到特定的半径。`-q 0:1,0.8:3,1:1` 表示起始和结束时的半径为 1（`0:1` 和 `1:1`），但在样条路径 80% 处（`0.8:3`）“关键帧”半径为 3。（如果未指定位置，则会选择等距位置。）
 
-> **Examples**
+> **示例**
 >
-> Ex. command: `//ezarray Clipboard `**`-q <radii>`**
+> 示例命令：`//ezarray Clipboard `**`-q <radii>`**
 >
 > `//ezar Cl `**`-q 1`**
 >
-> (default value, no scaling applied)
+> （默认值，不进行缩放）
 >
 > <img src="../../.gitbook/assets/ArrayGap_example1.png" alt="" data-size="original">
 >
 > `//ezar Cl `**`-q 0.3,3`**
 >
-> (placements are down-scaled by a factor of 0.3 at the beginning of the path and slowly get bigger up to triple their original size towards the end of the spline path)
+> （放置物在路径开始时被缩小到 0.3 倍，并随着样条路径向终点延伸逐渐变大，直到原始尺寸的三倍）
 >
 > <img src="../../.gitbook/assets/ArrayScaling_example2.png" alt="" data-size="original">
 >
 > `//ezar Cl `**`-q 1.5,0.5,5.0,2.0,0.2`**
 >
-> (Tree is being scaled progressively through all given values throughout the spline path)
+> （树在整个样条路径中按照给定的数值进行渐进式缩放）
 >
 > <img src="../../.gitbook/assets/ArrayScaling_example3.png" alt="" data-size="original">
 >
 > `//ezar Cl `**`-q 1.5,0.5,5.0,2.0,0.2 -o 0.7,1.3`**
 >
-> (Combining progressive scaling -q with [random scaling](placement-parameters.md#random-scaling-o-less-than-sizemultiplierrange-greater-than) -o)
+> （结合使用渐进式缩放 -q 与 [随机缩放](placement-parameters.md#random-scaling-o-less-than-sizemultiplierrange-greater-than) -o）
 >
 > <img src="../../.gitbook/assets/ArrayScaling_example4.png" alt="" data-size="original">
 
 ***
 
-### Path Parameters: <mark style="color:orange;">`-p <kbParameters>`</mark>
+### 路径参数：<mark style="color:orange;">`-p <kbParameters>`</mark>
 
-Modifies how the path is created from the input (convex selection) points. See [#kochanek-bartel-parameters-p-less-than-kbparameters-greater-than](../spline/common-parameters.md#kochanek-bartel-parameters-p-less-than-kbparameters-greater-than "mention")
+<!-- langmirror:chunk 2 -->
+修改从输入（凸选区）点创建路径的方式。参见 [#kochanek-bartel-parameters-p-less-than-kbparameters-greater-than](../spline/common-parameters.md#kochanek-bartel-parameters-p-less-than-kbparameters-greater-than "mention")
 
 ***
 
-### Spline orientation: <mark style="color:orange;">`-n <normalMode>`</mark>
+### 样条线朝向：<mark style="color:orange;">`-n <normalMode>`</mark>
 
-Modifies how the ORTHOGONAL option for the `<primary>` and `<secondary>` arguments behave. See [#spline-normal-mode-n-less-than-normalmode-greater-than](../spline/common-parameters.md#spline-normal-mode-n-less-than-normalmode-greater-than "mention")
+修改 `<primary>` 和 `<secondary>` 参数中 ORTHOGONAL（正交）选项的行为方式。参见 [#spline-normal-mode-n-less-than-normalmode-greater-than](../spline/common-parameters.md#spline-normal-mode-n-less-than-normalmode-greater-than "mention")
 
-> **Examples**
+> **示例**
 >
-> Ex. command: `//ezarray Clipboard Orthogonal Constant`**`-n <normalMode>`**
+> 示例命令：`//ezarray Clipboard Orthogonal Constant`**`-n <normalMode>`**
 >
 > `//ezar Cl O C `**`-n CONSISTENT`**
 >
-> (default value)
+> （默认值）
 >
 > <img src="../../.gitbook/assets/OrthogonalAlignment_example1.png" alt="" data-size="original">
 >
 > `//ezar Cl O C `**`-n UPRIGHT`**
 >
-> (placements are not as tilted anymore)
+> （放置点不再那么倾斜）
 >
 > <img src="../../.gitbook/assets/OrthogonalAlignment_example2.png" alt="" data-size="original">
 
 ***
 
-### Snap placements to surfaces: <mark style="color:orange;">`-b`</mark>
+### 将放置点吸附至表面：<mark style="color:orange;">`-b`</mark>
 
-By default, structures are placed along the spline path that's induced by the input (convex selection) points. This flag moves the placement positions to the nearest surface block instead, in case the position on the path is in midair or submerged in blocks.
+默认情况下，结构是沿着由输入（凸选区）点引导的样条线路径放置的。此标志会将放置位置移动到最近的表面方块上，以防路径上的位置处于半空中或埋在方块内。
 
-> **Example**
+> **示例**
 >
-> GIF comparing
+> GIF 对比
 >
-> `//ezarray Clipboard` (placements are placed along path)
+> `//ezarray Clipboard`（沿路径放置）
 >
-> `//ezarray Clipboard `**`-b`** (placements positions moved to nearest surface block)
+> `//ezarray Clipboard `**`-b`**（放置位置移至最近的表面方块）
 >
 > <img src="../../.gitbook/assets/ezgif.com-animated-gif-maker.gif" alt="" data-size="original">
 
 {% hint style="info" %}
-By default the maximum search range is 96 blocks. The maximum search range can be set in the config. If no surface block is found within that range, the original position will be used instead.
+默认最大搜索范围为 96 个方块。最大搜索范围可以在配置文件中设置。如果在该范围内未找到表面方块，则将使用原始位置。
 {% endhint %}
 
 ***

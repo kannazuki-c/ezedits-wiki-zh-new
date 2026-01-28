@@ -1,6 +1,7 @@
-# Palette Gradient Brushes
+<!-- langmirror:chunk 0 -->
+# 调色盘渐变笔刷 (Palette Gradient Brushes)
 
-The following commands feature brushes for creating gradients.
+以下命令包含用于创建渐变的笔刷。
 
 ***
 
@@ -8,28 +9,29 @@ The following commands feature brushes for creating gradients.
 
 <details>
 
-<summary><mark style="color:blue;">Gradient Brush</mark></summary>
+<summary><mark style="color:blue;">渐变笔刷 (Gradient Brush)</mark></summary>
 
 **`//ezbr gradient`` `**<mark style="color:orange;">**`<palette> [radius] [interpolation] [bleed] [-avw] [-n <noise>] [-z <scale>] [-d <distanceFunction>]`**</mark>
 
-The `gradient` brush allows you to first define a plane by selecting 2 points, you can then paint with your gradient with blocks chosen based on distance along this plane.
+`gradient` 笔刷允许你先通过选择 2 个点来定义一个平面，然后你就可以使用渐变进行涂刷，方块将根据沿该平面的距离进行选择。
 
-<mark style="color:blue;">**Left Click**</mark>**&#x20;to start a plane at your target block**\
-<mark style="color:blue;">**Sneak + Left Click**</mark>**&#x20;to start a plane at the player position**\
-<mark style="color:blue;">**Right Click**</mark>**&#x20;to set the end of the plane at your target block OR paint palette blocks if the plane is set**\
-<mark style="color:blue;">**Sneak + Right Click**</mark>**&#x20;to set the end of the plane at the player position OR paint palette blocks if the plane is set**\
-<mark style="color:blue;">**Swap Hands**</mark>**&#x20;(Default F key) to toggle between GLOBAL and PER\_ITEM active gradients**
+<mark style="color:blue;">**左键点击**</mark>**&#x20;在目标方块处开始定义平面**\
+<mark style="color:blue;">**潜行 + 左键点击**</mark>**&#x20;在玩家位置处开始定义平面**\
+<mark style="color:blue;">**右键点击**</mark>**&#x20;在目标方块处设置平面终点，如果平面已设置，则涂刷调色盘方块**\
+<mark style="color:blue;">**潜行 + 右键点击**</mark>**&#x20;在玩家位置处设置平面终点，如果平面已设置，则涂刷调色盘方块**\
+<mark style="color:blue;">**切手**</mark>**&#x20;（默认 F 键）在全局 (GLOBAL) 和单物品 (PER\_ITEM) 激活渐变之间切换**
 
-* <mark style="color:orange;">**Palette**</mark>: Specifies the palette to use for the gradient.
-* <mark style="color:orange;">**Radius**</mark> (Default: 8): Sets the radius of the brush.
-* <mark style="color:orange;">**Interpolation**</mark> (Default: NONE): Determines the type of interpolation used in the gradient transition.
-* <mark style="color:orange;">**Bleed**</mark> (Default: 0.5): Adjusts the strength of interpolation, with a normal range from 0 to 1.
-* <mark style="color:orange;">**`-a`**</mark>: When activated, the gradient is allowed to replace air blocks.
-* <mark style="color:orange;">**`-v`**</mark>: Deactivates WorldEditCUI integration.
-* <mark style="color:orange;">`-w`</mark>: Try to texture shaping blocks (slabs, stairs, etc.) with the closest existing material.
-* <mark style="color:orange;">**`-n <noise>`**</mark> (Default: `White()`): Adds an underlying noise field to the gradient effect.
-* <mark style="color:orange;">**`-z <scale>`**</mark> (Default: 1): Modifies the scale of the noise.
-* <mark style="color:orange;">**`-d <distanceFunction>`**</mark> (Default: NONE): Sets the distance mode changing the brush to work based on distance from the initial block with the given distance function.
+<!-- langmirror:chunk 1 -->
+* <mark style="color:orange;">**Palette**</mark>: 指定用于渐变的调色板。
+* <mark style="color:orange;">**Radius**</mark> (默认值: 8): 设置刷子的半径。
+* <mark style="color:orange;">**Interpolation**</mark> (默认值: NONE): 确定渐变过渡中使用的插值类型。
+* <mark style="color:orange;">**Bleed**</mark> (默认值: 0.5): 调整插值强度，正常范围为 0 到 1。
+* <mark style="color:orange;">**`-a`**</mark>: 激活后，渐变允许替换空气方块。
+* <mark style="color:orange;">**`-v`**</mark>: 停用 WorldEditCUI 集成。
+* <mark style="color:orange;">`-w`</mark>: 尝试使用最接近的现有材料为形状方块（台阶、楼梯等）设置纹理。
+* <mark style="color:orange;">**`-n <noise>`**</mark> (默认值: `White()`): 为渐变效果添加基础噪声场。
+* <mark style="color:orange;">**`-z <scale>`**</mark> (默认值: 1): 修改噪声的缩放比例。
+* <mark style="color:orange;">**`-d <distanceFunction>`**</mark> (默认值: NONE): 设置距离模式，使刷子基于与初始方块的距离以及给定的距离函数进行工作。
 
 </details>
 
@@ -39,53 +41,56 @@ The `gradient` brush allows you to first define a plane by selecting 2 points, y
 
 <details>
 
-<summary><mark style="color:blue;">Gradient Stroke Brush</mark></summary>
+<summary><mark style="color:blue;">渐变笔触刷子 (Gradient Stroke Brush)</mark></summary>
 
 **`//ezbr gradientstroke`` `**<mark style="color:orange;">**`<palette> [radius] [interpolation] [bleed] [-advwx] [-n <noise>] [-z <scale>]`**</mark>
 
-The `gradientstroke` brush allows for gradient application along a path (stroke) defined by selecting points.
+`gradientstroke` 刷子允许沿着通过选择点定义的路径（笔触）应用渐变。
 
-<mark style="color:blue;">**Left Click**</mark>**&#x20;to add points**\
-<mark style="color:blue;">**Sneak + Left Click**</mark>**&#x20;to remove the last point**\
-<mark style="color:blue;">**Right Click**</mark>**&#x20;to confirm & place the gradient stroke**\
-<mark style="color:blue;">**Sneak + Right Click**</mark>**&#x20;to clear all points**\
-<mark style="color:blue;">**Swap Hands**</mark>**&#x20;(Default F key) to toggle between GLOBAL and PER\_ITEM active gradients**
+<!-- langmirror:chunk 2 -->
+<mark style="color:blue;">**左键点击**</mark>**&#x20;以添加点**\
+<mark style="color:blue;">**潜行 + 左键点击**</mark>**&#x20;以移除最后一个点**\
+<mark style="color:blue;">**右键点击**</mark>**&#x20;以确认并放置渐变描边**\
+<mark style="color:blue;">**潜行 + 右键点击**</mark>**&#x20;以清除所有点**\
+<mark style="color:blue;">**切换副手**</mark>**&#x20;（默认 F 键）以在 GLOBAL（全局）和 PER\_ITEM（单物品）激活渐变之间切换**
 
-* <mark style="color:orange;">**Palette**</mark>: Specifies the block pattern for the gradient.
-* <mark style="color:orange;">**Radius**</mark> (Default: 8): Sets the radius of the brush.
-* <mark style="color:orange;">**Interpolation**</mark> (Default: LINEAR): Determines the type of interpolation used in the gradient transition.
-* <mark style="color:orange;">**Bleed**</mark> (Default: 0.5): Adjusts the strength of interpolation, with a normal range from 0 to 1.
-* <mark style="color:orange;">**`-a`**</mark>: When activated, allows the gradient to replace air blocks.
-* <mark style="color:orange;">**`-d`**</mark>: Activates the 'distance to center' mode which applies the gradient based on distance to the middle of the stroke line instead of distance along the stroke.
-* <mark style="color:orange;">**`-v`**</mark>: Deactivates WorldEditCUI integration.
-* <mark style="color:orange;">`-w`</mark>: Try to texture shaping blocks (slabs, stairs, etc.) with the closest existing material.
-* <mark style="color:orange;">**`-x`**</mark>: Clears the brush's path after every placed stroke.
-* <mark style="color:orange;">**`-n <noise>`**</mark> (Default: `White()`): Adds an underlying noise field to the gradient effect.
-* <mark style="color:orange;">**`-z <scale>`**</mark> (Default: 1): Modifies the scale of the noise.
+<!-- langmirror:chunk 3 -->
+* <mark style="color:orange;">**Palette**</mark>: 指定渐变的方块调色盘。
+* <mark style="color:orange;">**Radius**</mark> (默认: 8): 设置笔刷的半径。
+* <mark style="color:orange;">**Interpolation**</mark> (默认: LINEAR): 确定渐变过渡中使用的插值类型。
+* <mark style="color:orange;">**Bleed**</mark> (默认: 0.5): 调整插值的强度，正常范围为 0 到 1。
+* <mark style="color:orange;">**`-a`**</mark>: 激活后，允许渐变替换空气方块。
+* <mark style="color:orange;">**`-d`**</mark>: 激活“到中心的距离”模式，该模式根据到笔画中心线的距离（而非沿笔画的距离）应用渐变。
+* <mark style="color:orange;">**`-v`**</mark>: 禁用 WorldEditCUI 集成。
+* <mark style="color:orange;">`-w`</mark>: 尝试使用最接近的现有材料为形状方块（台阶、楼梯等）设置纹理。
+* <mark style="color:orange;">**`-x`**</mark>: 在每次笔画放置后清除笔刷的路径。
+* <mark style="color:orange;">**`-n <noise>`**</mark> (默认: `White()`): 为渐变效果添加基础噪声场。
+* <mark style="color:orange;">**`-z <scale>`**</mark> (默认: 1): 修改噪声的缩放比例。
 
 </details>
 
 ***
 
-## Gradient Parameters
+## 渐变参数
 
-There are a few parameters to creating a gradient worth explaining.
+有几个创建渐变的参数值得详细说明。
 
-### Bleed
+### 溢色 (Bleed)
 
-First off, the <mark style="color:orange;">**`bleed`**</mark> parameter.
+首先是 <mark style="color:orange;">**`bleed`**</mark> 参数。
 
 ![](../../.gitbook/assets/GradientInterpolationTapered2.gif)
 
-The bleed parameter determines how much the colors bleed into each other.
+溢色参数决定了颜色之间相互渗透的程度。
 
-### Noise
+### 噪声 (Noise)
 
-The pattern of how this bleeding takes place can be determined by <mark style="color:orange;">**`noise`**</mark>. The GIF above was using White noise (`-n White`), while the following GIFs use Perlin noise (`-n Perlin(Freq:0.25)`)
+<!-- langmirror:chunk 4 -->
+这种混合发生的模式可以由 <mark style="color:orange;">**`noise`**</mark> 决定。上方的 GIF 使用的是白噪声 (`-n White`)，而下方的 GIF 使用的是柏林噪声 (`-n Perlin(Freq:0.25)`)。
 
 ![](../../.gitbook/assets/GradientInterpolationTapered.gif)
 
-#### You can also put in any noise. Here are a few more examples:
+#### 你也可以输入任何噪声。以下是更多示例：
 
 **`-n Perlin(Freq:0.25)`**
 
@@ -103,36 +108,36 @@ The pattern of how this bleeding takes place can be determined by <mark style="c
 
 ![](../../.gitbook/assets/GradientInterpolationNoise_example4.png)
 
-### Interpolation Mode
+### 插值模式 (Interpolation Mode)
 
-In the following, we compare the five different <mark style="color:orange;">**`interpolation modes`**</mark> of applying the noise to the gradient. The GIFs go through increasing and decreasing bleed values between 0 and 1.
+在下文中，我们对比了将噪声应用于渐变的五种不同 <mark style="color:orange;">**`interpolation modes`**</mark>。这些 GIF 展示了在 0 到 1 之间递增和递减的混合值 (bleed values)。
 
-_The blue square's top and bottom show where the gradient starts and ends_
+_蓝色方块的顶部和底部显示了渐变开始和结束的位置_
 
-#### NONE
+#### NONE（无）
 
-No interpolation is applied.
+不应用任何插值。
 
 ![](../../.gitbook/assets/GradientInterpolationNone.png)
 
-#### LINEAR
+#### LINEAR（线性）
 
-The noise is applied with a constant factor throughout the entire gradient. Because of that, the gradient is "clipping" outside our two selected positions.
+在整个渐变过程中以恒定因子应用噪声。正因如此，渐变会在选定的两个位置之外产生“截断”。
 
 ![](../../.gitbook/assets/GradientInterpolationLinear.gif)
 
-#### TAPERED
+#### TAPERED（渐变收缩）
 
-Applies the noise strongest in the middle of the gradient and tapers off towards the start and end to avoid "clipping" outside of the given positions.
+在渐变中间应用最强的噪声，并向开始和结束位置逐渐变弱，以避免在给定位置之外产生“截断”。
 
 ![](../../.gitbook/assets/GradientInterpolationTapered.gif)
 
-#### BEZIER
+#### BEZIER（贝塞尔）
 
-Uses Bezier interpolation to apply the noise more softly and smoothly. Breaks for a bleed value of >1.
+使用贝塞尔插值以更柔和、更平滑地应用噪声。当混合值 (bleed value) >1 时会失效。
 
 ![](../../.gitbook/assets/GradientInterpolationBezier.gif)
 
-#### SIN
+#### SIN（正弦）
 
 ![](../../.gitbook/assets/GradientInterpolationSin.gif)

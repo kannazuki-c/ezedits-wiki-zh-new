@@ -1,3 +1,4 @@
-# Structure Brushes
+<!-- langmirror:chunk 0 -->
+# 结构笔刷
 
-See [structures](../../commands/structures/ "mention")
+查看 [结构](../../commands/structures/ "mention")

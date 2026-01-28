@@ -1,3 +1,4 @@
-# Structure Brushes
+<!-- langmirror:chunk 0 -->
+# 结构笔刷
 
-See [placement](../../commands/placement/ "mention")
+查看 [放置方式](../../commands/placement/ "mention")

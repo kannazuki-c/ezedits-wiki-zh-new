@@ -1,13 +1,14 @@
-# Deformation
+<!-- langmirror:chunk 0 -->
+# 变形 (Deformation)
 
-Deformation commands deform the contents of the given region into new shapes and forms.
+变形命令可将给定区域的内容变形为新的形状和形态。
 
-All sub-commands are under `//ezdeform` (`//ezd`)\
-e.g `//ezdeform hexagonalize`
+所有子命令均位于 `//ezdeform` (`//ezd`) 之下\
+例如 `//ezdeform hexagonalize`
 
 ***
 
-## List of subcommands
+## 子命令列表
 
 ***
 
@@ -17,33 +18,34 @@ e.g `//ezdeform hexagonalize`
 
 <details>
 
-<summary><mark style="color:blue;">Hexagonalize</mark></summary>
+<summary><mark style="color:blue;">六角形化 (Hexagonalize)</mark></summary>
 
 **`//ezdeform hexagonalize [`**<mark style="color:orange;">**`size`**</mark>**`] [`**<mark style="color:orange;">**`air_gap`**</mark>**`] [`**<mark style="color:orange;">**`x_rotation`**</mark>**`] [`**<mark style="color:orange;">**`z_rotation`**</mark>**`] [`**<mark style="color:orange;">**`offset_angle`**</mark>**`] [`**<mark style="color:orange;">**`-w <profile>`**</mark>**`]`**
 
-Deforms the region into hexagonal columns.
+将区域变形为六角柱。
 
-* <mark style="color:orange;">**Size**</mark> (Default: 12): Sets the size of hexagons.
+* <mark style="color:orange;">**Size**</mark> (默认值: 12): 设置六角形的大小。
 
 ![](../../.gitbook/assets/ezdeform_hexagonalize_size.gif)
 
-* <mark style="color:orange;">**Air Gap**</mark> (Default: 0.0): Defines the width of the air gap between columns.
+* <mark style="color:orange;">**Air Gap**</mark> (默认值: 0.0): 定义柱体之间的空气间隙宽度。
 
 ![](../../.gitbook/assets/ezdeform_hexagonalize_airgap.gif)
 
-* <mark style="color:orange;">**X Rotation**</mark> (Default: 0.0): Sets the column rotation angle along the X-axis, in degrees.
+* <mark style="color:orange;">**X Rotation**</mark> (默认值: 0.0): 设置沿 X 轴的柱体旋转角度，单位为度。
 
 ![](../../.gitbook/assets/ezdeform_hexagonalize_xrot.gif)
 
-* <mark style="color:orange;">**Z Rotation**</mark> (Default: 0.0): Sets the column rotation angle along the Z-axis, in degrees.
+* <mark style="color:orange;">**Z Rotation**</mark> (默认值: 0.0): 设置沿 Z 轴的柱体旋转角度，单位为度。
 
 ![](../../.gitbook/assets/ezdeform_hexagonalize_zrot.gif)
 
-* <mark style="color:orange;">**Offset Angle**</mark> (Default: 60.0): Adjusts the offset angle, controlling the shape (range: 0-90 degrees).
+<!-- langmirror:chunk 1 -->
+* <mark style="color:orange;">**Offset Angle**</mark> (默认值: 60.0): 调整偏移角度，控制形状（范围：0-90 度）。
 
 ![](../../.gitbook/assets/ezdeform_hexagonalize_shape.gif)
 
-* <mark style="color:orange;">**-w**</mark>: See [Smoothblocks](../../smoothblocks/smoothblocks.md).
+* <mark style="color:orange;">**-w**</mark>: 参见 [Smoothblocks](../../smoothblocks/smoothblocks.md)。
 
 </details>
 
@@ -59,28 +61,29 @@ Deforms the region into hexagonal columns.
 
 **`//ezdeform noise <`**<mark style="color:orange;">**`noise`**</mark>**`> [`**<mark style="color:orange;">**`strength`**</mark>**`] [`**<mark style="color:orange;">**`-z <zoom>`**</mark>**`] [`**<mark style="color:orange;">**`-s <seed>`**</mark>**`] [`**<mark style="color:orange;">**`-w <profile>`**</mark>**`]`**
 
-Deforms region according the given noise field.
+根据给定的噪声场变形区域。
 
-* <mark style="color:orange;">**Noise**</mark>: Specifies the type of noise to use for deformation.
+* <mark style="color:orange;">**Noise**</mark>: 指定用于变形的噪声类型。
 
-- <mark style="color:orange;">**Strength**</mark> (Default: 2.0): Sets the strength of the noise effect.
+- <mark style="color:orange;">**Strength**</mark> (默认值: 2.0): 设置噪声效果的强度。
 
 ![](../../.gitbook/assets/ezdeform_noise_strength.gif)
 
-* <mark style="color:orange;">**Zoom**</mark> (Default: 1): Determines the scale of the noise.
+* <mark style="color:orange;">**Zoom**</mark> (默认值: 1): 决定噪声的缩放比例。
 
 ![](../../.gitbook/assets/ezdeform_noise_frequency.gif)
 
-* <mark style="color:orange;">**-s \<seed>**</mark> (Default: -1): Optional seed for the noise pattern.
-* <mark style="color:orange;">**-h**</mark>: When used, only deforms the region horizontally.
+* <mark style="color:orange;">**-s \<seed>**</mark> (默认值: -1): 噪声模式的可选种子。
+* <mark style="color:orange;">**-h**</mark>: 使用时，仅在水平方向上变形区域。
 
 ![](../../.gitbook/assets/ezdeform_noise_hflag.gif)
 
-* <mark style="color:orange;">**-v**</mark>: When used, only deforms the region vertically.
+* <mark style="color:orange;">**-v**</mark>: 使用时，仅在垂直方向上变形区域。
 
+<!-- langmirror:chunk 2 -->
 ![](../../.gitbook/assets/ezdeform_noise_vflag.gif)
 
-* <mark style="color:orange;">**-w**</mark>: See [Smoothblocks](../../smoothblocks/smoothblocks.md).
+* <mark style="color:orange;">**-w**</mark>: 参见 [Smoothblocks](../../smoothblocks/smoothblocks.md)。
 
 </details>
 
@@ -96,14 +99,14 @@ Deforms region according the given noise field.
 
 **`//ezdeform rotate <`**<mark style="color:orange;">**`angle`**</mark>**`> [`**<mark style="color:orange;">**`-o`**</mark>**`] [`**<mark style="color:orange;">**`-w <profile>`**</mark>**`]`**
 
-Rotates region clockwise with the the center of rotation being the center of the selection (or the player's head position using -o) and with the player aim defining the axis of rotation.
+以选区中心（或使用 -o 时以玩家头部位置）为旋转中心，并以玩家准星方向为旋转轴，顺时针旋转区域。
 
-* <mark style="color:orange;">**Angle**</mark>: Sets the angle of rotation, in degrees.
+* <mark style="color:orange;">**Angle**</mark>: 设置旋转角度，单位为度。
 
 ![](../../.gitbook/assets/ezdeform_rotate_angle.gif)
 
-* <mark style="color:orange;">**-o**</mark>: When used, uses the player's position as the center of rotation instead of the selection's center.
-* <mark style="color:orange;">**-w**</mark>: See [Smoothblocks](../../smoothblocks/smoothblocks.md).
+* <mark style="color:orange;">**-o**</mark>: 使用时，将玩家位置作为旋转中心，而非选区中心。
+* <mark style="color:orange;">**-w**</mark>: 参见 [Smoothblocks](../../smoothblocks/smoothblocks.md)。
 
 </details>
 
@@ -119,18 +122,19 @@ Rotates region clockwise with the the center of rotation being the center of the
 
 **`//ezdeform voronoialize [`**<mark style="color:orange;">**`size`**</mark>**`] [`**<mark style="color:orange;">**`air_gap`**</mark>**`] [`**<mark style="color:orange;">**`-s <seed>`**</mark>**`] [`**<mark style="color:orange;">**`-w <profile>`**</mark>**`]`**
 
-Deforms region to randomly distributed voronoi cells.
+<!-- langmirror:chunk 3 -->
+将选区变形为随机分布的泰森多边形（Voronoi）单元。
 
-* <mark style="color:orange;">**Size**</mark> (Default: 12): Determines the size of the voronoi cells.
+* <mark style="color:orange;">**Size**</mark>（默认值：12）：决定泰森多边形单元的大小。
 
 ![](../../.gitbook/assets/ezdeform_voronoialize_size.gif)
 
-* <mark style="color:orange;">**Air Gap**</mark> (Default: 0.0): Specifies the width of the air gap between cells.
+* <mark style="color:orange;">**Air Gap**</mark>（默认值：0.0）：指定单元之间的空气间隙宽度。
 
 ![](../../.gitbook/assets/ezdeform_voronoialize_airgap.gif)
 
-* <mark style="color:orange;">**-s \<seed>**</mark> (Default: -1): Optional seed for generating the pattern.
-* <mark style="color:orange;">**-w \<profile>**</mark>: See [Smoothblocks](../../smoothblocks/smoothblocks.md).
+* <mark style="color:orange;">**-s \<seed>**</mark>（默认值：-1）：用于生成图案的可选种子。
+* <mark style="color:orange;">**-w \<profile>**</mark>：参见 [Smoothblocks](../../smoothblocks/smoothblocks.md)。
 
 </details>
 
@@ -138,31 +142,32 @@ Deforms region to randomly distributed voronoi cells.
 
 #### ![](../../.gitbook/assets/ezdeform_voronoialize2_airgap.gif)
 
-### `//ezdeform`` `<mark style="color:orange;">`voronoialize2`</mark>
+### `//ezdeform` <mark style="color:orange;">`voronoialize2`</mark>
 
 <details>
 
-<summary><mark style="color:blue;">Alternative Voronoialize</mark></summary>
+<summary><mark style="color:blue;">备选泰森多边形化 (Alternative Voronoialize)</mark></summary>
 
 **`//ezdeform voronoialize2 <`**<mark style="color:orange;">**`amount`**</mark>**`> [`**<mark style="color:orange;">**`air_gap`**</mark>**`] [`**<mark style="color:orange;">**`-s <seed>`**</mark>**`] [`**<mark style="color:orange;">**`-r <uniformity>`**</mark>**`] [`**<mark style="color:orange;">**`-n <normalOffset>`**</mark>**`] [`**<mark style="color:orange;">**`-w <profile>`**</mark>**`]`**
 
-Deforms the region to Voronoi cells distributed along the surface shape. Could more accurately preserve the original shape compared to the first voronoialize.
+将选区变形为沿表面形状分布的泰森多边形单元。相比于第一种 voronoialize，它能更准确地保留原始形状。
 
-* <mark style="color:orange;">**Amount**</mark>: Specifies the cell amount in the voronoi pattern. A small amount naturally leads to larger cells and vice versa.
+* <mark style="color:orange;">**Amount**</mark>：指定泰森多边形图案中的单元数量。数量越少单元自然越大，反之亦然。
 
 ![](../../.gitbook/assets/ezdeform_voronoialize2_amount.gif)
 
-* <mark style="color:orange;">**Air Gap**</mark> (Default: 0.0): Determines the width of the air gap between cells.
+<!-- langmirror:chunk 4 -->
+* <mark style="color:orange;">**Air Gap**</mark> (默认值: 0.0): 决定单元格之间空气间隙的宽度。
 
 ![](../../.gitbook/assets/ezdeform_voronoialize2_airgap.gif)
 
-* <mark style="color:orange;">**-s \<seed>**</mark> (Default: -1): Optional seed for generating the pattern. `-1` will randomly generate a seed.
-* <mark style="color:orange;">**-r \<uniformity>**</mark> (Default: 15): Sets the voronoi seed point repulsion iteration count. 0 means fully random. 15 iterations lead to a more uniform/even appearance.
+* <mark style="color:orange;">**-s \<seed>**</mark> (默认值: -1): 用于生成图案的可选种子。`-1` 将随机生成种子。
+* <mark style="color:orange;">**-r \<uniformity>**</mark> (默认值: 15): 设置 Voronoi 种子点的排斥迭代次数。0 表示完全随机。15 次迭代会带来更均匀/平整的外观。
 
 ![](../../.gitbook/assets/ezdeform_voronoialize2_repulsion.gif)
 
-* <mark style="color:orange;">**-n \<normalOffset>**</mark> (Default: 5): Technical parameter. Adjusts how deep the cell seed is positioned into the shape. Larger/Thicker shapes could benefit from a larger value. Thinner shapes should use a smaller value if the generation breaks down.
-* <mark style="color:orange;">**-w \<profile>**</mark>: See [Smoothblocks](../../smoothblocks/smoothblocks.md).
+* <mark style="color:orange;">**-n \<normalOffset>**</mark> (默认值: 5): 技术参数。调整单元格种子在形状中的定位深度。更大/更厚的形状可能受益于更大的数值。如果生成效果崩溃，较薄的形状应使用较小的数值。
+* <mark style="color:orange;">**-w \<profile>**</mark>: 参见 [Smoothblocks](../../smoothblocks/smoothblocks.md)。
 
 </details>
 
@@ -174,46 +179,48 @@ Deforms the region to Voronoi cells distributed along the surface shape. Could m
 
 <details>
 
-<summary><mark style="color:blue;">Voxelize</mark></summary>
+<summary><mark style="color:blue;">Voxelize (体素化)</mark></summary>
 
+<!-- langmirror:chunk 5 -->
 **`//ezdeform voxelize <`**<mark style="color:orange;">**`scales`**</mark>**`> <`**<mark style="color:orange;">**`gap`**</mark>**`> <`**<mark style="color:orange;">**`distortion`**</mark>**`> [`**<mark style="color:orange;">**`-i <primary>`**</mark>**`] [`**<mark style="color:orange;">**`-j <secondary>`**</mark>**`] [`**<mark style="color:orange;">**`-s <seed>`**</mark>**`] [`**<mark style="color:orange;">**`-hv`**</mark>**`] [`**<mark style="color:orange;">**`-w <profile>`**</mark>**`]`**
 
-Deforms region into larger cuboid shapes.
+将选区变形为较大的长方体形状（体素化）。
 
-* <mark style="color:orange;">**Scales**</mark> (Default: 3): Sets the scale of the cuboids.&#x20;
+* <mark style="color:orange;">**Scales**</mark>（默认值：3）：设置长方体的缩放比例。&#x20;
 
 ![](../../.gitbook/assets/ezdeform_voxelize_scales.gif)
 
-You may put three comma-separated values to define the dimension for each axis. \
+你可以输入三个由逗号分隔的数值，以此定义每个轴的尺寸。 \
 ![](../../.gitbook/assets/ezdeform_voxelize_scales3.gif)
 
-* <mark style="color:orange;">**Gap**</mark> (Default: 0.0): Defines the width of the air gap between voxels.
+* <mark style="color:orange;">**Gap**</mark>（默认值：0.0）：定义体素之间空气间隙的宽度。
 
 ![](../../.gitbook/assets/ezdeform_voxelize_airgap.gif)
 
-* <mark style="color:orange;">**Distortion**</mark> (Default: 0.0): Adjusts the strength of random grid distortion (range: 0-1).
+* <mark style="color:orange;">**Distortion**</mark>（默认值：0.0）：调整随机网格扭曲的强度（范围：0-1）。
 
-- <mark style="color:orange;">**-s \<seed>**</mark> (Default: -1): Optional seed for the distortion.
+- <mark style="color:orange;">**-s \<seed>**</mark>（默认值：-1）：扭曲的可选种子值。
 
 ![](../../.gitbook/assets/ezdeform_voxelize_distortion.gif)
 
-* <mark style="color:orange;">**-i \<primary>**</mark> (Default: y): Specifies the y-axis direction for grid.
+* <mark style="color:orange;">**-i \<primary>**</mark>（默认值：y）：指定网格的 Y 轴方向。
 
 ![](../../.gitbook/assets/ezdeform_voxelize_primary.gif)
 
-* <mark style="color:orange;">**-j \<secondary>**</mark> (Default: -x): Specifies the x-axis direction of the grid.
+<!-- langmirror:chunk 6 -->
+* <mark style="color:orange;">**-j \<secondary>**</mark> (默认: -x): 指定网格的 x 轴方向。
 
 ![](../../.gitbook/assets/ezdeform_voxelize_secondary.gif)
 
-* <mark style="color:orange;">**-h**</mark>: When used, only voxelizes horizontally.
+* <mark style="color:orange;">**-h**</mark>: 使用时，仅进行水平体素化。
 
 ![](../../.gitbook/assets/ezdeform_voxelize_hflag1.gif) ![](../../.gitbook/assets/ezdeform_voxelize_hflag2.gif)
 
-* <mark style="color:orange;">**-v**</mark>: When used, only voxelizes vertically.
+* <mark style="color:orange;">**-v**</mark>: 使用时，仅进行垂直体素化。
 
 ![](../../.gitbook/assets/ezdeform_voxelize_vflag1.gif) ![](../../.gitbook/assets/ezdeform_voxelize_vflag2.gif)
 
-* <mark style="color:orange;">**-w**</mark>: See [Smoothblocks](../../smoothblocks/smoothblocks.md).
+* <mark style="color:orange;">**-w**</mark>: 参见 [Smoothblocks](../../smoothblocks/smoothblocks.md)。
 
 </details>
 

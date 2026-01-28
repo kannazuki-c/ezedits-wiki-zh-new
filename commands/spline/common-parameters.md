@@ -1,50 +1,52 @@
-# Common Parameters
+<!-- langmirror:chunk 0 -->
+# 通用参数
 
-The following parameters and flags are available for **all** `//ezspline` subcommands.
+以下参数和标志适用于 **所有** `//ezspline` 子命令。
 
 ***
 
-### Radius progression: <mark style="color:orange;">`<radii>`</mark> <a href="#radii" id="radii"></a>
+### 半径渐变：<mark style="color:orange;">`<radii>`</mark> <a href="#radii" id="radii"></a>
 
-Defines the thickness (course) of the spline.
+定义样条线的粗细（路径）。
 
-**Acceptable values are:** one or more comma-separated entries, where each entry is either:
+**可接受的值为：** 一个或多个以逗号分隔的条目，其中每个条目可以是：
 
-1. A **radius value** (e.g., `10`, `6.9`). Radius values must be greater than 0.
-2. A **position and radius**, separated by a colon, where the position is a decimal between 0 and 1 (e.g., `0:10`, `0.5:15.5`).
+1. 一个 **半径值**（例如：`10`，`6.9`）。半径值必须大于 0。
+2. 一个 **位置与半径**，以冒号分隔，其中位置是 0 到 1 之间的十进制小数（例如：`0:10`，`0.5:15.5`）。
 
-Whereby if specified, each _position_ must be strictly ascending, and the first and last entries must be positions of `0` and `1`. If positions are omitted, they will be set and interpolated automatically.
+其中，如果指定了 _位置_，则每个位置必须严格递增，且第一个和最后一个条目的位置必须分别为 `0` 和 `1`。如果省略了位置，它们将被自动设置并插值。
 
-For example
+例如：
 
-* `0.5:10`_`,`_`2` is illegal because the _first_ entry, which is always position `0.0`, has been specified as position "`0.5`"
-* `5`_`,`_`0.6:10`_`,`_`15`_`,`_`0.4:20`_`,`_`5` is illegal because the positions are not in strictly ascending order since 0.4 came after 0.6.
+* `0.5:10`_`,`_`2` 是非法的，因为 _第一个_ 条目（位置始终为 `0.0`）被指定为了位置“`0.5`”。
+* `5`_`,`_`0.6:10`_`,`_`15`_`,`_`0.4:20`_`,`_`5` 是非法的，因为位置不是严格递增的（0.4 出现在 0.6 之后）。
 
 <details>
 
-<summary><mark style="color:blue;">Examples</mark></summary>
+<summary><mark style="color:blue;">示例</mark></summary>
 
 `//ezsp rope clay`` `**`<radii>`**
 
-Single radius entry: GIF going from `//ezsp rope clay`` `**`5`** through up to `//ezsp rope clay`` `**`10`** :
+单个半径条目：GIF 展示从 `//ezsp rope clay`` `**`5`** 变化到 `//ezsp rope clay`` `**`10`**：
 
 <img src="../../.gitbook/assets/SplinesRadii_example1.gif" alt="" data-size="original">
 
-Two radii entries: `//ezsp rope clay`` `**`1,12`** . The spline starts with radius 1 and progressively gets thicker up to radius 12 at the end:
+两个半径条目：`//ezsp rope clay`` `**`1,12`**。样条线以半径 1 开始，并逐渐变粗，到末端达到半径 12：
 
 <img src="../../.gitbook/assets/SplinesRadii_example2.png" alt="" data-size="original">
 
-Triple radii entries: `//ezsp rope clay`` `**`1,12,1`**. The spline starts with radius 1, and progressively gets larger up until the middle of the spline (50% of the path) where it reaches 12 and goes back to radius 1 towards the end:
+<!-- langmirror:chunk 1 -->
+三个半径条目：`//ezsp rope clay` `**1,12,1**`。样条曲线以半径 1 开始，并逐渐变大，直到样条曲线的中点（路径的 50%）达到 12，然后向末端移动时恢复到半径 1：
 
 <img src="../../.gitbook/assets/SplinesRadii_example3.png" alt="" data-size="original">
 
-As the first and last values always define the start- and end-radius of the spline and as all unspecified positions in between are interpolated, that means `1,12,1` (no positions specified) is expanded to **`0`**`:1,`**`0.5`**`:12,`**`1`**`:1` when you execute the command. You may also specify the positions yourself though.
+由于第一个和最后一个值始终定义样条曲线的起点和终点半径，并且中间所有未指定的对应位置都会被插值，这意味着当你执行命令时，`1,12,1`（未指定位置）会被扩展为 **`0`**`:1,`**`0.5`**`:12,`**`1`**`:1`。当然，你也可以自行指定位置。
 
-Using the command `//ezsp rope clay`` `**`1,0.1:12,1`**, and going from `1,`**`0.1`**`:12,1` up through `1,`**`0.9`**`:12,1`. This shifts the "keyframe position" of our radius-12-entry throughout the spline (start and end are still fixed at radius 1):
+使用命令 `//ezsp rope clay` `**1,0.1:12,1**`，并从 `1,`**`0.1`**`:12,1` 变化到 `1,`**`0.9`**`:12,1`。这会在整个样条曲线中移动半径为 12 条目的“关键帧位置”（起点和终点仍固定为半径 1）：
 
 <img src="../../.gitbook/assets/SplinesRadii_example4.gif" alt="" data-size="original">
 
-Many radii entries: `//ezsp rope clay 2,10,2,12,2,10,2`. You may define any number of entries and their respective positions:
+多个半径条目：`//ezsp rope clay 2,10,2,12,2,10,2`。你可以定义任意数量的条目及其各自的位置：
 
 <img src="../../.gitbook/assets/SplinesRadii_example5.png" alt="" data-size="original">
 
@@ -52,23 +54,24 @@ Many radii entries: `//ezsp rope clay 2,10,2,12,2,10,2`. You may define any numb
 
 ***
 
-### Kochanek-Bartels-Parameters: <mark style="color:orange;">`-p <kbParameters>`</mark> <a href="#kb-parameters" id="kb-parameters"></a>
+### Kochanek-Bartels 参数：<mark style="color:orange;">`-p <kbParameters>`</mark> <a href="#kb-parameters" id="kb-parameters"></a>
 
-Parameters for the flow of the spline. Determines what path the spline takes through the given node positions.
+用于控制样条曲线流向的参数。决定了样条曲线通过给定节点位置时采取的路径。
 
-Defaults to `0:0:0`.
+默认值为 `0:0:0`。
 
-Provide `<tension>:<bias>:<continuity>`, colon-separated in that order. The expected value range for each parameter is `[-1..1]`.
+请按此顺序提供以冒号分隔的 `<tension>:<bias>:<continuity>`。每个参数的预期取值范围为 `[-1..1]`。
 
+<!-- langmirror:chunk 2 -->
 {% hint style="info" %}
-[This diagram](https://en.wikipedia.org/wiki/Kochanek%E2%80%93Bartels_spline#/media/File:Kochanek_bartels_spline.svg) shows what each parameter does.
+[这张图表](https://en.wikipedia.org/wiki/Kochanek%E2%80%93Bartels_spline#/media/File:Kochanek_bartels_spline.svg)展示了每个参数的作用。
 
-(Note: the order in the diagram (c,t,b) is different than what ezspline expects (t,b,c).)
+（注意：图表中的顺序 (c,t,b) 与 ezspline 要求的顺序 (t,b,c) 不同。）
 {% endhint %}
 
 <details>
 
-<summary><mark style="color:blue;">Examples:</mark></summary>
+<summary><mark style="color:blue;">示例：</mark></summary>
 
 `//ezsp polygon clay 10 4`` `**`-p <kbParameters>`**
 
@@ -92,25 +95,26 @@ Provide `<tension>:<bias>:<continuity>`, colon-separated in that order. The expe
 
 ***
 
-### Quality: <mark style="color:orange;">`-q <quality>`</mark> (v0.13.0 or newer) <a href="#quality" id="quality"></a>
+### 质量 (Quality): <mark style="color:orange;">`-q <quality>`</mark> (v0.13.0 或更高版本) <a href="#quality" id="quality"></a>
 
-Determines how accurately the spline shape should be generated, trading between accuracy and runtime.
+决定生成样条曲线形状的精确度，在精确度和运行时间之间进行权衡。
 
-There are four modes:
+共有四种模式：
 
-1. <mark style="color:orange;">`FAST`</mark> (\~1.5x faster than balanced)
+1. <mark style="color:orange;">`FAST`</mark> (比 balanced 快约 1.5 倍)
 2. <mark style="color:orange;">`BALANCED`</mark>
-3. <mark style="color:orange;">`HIGH`</mark> (\~3x slower than balanced)
-4. <mark style="color:orange;">`EXACT`</mark> (even slower...)
+3. <mark style="color:orange;">`HIGH`</mark> (比 balanced 慢约 3 倍)
+4. <mark style="color:orange;">`EXACT`</mark> (甚至更慢...)
 
-Defaults to <mark style="color:orange;">`BALANCED`</mark> (which produces an almost perfect result relatively quickly).
+默认为 <mark style="color:orange;">`BALANCED`</mark>（它可以相对快速地生成近乎完美的结果）。
 
 <details>
 
-<summary><mark style="color:blue;">Examples (for v0.13.0 or newer)</mark></summary>
+<summary><mark style="color:blue;">示例 (适用于 v0.13.0 或更高版本)</mark></summary>
 
 `//ezspline rope clay 10`` `**`-q <quality>`**
 
+<!-- langmirror:chunk 3 -->
 `-q BALANCED`\
 ![](../../.gitbook/assets/SplinesQuality_BALANCED.png)
 
@@ -121,56 +125,57 @@ Defaults to <mark style="color:orange;">`BALANCED`</mark> (which produces an alm
 
 ***
 
-### Quality: <mark style="color:orange;">`-q <quality>`</mark> (v0.12.0 or lower) <a href="#quality_old" id="quality_old"></a>
+### 质量 (Quality): <mark style="color:orange;">`-q <quality>`</mark> (v0.12.0 或更旧版本) <a href="#quality_old" id="quality_old"></a>
 
 {% hint style="info" %}
-v0.13.0 introduced a significantly better and faster spline algorithm. This is only relevant for people who still use ezEdits version 0.12.0 or older. See [above](common-parameters.md#quality) for newer version behaviour.
+v0.13.0 引入了一种显著更好且更快的样条曲线算法。此部分仅适用于仍在使用 ezEdits 0.12.0 或更旧版本的用户。新版本的行为请参阅[上方](common-parameters.md#quality)。
 {% endhint %}
 
-Sets the number of samples of the shape per dimension per block. Must be greater than 0.
+设置每个方块在每个维度上的形状采样数量。必须大于 0。
 
-Defaults to `2.0` (which produces a mediocre result relatively quickly).
+默认为 `2.0`（可以较快地生成效果平平的结果）。
 
-If you get air gaps, or a noise-y / unsmoothed appearance, set the quality to a higher value, e.g. `-q 5.0`.
+如果出现空气间隙，或出现噪点/不平滑的外观，请将质量设置为更高的值，例如 `-q 5.0`。
 
 {% hint style="warning" %}
-Higher values for the `-q` parameter can significantly increase processing time. While small values (e.g., `-q 2`) are relatively quick, larger values (e.g., `-q 10`) may take minutes. Additionally, the benefit of increasing the `-q` value diminishes beyond a certain point. We suggest using 2 while testing parameters and rendering with 4-6 for the final placement.
+`-q` 参数的值越高，处理时间会显著增加。虽然较小的值（例如 `-q 2`）相对较快，但较大的值（例如 `-q 10`）可能需要数分钟。此外，超过一定数值后，增加 `-q` 值带来的收益会递减。我们建议在测试参数时使用 2，在最终放置渲染时使用 4-6。
 {% endhint %}
 
 <details>
 
-<summary><mark style="color:blue;">Examples (for v0.12.0 or older)</mark></summary>
+<summary><mark style="color:blue;">示例 (适用于 v0.12.0 或更旧版本)</mark></summary>
 
 `//ezspline beads clay 10`` `**`-q <quality>`**
 
-GIF start at `-q 1` and moves up to `-q 7`.
+GIF 从 `-q 1` 开始并增加到 `-q 7`。
 
 <img src="../../.gitbook/assets/SplinesQuality_example.gif" alt="" data-size="original">
 
-For this example, `-q 2` took less than a second, and `-q 7` took 20 seconds to run.
+在此示例中，`-q 2` 耗时不到一秒，而 `-q 7` 运行耗时 20 秒。
 
 </details>
 
 ***
 
-### Initial roll: <mark style="color:orange;">`-r <startRoll>`</mark> or <mark style="color:orange;">`-r <startRoll>,<endRoll>`</mark> <a href="#roll" id="roll"></a>
+### 初始翻滚角 (Initial roll): <mark style="color:orange;">`-r <startRoll>`</mark> 或 <mark style="color:orange;">`-r <startRoll>,<endRoll>`</mark> <a href="#roll" id="roll"></a>
 
-Allows to rotate the spline shape around the spline's axis, aka. rolling it. Expecting an angle given in degrees.
+<!-- langmirror:chunk 4 -->
+允许围绕样条轴旋转样条形状，即滚动（Rolling）。参数应为以度为单位的角度。
 
-Defaults to `0`.
+默认为 `0`。
 
-There are two ways to twist/roll your spline:
+有两种方式来扭曲/滚动你的样条：
 
-* You may define a starting roll angle with `-r` and a twisting angle with `-t`, allowing for a constant twist per length.
-* Or may define a starting roll angle and an end roll angle by passing two comma-separated angles to `-r`. If you do that, `-t` will be ignored.
+* 你可以使用 `-r` 定义起始滚动角度，并使用 `-t` 定义扭曲角度，从而实现单位长度的恒定扭曲。
+* 或者通过向 `-r` 传递两个以逗号分隔的角度来定义起始滚动角度和结束滚动角度。如果这样做，`-t` 将被忽略。
 
 <details>
 
-<summary><mark style="color:blue;">Example</mark></summary>
+<summary><mark style="color:blue;">示例</mark></summary>
 
 `//ezspline 2d Re(Y1:-0.2,Y2:0.2) clay 10`` `**`-r <angle>`**
 
-GIF start at `-r 0` and moves up to `-r 180`.
+GIF 从 `-r 0` 开始并移动到 `-r 180`。
 
 <img src="../../.gitbook/assets/SplinesRollParameter.gif" alt="" data-size="original">
 
@@ -178,23 +183,23 @@ GIF start at `-r 0` and moves up to `-r 180`.
 
 ***
 
-### Stretch: <mark style="color:orange;">`-s <stretchFactor>`</mark> <a href="#stretch" id="stretch"></a>
+### 拉伸（Stretch）: <mark style="color:orange;">`-s <stretchFactor>`</mark> <a href="#stretch" id="stretch"></a>
 
-Allows stretching or compressing the spline shape in the direction of the spline path.
+允许沿样条路径的方向拉伸或压缩样条形状。
 
-Defaults to `1`.
+默认为 `1`。
 
 {% hint style="info" %}
-Note: `//ezspline structure`'s and `//ezspline expressions`'s `-z` flag overrides this flag. If `-z` is on, then `-s` does nothing.
+注意：`//ezspline structure` 和 `//ezspline expressions` 的 `-z` 标志会覆盖此标志。如果开启了 `-z`，则 `-s` 不起作用。
 {% endhint %}
 
 <details>
 
-<summary><mark style="color:blue;">Example:</mark></summary>
+<summary><mark style="color:blue;">示例：</mark></summary>
 
 `//ezsp 3d Chainlink clay 10`` `**`-s <stretchFactor>`**
 
-GIF starts at `-s 0.2`, briefly pauses at `-s 1`, and increases up to `-s 4`.
+GIF 从 `-s 0.2` 开始，在 `-s 1` 处短暂暂停，并增加到 `-s 4`。
 
 <img src="../../.gitbook/assets/SplinesStretchParameter.gif" alt="" data-size="original">
 
@@ -202,23 +207,24 @@ GIF starts at `-s 0.2`, briefly pauses at `-s 1`, and increases up to `-s 4`.
 
 ***
 
-### Twist: <mark style="color:orange;">`-t <angle>`</mark> <a href="#twist" id="twist"></a>
+### 扭曲（Twist）: <mark style="color:orange;">`-t <angle>`</mark> <a href="#twist" id="twist"></a>
 
-Defines how much to twist the shape along the spline. The input is an angle given in degrees.
+定义沿样条线扭曲形状的幅度。输入值为以度为单位的角度。
 
-Defaults to `0`. (Except for `//ezsp rope`, there it's 90)
+默认为 `0`。（`//ezsp rope` 除外，其默认值为 90）
 
-Specifics: The angle determines how much the shape is rotated throughout the length of the current diameter of the spline. Meaning, that if the diameter is 30 blocks, then after 30 blocks of path length, the shape will have rotated by the given angle.
+<!-- langmirror:chunk 5 -->
+具体说明：角度决定了形状在样条线当前直径的长度内旋转的幅度。这意味着，如果直径为 30 个方块，那么在路径长度经过 30 个方块后，形状将旋转给定的角度。
 
-This parameter is ignored if you pass both a starting and an end angle to `-r`.
+如果你向 `-r` 同时传递了起始角度和结束角度，则此参数将被忽略。
 
 <details>
 
-<summary><mark style="color:blue;">Example:</mark></summary>
+<summary><mark style="color:blue;">示例：</mark></summary>
 
 `//ezsp 2d Polygon(S:4) clay 10`` `**`-t <angle>`**
 
-GIF starts at `-t 0` and increases up to `-t 90`.
+GIF 从 `-t 0` 开始，一直增加到 `-t 90`。
 
 <img src="../../.gitbook/assets/SplinesTwist_example.gif" alt="" data-size="original">
 
@@ -226,45 +232,46 @@ GIF starts at `-t 0` and increases up to `-t 90`.
 
 ***
 
-### Normal Mode: <mark style="color:orange;">`-n <normalMode>`</mark> <a href="#normal-mode" id="normal-mode"></a>
+### 法线模式：<mark style="color:orange;">`-n <normalMode>`</mark> <a href="#normal-mode" id="normal-mode"></a>
 
-There are three modes:
+共有三种模式：
 
-1. <mark style="color:orange;">`CONSISTENT`</mark> aims to appear smooth and consistent by "rolling" the spline shape in curves.
-2. <mark style="color:orange;">`HORIZONTAL`</mark> prevents the spline shape from "rolling sideways", keeping its initial orientation.
-3. <mark style="color:orange;">`UPRIGHT`</mark> makes the internal spline shape's y-axis with the world's y-axis.
+1. <mark style="color:orange;">`CONSISTENT`</mark> 旨在通过在曲线中“滚动”样条形状，使外观看起来平滑且一致。
+2. <mark style="color:orange;">`HORIZONTAL`</mark> 防止样条形状“侧向滚动”，保持其初始朝向。
+3. <mark style="color:orange;">`UPRIGHT`</mark> 使样条内部形状的 y 轴与世界的 y 轴保持一致。
 
-The default is <mark style="color:orange;">`CONSISTENT`</mark>.
+默认值为 <mark style="color:orange;">`CONSISTENT`</mark>。
 
 <details>
 
-<summary><mark style="color:blue;">Examples:</mark></summary>
+<summary><mark style="color:blue;">示例：</mark></summary>
 
 `//ezspline expression black,red,blue,white,yellow 5 -o`` `**`-n <normalMode>`**` ``((z%2)>1.5?5:2*(x>0)+(y>0))+0.001`
 
-`-n CONSISTENT`: The default value. The spline curves around the path in a smooth fashion. Towards the end, a noticeable amount of rolling has accumulated since. (At the start white+red is the top surface, while towards the end white+blue is at the top -> the spline "rolled").
+`-n CONSISTENT`：默认值。样条线以平滑的方式沿路径弯曲。到末端时，可以观察到累积了明显的滚动量。（在起始处 white+red 是顶面，而到末端时 white+blue 位于顶部 -> 样条线发生了“滚动”）。
 
+<!-- langmirror:chunk 6 -->
 <img src="../../.gitbook/assets/SplinesNormalMode_example1.png" alt="" data-size="original"><img src="../../.gitbook/assets/SplinesKBParameters_example7.png" alt="" data-size="original">
 
-`-n HORIZONTAL`: The spline tries to align the originally upwards-facing surface to remain upwards, preventing itself from "rolling sideways". You can see that by the fact the white+red face is facing upwards throughout the entire spline.
+`-n HORIZONTAL`：样条线尝试使原本朝上的表面保持向上，防止自身“侧翻”。你可以看到，在整个样条线中，白色+红色的面始终朝上。
 
 <img src="../../.gitbook/assets/SplinesNormalMode_example2.png" alt="" data-size="original"><img src="../../.gitbook/assets/SplinesKBParameters_example8.png" alt="" data-size="original">
 
-`-n UPRIGHT`: The internal y-axis is always aligned with the world's y-axis instead of being perpendicular to the path. Notice how the yellow stripes are not perpendicular but perfectly vertical now.
+`-n UPRIGHT`：内部 y 轴始终与世界的 y 轴保持一致，而不是垂直于路径。请注意，现在的黄色条纹不是垂直于路径，而是完全垂直于地面的。
 
 <img src="../../.gitbook/assets/SplinesNormalMode_example3.png" alt="" data-size="original"><img src="../../.gitbook/assets/SplinesKBParameters_example9.png" alt="" data-size="original">
 
-**Another more dramatic example (same command, different path):**
+**另一个更显着的例子（相同的命令，不同的路径）：**
 
 `-n CONSISTENT`
 
 <img src="../../.gitbook/assets/SplinesNormalMode_example4.png" alt="" data-size="original">
 
-`-n HORIZONTAL`: Spline is forced to twist itself at steep/vertical sections to remain horizontal. (Here, it always tries to put the white+red surface at the top).
+`-n HORIZONTAL`：样条线在陡峭/垂直路段会被强制扭转以保持水平。（在这里，它总是尝试将白色+红色的表面置于顶部）。
 
 <img src="../../.gitbook/assets/SplinesNormalMode_example5.png" alt="" data-size="original">
 
-`-n UPRIGHT`: As you'd expect, when the spline's y-axis is perfectly vertical, then it does not like steep/vertical path sections...
+`-n UPRIGHT`：正如你所料，当样条线的 y 轴完全垂直时，它在处理陡峭/垂直的路径段时表现不佳……
 
 <img src="../../.gitbook/assets/SplinesNormalMode_example6.png" alt="" data-size="original">
 
@@ -272,23 +279,24 @@ The default is <mark style="color:orange;">`CONSISTENT`</mark>.
 
 ***
 
-### End Style: <mark style="color:orange;">`-e <endMode>`</mark> <a href="#end-style-e" id="end-style-e"></a>
+### 结束样式：<mark style="color:orange;">`-e <endMode>`</mark> <a href="#end-style-e" id="end-style-e"></a>
 
-Set how the two ends of the spline should look like.
+设置样条线两端的形状。
 
-There are five modes:
+共有五种模式：
 
-1. <mark style="color:orange;">`FLAT`</mark> The spline ends abruptly at the exact endpoint of the path.
-2. <mark style="color:orange;">`SOFT`</mark> The spline ends softly shape Cuts into the spline, tapering off the end in a softened end.
-3. <mark style="color:orange;">`SPIKE`</mark> The spline ends with a cone that extends beyond the endpoint of the path.
-4. <mark style="color:orange;">`ROUND`</mark> The spline ends with a dome that extends beyond the endpoint of the path.
-5. <mark style="color:orange;">`CUBE`</mark> The spline ends in a cube shape beyond the endpoint of the path.
+<!-- langmirror:chunk 7 -->
+1. <mark style="color:orange;">`FLAT`</mark> 样条曲线在路径的精确终点处突然结束。
+2. <mark style="color:orange;">`SOFT`</mark> 样条曲线以柔和的形状结束，切入样条内部，在末端以平滑的方式逐渐变细。
+3. <mark style="color:orange;">`SPIKE`</mark> 样条曲线以一个超出路径终点的圆锥体结束。
+4. <mark style="color:orange;">`ROUND`</mark> 样条曲线以一个超出路径终点的半球体结束。
+5. <mark style="color:orange;">`CUBE`</mark> 样条曲线以一个超出路径终点的立方体形状结束。
 
-The default is <mark style="color:orange;">`FLAT`</mark>.
+默认值为 <mark style="color:orange;">`FLAT`</mark>。
 
 <details>
 
-<summary><mark style="color:blue;">Example</mark></summary>
+<summary><mark style="color:blue;">示例</mark></summary>
 
 `//ezsp rope ice 15 6`` `**`-e <endMode>`**
 
@@ -307,7 +315,7 @@ The default is <mark style="color:orange;">`FLAT`</mark>.
 `-e CUBE`\
 ![](../../.gitbook/assets/SplinesEndMode_CUBE1.png)
 
-The redstone block line shows the used convex selection.
+红石块线条显示了所使用的凸面选区。
 
 `//ezsp 2d square ice 15`` `**`-e <endMode>`**
 
@@ -330,14 +338,15 @@ The redstone block line shows the used convex selection.
 
 ***
 
-### Smoothblocks: <mark style="color:orange;">`-w <smoothblocks>`</mark> <a href="#help-page" id="help-page"></a>
+<!-- langmirror:chunk 8 -->
+### 平滑方块 (Smoothblocks): <mark style="color:orange;">`-w <smoothblocks>`</mark> <a href="#help-page" id="help-page"></a>
 
-See [smoothblocks.md](../../smoothblocks/smoothblocks.md "mention").
+请参阅 [smoothblocks.md](../../smoothblocks/smoothblocks.md "mention")。
 
 ***
 
-### Ingame help page: <mark style="color:orange;">`-h`</mark> <a href="#help-page" id="help-page"></a>
+### 游戏内帮助页面: <mark style="color:orange;">`-h`</mark> <a href="#help-page" id="help-page"></a>
 
-Prints the in-game help page. Shortcut for `//help ezspline ...`
+打印游戏内帮助页面。等同于 `//help ezspline ...` 的快捷方式。
 
 ***

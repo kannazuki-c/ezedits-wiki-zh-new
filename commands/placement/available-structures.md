@@ -1,59 +1,62 @@
-# Available Structures
+<!-- langmirror:chunk 0 -->
+# 可用结构 (Available Structures)
 
-In the context of ezEdits, we call an arrangement of blocks in 3D space a "structure". Each placement command requires the user to provide a `<structure>` argument.
+在 ezEdits 的语境下，我们将 3D 空间中的方块排列称为“结构（structure）”。每个放置命令都要求用户提供一个 `<structure>` 参数。
 
-Currently available structures are:
+目前可用的结构有：
 
 <details>
 
-<summary><mark style="color:blue;"><strong>Clipboard (Cl)</strong></mark></summary>
+<summary><mark style="color:blue;"><strong>剪贴板 (Clipboard / Cl)</strong></mark></summary>
 
-A structure based on your current WorldEdit Clipboard (//copy).
+基于你当前的 WorldEdit 剪贴板（//copy）的结构。
 
-Syntax: <mark style="color:orange;">`Clipboard`</mark>
+语法：<mark style="color:orange;">`Clipboard`</mark>
 
-Abbr.: <mark style="color:orange;">`Cl`</mark>
+缩写：<mark style="color:orange;">`Cl`</mark>
 
-Options:
+选项：
 
-* <mark style="color:blue;">**`Origin`**</mark><mark style="color:blue;">**&#x20;**</mark><mark style="color:blue;">**(O)**</mark>. Defaults to INHERENT.
-  * INHERENT (I) will use the position it was copied at
-  * CENTER (C) will use the geometric center of the clipboard
-* <mark style="color:blue;">**`PasteMethod`**</mark><mark style="color:blue;">**&#x20;**</mark><mark style="color:blue;">**(PM**</mark><mark style="color:blue;">)</mark>. Defaults to FAST. See [#comparison-between-fast-and-smooth-pastemethod](available-structures.md#comparison-between-fast-and-smooth-pastemethod "mention")
-  * FAST (fast): Default unaltered pasting of clipboards, like //paste
-  * SMOOTHED (smooth): Applies interpolation when the placement cannot be matched into the world grid, e.g. when placing with a 45° rotated orientation. Has a slightly more smoothed look to it, which may preferred for freely rotated placements.
-  * See [#comparison-between-fast-and-smooth-pastemethod](available-structures.md#comparison-between-fast-and-smooth-pastemethod "mention")
+* <mark style="color:blue;">**`Origin`**</mark><mark style="color:blue;">**&#x20;**</mark><mark style="color:blue;">**(O)**</mark>。默认为 INHERENT。
+  * INHERENT (I) 将使用复制时的位置
+  * CENTER (C) 将使用剪贴板的几何中心
+* <mark style="color:blue;">**`PasteMethod`**</mark><mark style="color:blue;">**&#x20;**</mark><mark style="color:blue;">**(PM**</mark><mark style="color:blue;">)</mark>。默认为 FAST。参见 [#comparison-between-fast-and-smooth-pastemethod](available-structures.md#comparison-between-fast-and-smooth-pastemethod "mention")
+  * FAST (fast): 默认的无修改剪贴板粘贴，类似于 //paste
+  * SMOOTHED (smooth): 当放置无法与世界网格匹配时（例如以 45° 旋转角度放置时）应用插值。外观更加平滑，可能更适合自由旋转的放置。
+  * 参见 [#comparison-between-fast-and-smooth-pastemethod](available-structures.md#comparison-between-fast-and-smooth-pastemethod "mention")
 
-- Example: <mark style="color:orange;">`Clipboard(Origin:INHERENT,PasteMethod:SMOOTHED)`</mark> <mark style="color:orange;">or</mark> <mark style="color:orange;">`Cl(O:I,PM:smooth)`</mark>
+- 示例：<mark style="color:orange;">`Clipboard(Origin:INHERENT,PasteMethod:SMOOTHED)`</mark> <mark style="color:orange;">或</mark> <mark style="color:orange;">`Cl(O:I,PM:smooth)`</mark>
 
 </details>
 
 <details>
 
-<summary><mark style="color:blue;"><strong>Schematic (Sc)</strong></mark></summary>
+<summary><mark style="color:blue;"><strong>示意图 (Schematic / Sc)</strong></mark></summary>
 
-A structure based on a schematic file.
+基于 schematic 文件的结构。
 
-Syntax: <mark style="color:orange;">`Schematic(Filename:<name>,...)`</mark>
+<!-- langmirror:chunk 1 -->
+语法：<mark style="color:orange;">`Schematic(Filename:<name>,...)`</mark>
 
-Abbr.: <mark style="color:orange;">`Sc(N:<name>,...)`</mark>
+缩写：<mark style="color:orange;">`Sc(N:<name>,...)`</mark>
 
-Mandatory parameters:
+强制参数：
 
-* <mark style="color:orange;">**`Filename`**</mark> **(**<mark style="color:orange;">**`N`**</mark>**)**. A regex pattern for specifying all filenames of the schematics you want to place.
-  * For example, if you type in `Sc(N:tree_.*)` we will fetch all schematic files that match the regex `tree.*,` e.g. `tree_1`, `tree_2`, `tree_3` etc.
-  * In case you use FAWE's per-player-schematics path system, in which schematics are separated into folders named after each player's UUID, you can use the shortcut `%p` to denote your own UUID and access your folder through e.g. `%p/your_schematic.schem`
+* <mark style="color:orange;">**`Filename`**</mark> **(**<mark style="color:orange;">**`N`**</mark>**)**。用于指定你想要放置的所有 schematic 文件名的正则表达式模式。
+  * 例如，如果你输入 `Sc(N:tree_.*)`，我们将获取所有匹配正则表达式 `tree.*,` 的 schematic 文件，例如 `tree_1`、`tree_2`、`tree_3` 等。
+  * 如果你使用了 FAWE 的玩家独立 schematic 路径系统（其中 schematic 被存放在以每个玩家 UUID 命名的文件夹中），你可以使用快捷方式 `%p` 来代表你自己的 UUID，并通过诸如 `%p/your_schematic.schem` 之类的路径访问你的文件夹。
 
-Options:
+选项：
 
-* <mark style="color:blue;">**`Format`**</mark> **(**<mark style="color:blue;">**`F`**</mark>**)**. Format of the schematic file. Defaults to <mark style="color:blue;">`sponge.3`</mark> (or FAWE's fast if you're using FAWE). The default value should work for the majority of cases.
-* <mark style="color:blue;">**`Origin`**</mark> **(**<mark style="color:blue;">**`O`**</mark>**)**. Defaults to <mark style="color:blue;">`INHERENT`</mark>.
-  * INHERENT (I) will use the position it was copied at.
-  * CENTER (C) will use the center of the clipboard's region as the origin instead.
-* <mark style="color:blue;">**`PasteMethod`**</mark> **(**<mark style="color:blue;">**`PM`**</mark>). Defaults to <mark style="color:blue;">`FAST`</mark>.
-  * FAST (fast): Default unaltered pasting of clipboards, like //paste
-  * SMOOTHED (smooth): Applies interpolation when the placement cannot be matched into the world grid, e.g. when placing with a 45° rotated orientation. Has a slightly more smoothed look to it, which may preferred for freely rotated placements.
-  * See [#comparison-between-fast-and-smooth-pastemethod](available-structures.md#comparison-between-fast-and-smooth-pastemethod "mention")
+<!-- langmirror:chunk 2 -->
+* <mark style="color:blue;">**`Format`**</mark> **(**<mark style="color:blue;">**`F`**</mark>**)**. Schematic 文件的格式。默认为 <mark style="color:blue;">`sponge.3`</mark>（如果你使用的是 FAWE，则默认为 FAWE 的 fast 格式）。默认值应适用于绝大多数情况。
+* <mark style="color:blue;">**`Origin`**</mark> **(**<mark style="color:blue;">**`O`**</mark>**)**. 默认为 <mark style="color:blue;">`INHERENT`</mark>。
+  * INHERENT (I) 将使用复制时的位置。
+  * CENTER (C) 将使用剪贴板区域的中心作为原点。
+* <mark style="color:blue;">**`PasteMethod`**</mark> **(**<mark style="color:blue;">**`PM`**</mark>)。 默认为 <mark style="color:blue;">`FAST`</mark>。
+  * FAST (fast): 默认的剪贴板粘贴方式，不作修改，类似于 //paste
+  * SMOOTHED (smooth): 当放置位置无法与世界网格匹配时（例如以 45° 旋转角度放置时）应用插值算法。外观看起来更平滑，可能更适合自由旋转的放置。
+  * 参见 [#comparison-between-fast-and-smooth-pastemethod](available-structures.md#comparison-between-fast-and-smooth-pastemethod "mention")
 
 </details>
 
@@ -61,15 +64,16 @@ Options:
 
 <summary><mark style="color:blue;"><strong>Shape (Sh)</strong></mark></summary>
 
-An expression-based shape. EzEdits provides plenty of predefined ones. Material defined by a pattern.
+一种基于表达式的形状。ezEdits 提供了大量预定义形状。其材质由 pattern（样式）定义。
 
-Syntax: <mark style="color:orange;">`Shape(Shape:<shape>,Pattern:<pattern>)`</mark>
+语法：<mark style="color:orange;">`Shape(Shape:<shape>,Pattern:<pattern>)`</mark>
 
-Abbr.: <mark style="color:orange;">`Sh(S:<shape>,P:<pattern>)`</mark>
+缩写：<mark style="color:orange;">`Sh(S:<shape>,P:<pattern>)`</mark>
 
-Mandatory Parameters:
+强制参数：
 
-* <mark style="color:orange;">**`Shape`**</mark> (<mark style="color:orange;">**`S`**</mark>). Well, defines the shape of the Shape structure. Additional parameters are given within the parenthesis after. Available shapes are:
+<!-- langmirror:chunk 3 -->
+* <mark style="color:orange;">**`Shape`**</mark> (<mark style="color:orange;">**`S`**</mark>)。定义 Shape 结构的形状。其他参数在随后的括号内给出。可选形状包括：
   *   `Cone`
 
       ![](../../.gitbook/assets/StructuresShapesCone.png)
@@ -120,13 +124,14 @@ Mandatory Parameters:
       ![](../../.gitbook/assets/StructuresShapesTetrahedron.png)
   *   `Torus(Thickness:<value>)`
 
+<!-- langmirror:chunk 4 -->
       ![](../../.gitbook/assets/StructuresShapesTorus.gif)
   * `=<expression>`
-    * In addition to predefined shapes, you can also define your own shape with a WorldEdit expression.
-    * For example, this expression will create spirals:\
+    * 除了预定义的形状外，你还可以使用 WorldEdit 表达式定义自己的形状。
+    * 例如，此表达式将创建螺旋：\
       <mark style="color:blue;">`Shape(S:`</mark><mark style="color:blue;">**`=x+=sin(2*pi*y)/2;z+=cos(2*pi*y)/2;x*x+z*z<0.3^2`**</mark><mark style="color:blue;">`,P:clay)`</mark>
-* <mark style="color:orange;">**`Pattern`**</mark> (<mark style="color:orange;">**`P`**</mark>). The pattern which the shape should be made of.
-  * Note: Commas `,` being part of the argument breaks the input parser. If you want to use a pattern that uses commas then you need to put your Pattern argument in quotes: E.g. <mark style="color:blue;">`Sh(S:Cone,Pattern:`</mark><mark style="color:blue;">**`"dirt,diamond_block"`**</mark><mark style="color:blue;">`)`</mark>
+* <mark style="color:orange;">**`Pattern`**</mark> (<mark style="color:orange;">**`P`**</mark>)。构成形状的填充样式。
+  * 注意：如果参数中包含逗号 `,` 会导致输入解析器报错。如果你想使用包含逗号的样式，则需要将 Pattern 参数放在引号中：例如 <mark style="color:blue;">`Sh(S:Cone,Pattern:`</mark><mark style="color:blue;">**`"dirt,diamond_block"`**</mark><mark style="color:blue;">`)`</mark>
 
 </details>
 
@@ -134,24 +139,25 @@ Mandatory Parameters:
 
 <summary><mark style="color:blue;"><strong>Expression (Ex)</strong></mark></summary>
 
-An expression-based shape. One expression defines both the shape and the texturing.
+基于表达式的形状。由一个表达式同时定义形状和纹理。
 
-Syntax: <mark style="color:orange;">`Expression(Expression:=<expression>,Palette:<palette>)`</mark>
+语法：<mark style="color:orange;">`Expression(Expression:=<expression>,Palette:<palette>)`</mark>
 
-Abbr.: <mark style="color:orange;">`Ex(E:=<expression>,P:<palette>)`</mark>
+缩写：<mark style="color:orange;">`Ex(E:=<expression>,P:<palette>)`</mark>
 
-Mandatory Parameters:
+必填参数：
 
-* <mark style="color:orange;">**`Expression`**</mark> **(**<mark style="color:orange;">**`E`**</mark>**)**. Input variables are `x`, `y`, `z`, all between \[-1,1], and `seed`.
-  * `x=0`,`y=0`,`z=0` is the origin of the structure.
-  * If the expression f(x,y,z) evaluates as _f_≤_0_, 0 or negative, then the position will be air.
-  * If it evaluates as _1>f>0_, between 0 and 1, then the according palette block is placed.
-  * Otherwise, any value 1 or larger will place the last palette block.
-  * `seed` is a random integer between 0 and 2147483647, different for each placement (but most importantly constant within a single placement)
-* <mark style="color:orange;">**`Palette`**</mark> **(**<mark style="color:orange;">**`P`**</mark>**)**. The set of blocks of which the structure should be made of.
-  * Note: Commas `,` being part of the argument breaks the input parser. If you want to use a palette that uses commas then you need to put your Palette argument in quotes: E.g. <mark style="color:blue;">`Ex(E:=y*.5+.5,Palette:`</mark><mark style="color:blue;">**`"##GlowOrange,-##GlowPurple"`**</mark><mark style="color:blue;">`)`</mark>
+<!-- langmirror:chunk 5 -->
+* <mark style="color:orange;">**`Expression`**</mark> **(**<mark style="color:orange;">**`E`**</mark>**)**。输入变量为 `x`、`y`、`z`（取值均在 \[-1,1] 之间）以及 `seed`。
+  * `x=0`、`y=0`、`z=0` 是结构的中心原点。
+  * 如果表达式 f(x,y,z) 的计算结果为 _f_≤_0_（0 或负数），则该位置将为空气。
+  * 如果计算结果为 _1>f>0_（在 0 到 1 之间），则放置对应的调色盘方块。
+  * 否则，任何 1 或更大的值都将放置调色盘中的最后一个方块。
+  * `seed` 是一个介于 0 到 2147483647 之间的随机整数，每次放置时都不同（但在单次放置过程中保持不变）。
+* <mark style="color:orange;">**`Palette`**</mark> **(**<mark style="color:orange;">**`P`**</mark>**)**。构成结构的一组方块。
+  * 注意：参数中包含逗号 `,` 会破坏输入解析器。如果你想使用包含逗号的调色盘，则需要将 Palette 参数放在引号中：例如 <mark style="color:blue;">`Ex(E:=y*.5+.5,Palette:`</mark><mark style="color:blue;">**`"##GlowOrange,-##GlowPurple"`**</mark><mark style="color:blue;">`)`</mark>
 
-Example:
+示例：
 
 <mark style="color:blue;">`Ex(E:"=x*x+y*y+z*z<perlin(seed,x,y,z,1,1,.5)",P:clay)`</mark>
 
@@ -163,18 +169,19 @@ Example:
 
 <summary><mark style="color:blue;"><strong>TexturedShape (TS)</strong></mark></summary>
 
-An expression-based shape with an expression-based texturing. The Shape parameter defines its shape. The Palette and Texturing-Shape parameters define its material.
+一种基于表达式的形状，具有基于表达式的纹理。Shape 参数定义其形状。Palette 和 Texturing-Shape 参数定义其材质。
 
-Syntax: <mark style="color:orange;">`TexturedShape(Shape:<shape>,TexturingShape:<shape>,Palette:<palette>)`</mark>
+<!-- langmirror:chunk 6 -->
+语法：<mark style="color:orange;">`TexturedShape(Shape:<shape>,TexturingShape:<shape>,Palette:<palette>)`</mark>
 
-Abbr.: <mark style="color:orange;">`TS(S:<shape>,T:<shape>,P:<palette>)`</mark>
+缩写：<mark style="color:orange;">`TS(S:<shape>,T:<shape>,P:<palette>)`</mark>
 
-Mandatory Parameters:
+强制参数：
 
-* <mark style="color:orange;">**`Shape`**</mark> **(**<mark style="color:orange;">**`S`**</mark>**)**. See [Shape Structure](available-structures.md#shape-sh).
-* <mark style="color:orange;">**`TexturingShape`**</mark> **(**<mark style="color:orange;">**`T`**</mark>**)**. Defines which parts of the shape are painted with which blocks of the palette. Accepts a shape, just like the Shape Parameter.
-* <mark style="color:orange;">**`Palette`**</mark> **(**<mark style="color:orange;">**`P`**</mark>**)**<mark style="color:orange;">.</mark> The set of blocks of which the shape should be made of.
-  * Note: Commas `,` being part of the argument breaks the input parser. If you want to use a palette that uses commas then you need to put your Palette argument in quotes: E.g. <mark style="color:blue;">`TS(S:Cone,T:=y*.5+.5;Palette:`</mark><mark style="color:blue;">**`"dirt,diamond_block"`**</mark><mark style="color:blue;">`)`</mark>
+* <mark style="color:orange;">**`Shape`**</mark> **(**<mark style="color:orange;">**`S`**</mark>**)**。参见 [形状结构](available-structures.md#shape-sh)。
+* <mark style="color:orange;">**`TexturingShape`**</mark> **(**<mark style="color:orange;">**`T`**</mark>**)**。定义形状的哪些部分使用调色盘中的哪些方块进行绘制。与 Shape 参数一样接受一个形状。
+* <mark style="color:orange;">**`Palette`**</mark> **(**<mark style="color:orange;">**`P`**</mark>**)**<mark style="color:orange;">。</mark>构成形状的方块集合。
+  * 注意：参数中包含逗号 `,` 会破坏输入解析器。如果你想使用包含逗号的调色盘，则需要将 Palette 参数放在引号中：例如 <mark style="color:blue;">`TS(S:Cone,T:=y*.5+.5;Palette:`</mark><mark style="color:blue;">**`"dirt,diamond_block"`**</mark><mark style="color:blue;">`)`</mark>
 
 </details>
 
@@ -182,35 +189,38 @@ Mandatory Parameters:
 
 <summary><mark style="color:blue;"><strong>Icosphere (Ic)</strong></mark></summary>
 
-(<mark style="color:red;">**`!`**</mark>) Only available if [Arceon](https://www.patreon.com/c/arcaniax/home) v0.4.9 or higher is running on your server.
+(<mark style="color:red;">**`!`**</mark>) 仅当你的服务器上运行了 [Arceon](https://www.patreon.com/c/arcaniax/home) v0.4.9 或更高版本时可用。
 
-A deformed icosphere. Popularised in the building community under the [Arceon Boulder](https://github.com/Brennian/Arceon-1.14/wiki/Brushes#boulder-brush).
+一个变形的二十面体球体（Icosphere）。在建筑社区中因 [Arceon Boulder](https://github.com/Brennian/Arceon-1.14/wiki/Brushes#boulder-brush) 而流行。
 
-Syntax: <mark style="color:orange;">`Icosphere(Pattern:<pattern>,Randomness:<value>,Subdivisions:<value>,Platform:<value>)`</mark>
+<!-- langmirror:chunk 7 -->
+语法：<mark style="color:orange;">`Icosphere(Pattern:<pattern>,Randomness:<value>,Subdivisions:<value>,Platform:<value>)`</mark>
 
-Abbr.: <mark style="color:orange;">`Ic(P:<pattern>,R:<value>,S:<value>,PL:<value>)`</mark>
+缩写：<mark style="color:orange;">`Ic(P:<pattern>,R:<value>,S:<value>,PL:<value>)`</mark>
 
-Mandatory Parameters:
+必填参数：
 
-* <mark style="color:orange;">**`Pattern`**</mark> (<mark style="color:orange;">**`P`**</mark>). The pattern which the shape should be made of.
-  * Note: Commas `,` being part of the argument breaks the input parser. If you want to use a pattern that uses commas then you need to put your Pattern argument in quotes: E.g. <mark style="color:blue;">`Ic(P:`</mark><mark style="color:blue;">**`"dirt,diamond_block"`**</mark><mark style="color:blue;">`)`</mark>
+* <mark style="color:orange;">**`Pattern`**</mark> (<mark style="color:orange;">**`P`**</mark>)。用于构成形状的样式。
+  * 注意：作为参数一部分的逗号 `,` 会破坏输入解析器。如果你想使用包含逗号的样式，则需要将 Pattern 参数置于引号中：例如 <mark style="color:blue;">`Ic(P:`</mark><mark style="color:blue;">**`"dirt,diamond_block"`**</mark><mark style="color:blue;">`)`</mark>
 
-Optional Parameters:
+可选参数：
 
-* <mark style="color:blue;">**`Randomness`**</mark> **(**<mark style="color:blue;">**`R`**</mark>**)**. Defines how strongly the icosphere is deformed.
-  * Defaults to <mark style="color:blue;">`0.5`</mark>.
-  * Accepts a value between 0 and 1:
-    * 0 resulting in a perfectly uniform icosphere,
+* <mark style="color:blue;">**`Randomness`**</mark> **(**<mark style="color:blue;">**`R`**</mark>**)**。定义二十面体球（Icosphere）的变形强度。
+  * 默认值为 <mark style="color:blue;">`0.5`</mark>。
+  * 接受 0 到 1 之间的数值：
+    * 0 会生成一个完美均匀的二十面体球，
     * ![](../../.gitbook/assets/StructuresIcosphere_example1.png)
-    * 0.5 results in a fairly deformed boulder shape.
+    * 0.5 会生成一个形似大石块的变形形状。
     * ![](../../.gitbook/assets/StructuresIcosphere_example2.gif)
-    * 1 resulting in a maximally deformed boulder shape.
+    * 1 会生成最大程度变形的大石块形状。
     * ![](../../.gitbook/assets/StructuresIcosphere_example3.gif)
-    * All above examples at Subdivisions=0.
-* <mark style="color:blue;">**`Subdivisions`**</mark> **(**<mark style="color:blue;">**`S`**</mark>**)**. Determines the amount of polygons used.
-  * Defaults to <mark style="color:blue;">`0`</mark>.
-  * Choose between 0, 1, 2, 3, 4:
-    * 0 results in the most low-poly look
+    * 以上所有示例的 Subdivisions（细分次数）均为 0。
+* <mark style="color:blue;">**`Subdivisions`**</mark> **(**<mark style="color:blue;">**`S`**</mark>**)**。决定所使用的多边形数量。
+  * 默认值为 <mark style="color:blue;">`0`</mark>。
+  * 可在 0, 1, 2, 3, 4 中选择：
+
+<!-- langmirror:chunk 8 -->
+* 0 会产生最明显的低多边形外观
     * ![](../../.gitbook/assets/StructuresIcosphere_example2.gif)
     * 1
     * ![](../../.gitbook/assets/StructuresIcosphere_example4.gif)
@@ -218,31 +228,31 @@ Optional Parameters:
     * ![](../../.gitbook/assets/StructuresIcosphere_example5.gif)
     * 3
     * ![](../../.gitbook/assets/StructuresIcosphere_example6.gif)
-    * 4 results in many polygons used, but also limits the amount of randomness, resulting in a pretty spherical look even with maximum randomness as you can already see with 3 subdivisions.
-  * (<mark style="color:red;">**`!`**</mark>) Large number of subdivisions have a large performance impact.
-* <mark style="color:blue;">**`Platform`**</mark> **(**<mark style="color:blue;">**`PL`**</mark>**)**. Defines how mush to squash the top half of the icosphere.
-  * Defaults to <mark style="color:blue;">`0.0`</mark>.
-  * Accepts a value between 0 and 1
+    * 4 会导致使用大量多边形，但也会限制随机量的效果，即使在最大随机值下也会呈现出非常接近球体的外观，正如你在细分次数为 3 时所看到的那样。
+  * (<mark style="color:red;">**`!`**</mark>) 较高的细分次数会对性能产生很大影响。
+* <mark style="color:blue;">**`Platform`**</mark> **(**<mark style="color:blue;">**`PL`**</mark>**)**：定义对二十面体球体上半部分进行压扁的程度。
+  * 默认为 <mark style="color:blue;">`0.0`</mark>。
+  * 接受 0 到 1 之间的值。
 
-Remember: All of the given examples were rendered with equal dimensions across all three axes. Use the [dimensions parameter](placement-parameters.md#dimensions-s) to stretch and squish along the three axes.
+记住：所有给出的示例都是在三个轴向尺寸相等的情况下渲染的。使用 [dimensions 参数](placement-parameters.md#dimensions-s)来沿三个轴进行拉伸和挤压。
 
 </details>
 
 ***
 
-### Comparison between FAST and SMOOTH PasteMethod:
+### FAST 与 SMOOTH 粘贴模式（PasteMethod）的比较：
 
-[Clipboard](available-structures.md#clipboard-cl) and [Schematic](available-structures.md#schematic-sc) both have the PasteMethod parameter. Here's a comparison of both modes:
+[剪贴板](available-structures.md#clipboard-cl)和[投影](available-structures.md#schematic-sc)都具有 PasteMethod 参数。以下是两种模式的比较：
 
 <details>
 
-<summary><mark style="color:blue;">Comparison</mark></summary>
+<summary><mark style="color:blue;">比较</mark></summary>
 
-Let's say this is our clipboard or our schematic:
+假设这是我们的剪贴板或投影：
 
 <img src="../../.gitbook/assets/StructuresPasteMethod_example1.png" alt="" data-size="original">
 
-Here's how it would look pasted at an odd angle when using
+以下是使用不同模式以奇特角度粘贴时的外观：
 
 * `PasteMethod:FAST`
 
@@ -252,37 +262,38 @@ Here's how it would look pasted at an odd angle when using
 
 <img src="../../.gitbook/assets/StructuresPasteMethod_example3.png" alt="" data-size="original">
 
-Or when pasted a significantly larger size:
+或者当以显著更大的尺寸粘贴时：
 
 * `PasteMethod:FAST`
 
+<!-- langmirror:chunk 9 -->
 <img src="../../.gitbook/assets/StructuresPasteMethod_example4.png" alt="" data-size="original">
 
-* vs `PasteMethod:SMOOTHED`
+* 对比 `PasteMethod:SMOOTHED`
 
 <img src="../../.gitbook/assets/StructuresPasteMethod_example5.png" alt="" data-size="original">
 
-There's also an additional parameter to the SMOOTHED PasteMethod: The `FillBias`. It allows you to specify whether the tool should try to place _more_ blocks or try to place _less_ blocks. This could be particularly helpful for e.g., particularly thin structures.
+对于 SMOOTHED 粘贴方式（PasteMethod），还有一个额外的参数：`FillBias`（填充偏好）。它允许你指定工具应该尝试放置“更多”方块还是“更少”方块。这对于处理极薄的结构等情况特别有用。
 
-Let's say this curved one-block thick sheet is our clipboard/schematic now.
+假设现在这个弯曲的单层方块薄片是我们的剪贴板/结构文件。
 
 <img src="../../.gitbook/assets/StructuresPasteMethod_example6.png" alt="" data-size="original">
 
-Here's how _it_ would look pasted **at an odd angle** when using
+以下是它在**以奇特角度**粘贴时的样子，当使用：
 
-* `//paste` or`PasteMethod:FAST`
+* `//paste` 或 `PasteMethod:FAST`
 
 <img src="../../.gitbook/assets/StructuresPasteMethod_example7.png" alt="" data-size="original">
 
-* compared to `PasteMethod:SMOOTHED`
+* 对比 `PasteMethod:SMOOTHED`
 
 <img src="../../.gitbook/assets/StructuresPasteMethod_example9.png" alt="" data-size="original">
 
-* compared to `PasteMethod:SMOOTHED,FillBias:3` (default FillBias is 1.0)
+* 对比 `PasteMethod:SMOOTHED,FillBias:3`（默认 FillBias 为 1.0）
 
 <img src="../../.gitbook/assets/StructuresPasteMethod_example8.png" alt="" data-size="original">
 
-* compared to a GIF going from `Fillbias:`**`0.25`** up to `Fillbias:`**`3.0`**
+* 对比一段从 `Fillbias:`**`0.25`** 变化到 `Fillbias:`**`3.0`** 的 GIF 演示
 
 <img src="../../.gitbook/assets/StructuresPasteMethod_example10.gif" alt="" data-size="original">
 

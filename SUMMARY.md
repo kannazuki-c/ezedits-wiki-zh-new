@@ -1,8 +1,9 @@
+<!-- langmirror:chunk 0 -->
 # 目录
 
 * [ezEdits 文档](README.md)
 
-## 入门指南
+## 快速开始
 
 * [安装](getting-started/installing.md)
 * [权限](getting-started/permissions.md)

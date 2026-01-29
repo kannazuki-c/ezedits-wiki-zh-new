@@ -59,5 +59,5 @@
   * [高级样条形状](commands/spline/advanced-spline-shapes.md)
 * [彩色玻璃](commands/stained-glass.md)
 * [表面](commands/surface.md)
-* [生存模式](commands/survival.md)
-* [纹理](commands/texturing.md)
+* [生存](commands/survival.md)
+* [纹理化](commands/texturing.md)

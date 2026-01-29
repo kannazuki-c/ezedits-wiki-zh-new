@@ -1,5 +1,5 @@
 <!-- langmirror:chunk 0 -->
-# 纹理
+# 纹理化
 
 {% embed url="https://www.youtube.com/watch?v=S-fZlxLPUZo" %}
 视频教程由 [MegRae](https://megrae.art/) 制作

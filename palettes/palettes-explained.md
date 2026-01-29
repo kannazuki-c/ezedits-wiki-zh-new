@@ -11,7 +11,7 @@ ezEdits 中的调色板（Palettes）代表一组方块列表，可用于多个�
 
 使用调色板的众多功能包括：
 
-* `//eztexture ...` - [纹理命令](../commands/texturing.md)
+* `//eztexture ...` - [纹理化命令](../commands/texturing.md)
 * `#palette` - [调色板蒙版](../masks-and-patterns/masks.md#palette-mask)
 * `//ezbrush gradient ...` - [笔刷](../brushes-and-tools/brushes/)
 

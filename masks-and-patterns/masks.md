@@ -4,7 +4,7 @@
 
 <details>
 
-<summary>#aim 蒙版</summary>
+<summary>瞄准蒙版</summary>
 
 **`#aim` 或 `#aim[True|False]`**
 
@@ -23,7 +23,7 @@
 
 <details>
 
-<summary>#attached 蒙版</summary>
+<summary>附着蒙版</summary>
 
 **`#attached[<向量,向量,向量 ...>]`**
 
@@ -40,7 +40,7 @@
 
 <details>
 
-<summary>#blocklight 蒙版</summary>
+<summary>方块光照蒙版</summary>
 
 **`#blocklight[光照等级]` 或 `#blocklight[最小等级][最大等级]`**
 
@@ -52,7 +52,7 @@
 
 <details>
 
-<summary>#current 蒙版</summary>
+<summary>当前蒙版</summary>
 
 缩写：**`#c`**
 
@@ -66,7 +66,7 @@
 
 <details>
 
-<summary>#eznoise 蒙版</summary>
+<summary>Ez噪声蒙版</summary>
 
 **`#eznoisemask[噪声预设][<缩放>][<阈值>][<种子>]`**\
 **别名：`#eznm`**
@@ -79,7 +79,7 @@
 
 <details>
 
-<summary>#fullblock 蒙版</summary>
+<summary>全方块蒙版</summary>
 
 匹配填满了整个 1x1x1 立方体空间的方块。
 
@@ -91,7 +91,7 @@
 
 <details>
 
-<summary>#fuzzypalette 蒙版</summary>
+<summary>模糊调色板蒙版</summary>
 
 **`#fuzzypalette[调色板]`**
 
@@ -106,7 +106,7 @@
 
 <details>
 
-<summary>#infested 蒙版</summary>
+<summary>寄生蒙版</summary>
 
 匹配被蠹虫寄生的方块（被寄生的石砖、石头等）。
 
@@ -116,7 +116,7 @@
 
 <details>
 
-<summary>#lightsource 蒙版</summary>
+<summary>光源蒙版</summary>
 
 **`#lightsource` 或 `#lightsource[光照等级]` 或 `#lightsource[最小等级][最大等级]`**
 
@@ -128,7 +128,7 @@
 
 <details>
 
-<summary>#near 蒙版</summary>
+<summary>临近蒙版</summary>
 
 **`#near[蒙版][距离]`**\
 &#xNAN;**`#near[蒙版][最小距离][最大距离]`**\
@@ -149,7 +149,7 @@
 
 <details>
 
-<summary>#palette 蒙版</summary>
+<summary>调色板蒙版</summary>
 
 **`#palette[调色板][<精确匹配>]`**
 
@@ -164,7 +164,7 @@
 
 <details>
 
-<summary>#truelight 蒙版</summary>
+<summary>真实光照蒙版</summary>
 
 **`#truelight[光照等级]` 或 `#truelight[最小等级][最大等级]`**
 
@@ -176,7 +176,7 @@
 
 <details>
 
-<summary>#vectorgradient 蒙版</summary>
+<summary>向量渐变蒙版</summary>
 
 **`#vectorgradientmask[向量][距离][<噪声预设>][<噪声缩放>][噪声种子]`**
 

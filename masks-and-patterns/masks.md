@@ -4,7 +4,7 @@
 
 <details>
 
-<summary>瞄准蒙版</summary>
+<summary>目标蒙版</summary>
 
 **`#aim` 或 `#aim[True|False]`**
 
@@ -66,7 +66,7 @@
 
 <details>
 
-<summary>Ez噪声蒙版</summary>
+<summary>噪声蒙版</summary>
 
 **`#eznoisemask[噪声预设][<缩放>][<阈值>][<种子>]`**\
 **别名：`#eznm`**

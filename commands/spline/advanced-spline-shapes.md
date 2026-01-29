@@ -135,7 +135,7 @@ _其余参数在_ [_通用参数_](common-parameters.md) _子页面中有详细�
 沿着由所选凸面选区定义的路径嵌入结构。
 
 * <mark style="color:orange;">**`<structure>`**</mark>:
-  * 沿路径嵌入的形状/剪贴板/投影。请参阅 [available-structures.md](../placement/available-structures.md "mention")。
+  * 沿路径嵌入的形状/剪贴板/建筑文件。请参阅 [available-structures.md](../placement/available-structures.md "mention")。
 * <mark style="color:orange;">**`[-z]`**</mark>:
   * 归一化 Z 轴，这将导致正好一个结构被拉伸贯穿整条路径的长度。
 

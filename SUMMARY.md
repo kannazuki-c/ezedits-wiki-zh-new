@@ -48,7 +48,7 @@
   * [主要+次要对齐](commands/placement/primary+secondary-alignment.md)
   * [放置参数](commands/placement/placement-parameters.md)
   * [散布参数](commands/placement/scatter-parameters.md)
-  * [阵列参数](commands/placement/array-parameters.md)
+  * [数组参数](commands/placement/array-parameters.md)
 * [选区](commands/selections.md)
 * [形状](commands/shapes.md)
 * [平滑](commands/smoothing.md)

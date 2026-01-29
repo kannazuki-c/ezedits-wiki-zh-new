@@ -31,9 +31,9 @@
 
 <details>
 
-<summary><mark style="color:blue;"><strong>示意图 (Schematic / Sc)</strong></mark></summary>
+<summary><mark style="color:blue;"><strong>建筑文件 (Schematic / Sc)</strong></mark></summary>
 
-基于 schematic 文件的结构。
+基于建筑文件的结构。
 
 语法：<mark style="color:orange;">`Schematic(Filename:<name>,...)`</mark>
 
@@ -42,11 +42,11 @@
 
 必需参数：
 
-* <mark style="color:orange;">**文件名 (N)**</mark>。要放置的示意图的文件名。
+* <mark style="color:orange;">**文件名 (N)**</mark>。要放置的建筑文件的文件名。
 
 选项：
 
-* <mark style="color:blue;">**格式 (F)**</mark>。示意图文件的格式。默认为 sponge.3（如果使用 FAWE，则为 FAWE 的 fast）。默认值应适用于大多数情况。
+* <mark style="color:blue;">**格式 (F)**</mark>。建筑文件的格式。默认为 sponge.3（如果使用 FAWE，则为 FAWE 的 fast）。默认值应适用于大多数情况。
 * <mark style="color:blue;">**原点 (O)**</mark>。默认为 INHERENT。
   * INHERENT (I) 将使用复制时的位置。
   * CENTER (C) 将改为使用剪贴板区域的中心作为原点。
@@ -192,7 +192,7 @@
 
 <summary><mark style="color:blue;">&#x3C;-   点击我</mark></summary>
 
-假设这是我们的剪贴板或示意图：
+假设这是我们的剪贴板或建筑文件：
 
 ![](../../.gitbook/assets/StructuresPasteMethod_example1.png)
 

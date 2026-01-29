@@ -202,9 +202,9 @@ Gif 演示了以下选项，在同一位置各使用了一次笔刷：
 
 ***
 
-### 遮罩覆盖方块：<mark style="color:orange;">`-l <pattern>`</mark> <a href="#mask-cover-pattern-l" id="mask-cover-pattern-l"></a>
+### 蒙版覆盖方块：<mark style="color:orange;">`-l <pattern>`</mark> <a href="#mask-cover-pattern-l" id="mask-cover-pattern-l"></a>
 
-在放置完所有结构后，将区域内所有符合 [遮罩过滤器 (`-m`)](scatter-parameters.md#mask-filter-m) 且未受影响的表面方块替换为给定的方块。（必须设置 `-m` 才能使此标志生效。）
+在放置完所有结构后，将区域内所有符合 [蒙版过滤器 (`-m`)](scatter-parameters.md#mask-filter-m) 且未受影响的表面方块替换为给定的方块。（必须设置 `-m` 才能使此标志生效。）
 
 这是一个小众的实用选项，适用于以下情况：你在相邻区域多次应用散布，但不希望在之前已经散布过的区域放置结构。因此，通过使用此标志，你可以（在工作流中临时地）用给定方块覆盖区域内的所有表面方块，这样任何后续与已覆盖区域重叠的散布操作都不会在那里放置结构，因为表面方块已被“覆盖”。
 

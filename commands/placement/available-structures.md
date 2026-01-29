@@ -31,9 +31,9 @@
 
 <details>
 
-<summary><mark style="color:blue;"><strong>示意图 (Schematic / Sc)</strong></mark></summary>
+<summary><mark style="color:blue;"><strong>建筑文件 (Schematic / Sc)</strong></mark></summary>
 
-基于 schematic 文件的结构。
+基于建筑文件的结构。
 
 <!-- langmirror:chunk 1 -->
 语法：<mark style="color:orange;">`Schematic(Filename:<name>,...)`</mark>
@@ -42,14 +42,14 @@
 
 强制参数：
 
-* <mark style="color:orange;">**`Filename`**</mark> **(**<mark style="color:orange;">**`N`**</mark>**)**。用于指定你想要放置的所有 schematic 文件名的正则表达式模式。
-  * 例如，如果你输入 `Sc(N:tree_.*)`，我们将获取所有匹配正则表达式 `tree.*,` 的 schematic 文件，例如 `tree_1`、`tree_2`、`tree_3` 等。
-  * 如果你使用了 FAWE 的玩家独立 schematic 路径系统（其中 schematic 被存放在以每个玩家 UUID 命名的文件夹中），你可以使用快捷方式 `%p` 来代表你自己的 UUID，并通过诸如 `%p/your_schematic.schem` 之类的路径访问你的文件夹。
+* <mark style="color:orange;">**`Filename`**</mark> **(**<mark style="color:orange;">**`N`**</mark>**)**。用于指定你想要放置的所有建筑文件名的正则表达式模式。
+  * 例如，如果你输入 `Sc(N:tree_.*)`，我们将获取所有匹配正则表达式 `tree.*,` 的建筑文件，例如 `tree_1`、`tree_2`、`tree_3` 等。
+  * 如果你使用了 FAWE 的玩家独立建筑文件路径系统（其中建筑文件被存放在以每个玩家 UUID 命名的文件夹中），你可以使用快捷方式 `%p` 来代表你自己的 UUID，并通过诸如 `%p/your_schematic.schem` 之类的路径访问你的文件夹。
 
 选项：
 
 <!-- langmirror:chunk 2 -->
-* <mark style="color:blue;">**`Format`**</mark> **(**<mark style="color:blue;">**`F`**</mark>**)**. Schematic 文件的格式。默认为 <mark style="color:blue;">`sponge.3`</mark>（如果你使用的是 FAWE，则默认为 FAWE 的 fast 格式）。默认值应适用于绝大多数情况。
+* <mark style="color:blue;">**`Format`**</mark> **(**<mark style="color:blue;">**`F`**</mark>**)**. 建筑文件的格式。默认为 <mark style="color:blue;">`sponge.3`</mark>（如果你使用的是 FAWE，则默认为 FAWE 的 fast 格式）。默认值应适用于绝大多数情况。
 * <mark style="color:blue;">**`Origin`**</mark> **(**<mark style="color:blue;">**`O`**</mark>**)**. 默认为 <mark style="color:blue;">`INHERENT`</mark>。
   * INHERENT (I) 将使用复制时的位置。
   * CENTER (C) 将使用剪贴板区域的中心作为原点。
@@ -242,13 +242,13 @@
 
 ### FAST 与 SMOOTH 粘贴模式（PasteMethod）的比较：
 
-[剪贴板](available-structures.md#clipboard-cl)和[投影](available-structures.md#schematic-sc)都具有 PasteMethod 参数。以下是两种模式的比较：
+[剪贴板](available-structures.md#clipboard-cl)和[建筑文件](available-structures.md#schematic-sc)都具有 PasteMethod 参数。以下是两种模式的比较：
 
 <details>
 
 <summary><mark style="color:blue;">比较</mark></summary>
 
-假设这是我们的剪贴板或投影：
+假设这是我们的剪贴板或建筑文件：
 
 <img src="../../.gitbook/assets/StructuresPasteMethod_example1.png" alt="" data-size="original">
 

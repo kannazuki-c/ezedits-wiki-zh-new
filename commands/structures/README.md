@@ -3,7 +3,7 @@
 
 ## 概述
 
-ezEdits 提供了多种快速放置剪贴板、示意图和基于表达式的形状的方法，这些都被归类为"结构"。
+ezEdits 提供了多种快速放置剪贴板、建筑文件和基于表达式的形状的方法，这些都被归类为"结构"。
 
 相关命令和笔刷（在版本 0.12.0 中引入）如下：
 
@@ -133,8 +133,8 @@ ezEdits 提供了多种快速放置剪贴板、示意图和基于表达式的形
     * [`[-u <iterations>]`](scatter-parameters.md#uniformity-u-less-than-iterations-greater-than)
     * [`[-l <coverPattern>]`](scatter-parameters.md#mask-cover-block-b-less-than-pattern-greater-than)
     * [`[-t]`](scatter-parameters.md#trim-outside-selection-t)
-* [**阵列参数**](array-parameters.md)
-  * 涵盖以下标志（仅适用于阵列）：
+* [**数组参数**](array-parameters.md)
+  * 涵盖以下标志（仅适用于数组）：
     * [`[-g <gap>]`](array-parameters.md#distance-g-less-than-gap-greater-than)
     * [`[-q <radiiMultiplier>]`](array-parameters.md#progressive-scaling-q-less-than-radii-greater-than)
     * [`[-p <kbParameters>]`](array-parameters.md#path-parameters-p-less-than-kbparameters-greater-than)

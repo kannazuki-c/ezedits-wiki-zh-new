@@ -104,7 +104,7 @@
 主方向和次方向可以设置为以下任一种：
 
 <!-- langmirror:chunk 3 -->
-<table data-view="cards" data-full-width="false"><thead><tr><th>名称</th><th>缩写</th><th>描述</th></tr></thead><tbody><tr><td><a href="primary+secondary-alignment.md#constant"><strong><code>Constant</code></strong></a></td><td><strong><code>C</code></strong></td><td>为所有放置显式设置常数方向。</td></tr><tr><td><a href="primary+secondary-alignment.md#random"><strong><code>Random</code></strong></a></td><td><strong><code>R</code></strong></td><td>每次放置的随机方向。</td></tr><tr><td><a href="primary+secondary-alignment.md#noise"><strong><code>Noise</code></strong></a></td><td><strong><code>N</code></strong></td><td>基于在放置位置处噪声函数评估的方向。</td></tr><tr><td><a href="primary+secondary-alignment.md#aim"><strong><code>Aim</code></strong></a></td><td><strong><code>A</code></strong></td><td>你的玩家准星方向。</td></tr><tr><td><a href="primary+secondary-alignment.md#playerrelative"><strong><code>PlayerRelative</code></strong></a></td><td><strong><code>P</code></strong></td><td>从放置位置指向当前玩家位置的方向。</td></tr><tr><td><a href="primary+secondary-alignment.md#surfacenormal"><strong><code>SurfaceNormal</code></strong></a></td><td><strong><code>S</code></strong></td><td>放置位置区域内的近似表面法线。</td></tr><tr><td><a href="primary+secondary-alignment.md#viewdiff"><strong><code>ViewDiff</code></strong></a></td><td><strong><code>V</code></strong></td><td>使用两次点击定义方向。仅限笔刷使用。</td></tr><tr><td><a href="primary+secondary-alignment.md#tangential"><strong><code>Tangential</code></strong></a></td><td><strong><code>T</code></strong></td><td>沿路径切线方向。仅限阵列使用。</td></tr><tr><td><a href="primary+secondary-alignment.md#orthogonal"><strong><code>Orthogonal</code></strong></a></td><td><strong><code>O</code></strong></td><td>垂直于路径的方向。仅限阵列使用。</td></tr></tbody></table>
+<table data-view="cards" data-full-width="false"><thead><tr><th>名称</th><th>缩写</th><th>描述</th></tr></thead><tbody><tr><td><a href="primary+secondary-alignment.md#constant"><strong><code>Constant</code></strong></a></td><td><strong><code>C</code></strong></td><td>为所有放置显式设置常数方向。</td></tr><tr><td><a href="primary+secondary-alignment.md#random"><strong><code>Random</code></strong></a></td><td><strong><code>R</code></strong></td><td>每次放置的随机方向。</td></tr><tr><td><a href="primary+secondary-alignment.md#noise"><strong><code>Noise</code></strong></a></td><td><strong><code>N</code></strong></td><td>基于在放置位置处噪声函数评估的方向。</td></tr><tr><td><a href="primary+secondary-alignment.md#aim"><strong><code>Aim</code></strong></a></td><td><strong><code>A</code></strong></td><td>你的玩家准星方向。</td></tr><tr><td><a href="primary+secondary-alignment.md#playerrelative"><strong><code>PlayerRelative</code></strong></a></td><td><strong><code>P</code></strong></td><td>从放置位置指向当前玩家位置的方向。</td></tr><tr><td><a href="primary+secondary-alignment.md#surfacenormal"><strong><code>SurfaceNormal</code></strong></a></td><td><strong><code>S</code></strong></td><td>放置位置区域内的近似表面法线。</td></tr><tr><td><a href="primary+secondary-alignment.md#viewdiff"><strong><code>ViewDiff</code></strong></a></td><td><strong><code>V</code></strong></td><td>使用两次点击定义方向。仅限笔刷使用。</td></tr><tr><td><a href="primary+secondary-alignment.md#tangential"><strong><code>Tangential</code></strong></a></td><td><strong><code>T</code></strong></td><td>沿路径切线方向。仅限数组使用。</td></tr><tr><td><a href="primary+secondary-alignment.md#orthogonal"><strong><code>Orthogonal</code></strong></a></td><td><strong><code>O</code></strong></td><td>垂直于路径的方向。仅限数组使用。</td></tr></tbody></table>
 
 <!-- langmirror:chunk 4 -->
 ## 设置
@@ -328,7 +328,7 @@
 
 ### 切线方向
 
-沿路径的切线方向。仅适用于阵列。
+沿路径的切线方向。仅适用于数组。
 
 语法：<mark style="color:orange;">**`Tangential`**</mark>
 
@@ -350,7 +350,7 @@ _切线方向_指向放置位置处样条路径的切线方向。如果将主方
 
 ### 正交方向
 
-垂直于路径的方向。仅适用于阵列。
+垂直于路径的方向。仅适用于数组。
 
 语法：<mark style="color:orange;">**`Orthogonal`**</mark> 或 <mark style="color:orange;">**`Orthogonal(Angle:<angle>)`**</mark>
 

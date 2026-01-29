@@ -1,5 +1,5 @@
 <!-- langmirror:chunk 0 -->
-# 阵列参数
+# 数组参数
 
 `//ezarray` 和 `//ezbrush array` 沿着路径放置多个形状。以下参数适用于这些命令：
 
